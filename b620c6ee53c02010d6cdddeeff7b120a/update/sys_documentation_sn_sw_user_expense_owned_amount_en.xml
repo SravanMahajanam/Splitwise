@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="owned_amount" label="Owned Amount" language="en" table="sn_sw_user_expense">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>owned_amount</element>
+            <help/>
+            <hint/>
+            <label>Owned Amount</label>
+            <language>en</language>
+            <name>sn_sw_user_expense</name>
+            <plural>Owned Amounts</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-10-27 12:42:39</sys_created_on>
+            <sys_id>745d83e653842010d6cdddeeff7b1217</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Owned Amount</sys_name>
+            <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+            <sys_update_name>sys_documentation_sn_sw_user_expense_owned_amount_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-10-27 12:42:39</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

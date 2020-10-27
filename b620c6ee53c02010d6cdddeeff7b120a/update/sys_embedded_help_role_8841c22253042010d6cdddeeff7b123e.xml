@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>1000</order>
+        <role display_value="sn_sw.expense_group_user" name="sn_sw.expense_group_user">3f31c22253042010d6cdddeeff7b123a</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-27 07:10:16</sys_created_on>
+        <sys_id>8841c22253042010d6cdddeeff7b123e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>3f31c22253042010d6cdddeeff7b123a</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sys_embedded_help_role_8841c22253042010d6cdddeeff7b123e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-27 07:10:16</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>

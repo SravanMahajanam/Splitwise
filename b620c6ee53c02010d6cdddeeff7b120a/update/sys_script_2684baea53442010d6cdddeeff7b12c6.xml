@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>sn_sw_expense</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Create User Expense</name>
+        <order>300</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	gs.info('creating user expense for the expense: ' + current.number);
+	var expenseId = current.number;
+	// create an empty record for User Expense table
+	var userExpenseRec = new GlideRecord('sn_sw_user_expense');
+	
+	var expenseUsers = current.users.split(',');
+	var amount = current.total / expenseUsers.length;
+	var expenseUser;
+	gs.info('expenseUsers: ' + expenseUsers);
+	// loop over the list of users from current.users and set:
+	// the Owning to (owner) & Owing Amount
+	for (var i = 0; i< expenseUsers.length; ++i) {
+		expenseUser = expenseUsers[i];
+		gs.info('creating owing to');
+		gs.info('expenseUser: ' + expenseUser);
+		gs.info('current.owner: ' + current.owner);
+		// no record created if expenseUser is same as current.owner
+		if (expenseUser == current.owner) {
+			continue;
+		}
+		
+		userExpenseRec.newRecord();
+		// set the user id from expenseUser
+		userExpenseRec.setValue('user_id', expenseUser);
+		// set expense id from current.expenseId
+		gs.info('expenseId oto: ' + expenseId);
+		userExpenseRec.setValue('expense_id', expenseId);
+		
+		// userExpense.setValue('owned_from', expenseUser);
+		// userExpense.setValue('owned_amount', amount);
+		gs.info('owing_to: ' + current.owner);
+		userExpenseRec.setValue('owing_to', current.owner);
+		userExpenseRec.setValue('owing_amount', amount);
+		
+		//Insert the new User Expense record into the table
+		userExpenseRec.insert();
+	}
+	
+	// loop over the list of users from current.users and set
+	// the Owned From (from list of users) & Owned Amount
+	for (i = 0; i< expenseUsers.length; ++i) {
+		expenseUser = expenseUsers[i];
+		gs.info('creating owned from');
+		gs.info('expenseUser: ' + expenseUser);
+		gs.info('current.owner: ' + current.owner);
+		// no record created if expenseUser is same as current.owner
+		if (expenseUser == current.owner) {
+			continue;
+		}
+		
+		userExpenseRec.newRecord();
+		// set the user id from expenseUser
+		userExpenseRec.setValue('user_id', current.owner);
+		// set expense id from current.expenseId
+		gs.info('expenseId of: ' + expenseId);
+		userExpenseRec.setValue('expense_id', expenseId);
+		
+		// userExpense.setValue('owned_from', expenseUser);
+		// userExpense.setValue('owned_amount', amount);
+		gs.info('owing_to: ' + current.owner);
+		userExpenseRec.setValue('owned_from', expenseUser);
+		userExpenseRec.setValue('owned_amount', amount);
+		
+		//Insert the new User Expense record into the table
+		userExpenseRec.insert();
+	}
+
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-27 11:12:25</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>2684baea53442010d6cdddeeff7b12c6</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>Create User Expense</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sys_script_2684baea53442010d6cdddeeff7b12c6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-27 13:40:13</sys_updated_on>
+        <template/>
+        <when>async</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=2684baea53442010d6cdddeeff7b12c6"/>
+</record_update>

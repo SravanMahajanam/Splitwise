@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>sn_sw.SplitwiseUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Utils Script Include for the Splitwise application</description>
+        <name>SplitwiseUtils</name>
+        <script><![CDATA[var SplitwiseUtils = Class.create();
+SplitwiseUtils.prototype = {
+    initialize: function() {
+    },
+	isDatePast: function(strDate){
+		// Create GlideDateTime objects for the current date and the passed in date
+		var rightnow = new GlideDateTime();
+		var testdate = new GlideDateTime(strDate);
+		
+		// If the testdate is before rightnow, return true, else return false
+		if (testdate.before(rightnow)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	},
+	
+	
+    type: 'SplitwiseUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-27 10:19:58</sys_created_on>
+        <sys_id>b94ca6a653442010d6cdddeeff7b1255</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>SplitwiseUtils</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sys_script_include_b94ca6a653442010d6cdddeeff7b1255</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-27 10:37:47</sys_updated_on>
+    </sys_script_include>
+</record_update>

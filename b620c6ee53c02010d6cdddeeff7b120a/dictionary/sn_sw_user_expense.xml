@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="User Expense" max_length="40" name="sn_sw_user_expense" sizeclass="0" type="collection">
+        <element display="true" label="Expense Id" mandatory="true" max_length="32" name="expense_id" reference="sn_sw_expense" type="reference"/>
+        <element label="Owing Amount" max_length="40" name="owing_amount" type="integer"/>
+        <element label="Owing To" max_length="32" name="owing_to" reference="sys_user" type="reference"/>
+        <element label="Owned Amount" max_length="40" name="owned_amount" type="integer"/>
+        <element label="Owned From" max_length="32" name="owned_from" reference="sys_user" type="reference"/>
+        <element label="User Id" mandatory="true" max_length="32" name="user_id" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="owing_to"/>
+        </index>
+        <index name="index2">
+            <element name="user_id"/>
+        </index>
+        <index name="index3">
+            <element name="owned_from"/>
+        </index>
+        <index name="index4">
+            <element name="expense_id"/>
+        </index>
+    </element>
+</database>

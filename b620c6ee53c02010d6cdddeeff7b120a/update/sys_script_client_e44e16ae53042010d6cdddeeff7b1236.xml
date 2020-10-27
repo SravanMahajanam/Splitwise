@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Populate Users list with the members of selected group</description>
+        <field>group</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages>Users from selected group are populated</messages>
+        <name>Populate Users List</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+	if (isLoading || newValue === '') {
+		return;
+	}
+
+	// get the selected group
+	var selectedGroup = g_form.getValue('group');
+	if (selectedGroup) {
+		// Instantiate the GetGroup Script Include 
+		var getGroupUsers = new GlideAjax('GetGroupUsers');
+		// Specify the getGroup method
+		getGroupUsers.addParam('sysparm_name','getUsers');
+		// Pass the selectedGroup for groupName parameter
+		getGroupUsers.addParam('sysparm_groupID', selectedGroup);
+		// Send the request to the server with the callback method as arg
+		getGroupUsers.getXML(populateUsersField);
+
+		// When the response is back from the server
+		function populateUsersField(response){
+			// Extract the users from the response
+			var usersFromGetGroupUsersScriptInclude = response.responseXML.documentElement.getAttribute("answer");
+			//  clear any value from the users field
+			g_form.clearValue('users');
+			// set new value in the email field
+			g_form.setValue('users', usersFromGetGroupUsersScriptInclude);
+		}
+	}
+
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-27 09:25:26</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e44e16ae53042010d6cdddeeff7b1236</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>Populate Users List</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sys_script_client_e44e16ae53042010d6cdddeeff7b1236</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-27 10:38:21</sys_updated_on>
+        <table>sn_sw_expense</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>
