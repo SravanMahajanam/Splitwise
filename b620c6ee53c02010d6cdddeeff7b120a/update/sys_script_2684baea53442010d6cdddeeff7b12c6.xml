@@ -30,12 +30,17 @@
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
 	gs.info('creating user expense for the expense: ' + current.number);
-	var expenseId = current.number;
+	var expenseId = current.sys_id;
 	// create an empty record for User Expense table
 	var userExpenseRec = new GlideRecord('sn_sw_user_expense');
 	
-	var expenseUsers = current.users.split(',');
-	var amount = current.total / expenseUsers.length;
+	var expenseUsers = current.users.toString().split(',');
+	gs.info('expense users: ' + expenseUsers);
+	var usersCount = expenseUsers.length;
+	if (expenseUsers.indexOf(current.owner) == -1) {
+		usersCount++;
+	}
+	var amount = current.total / usersCount;
 	var expenseUser;
 	gs.info('expenseUsers: ' + expenseUsers);
 	// loop over the list of users from current.users and set:
@@ -104,7 +109,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2684baea53442010d6cdddeeff7b12c6</sys_id>
-        <sys_mod_count>17</sys_mod_count>
+        <sys_mod_count>23</sys_mod_count>
         <sys_name>Create User Expense</sys_name>
         <sys_overrides/>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
@@ -112,7 +117,7 @@
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name>sys_script_2684baea53442010d6cdddeeff7b12c6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-27 13:40:13</sys_updated_on>
+        <sys_updated_on>2020-10-27 16:13:42</sys_updated_on>
         <template/>
         <when>async</when>
     </sys_script>

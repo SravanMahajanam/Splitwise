@@ -3,35 +3,34 @@
         <active>true</active>
         <applies_extended>false</applies_extended>
         <condition/>
-        <description>Validate if expense has either Group or Users entered</description>
-        <field>comments</field>
+        <description>On loading the Expense Group form, populate Created By with current user</description>
+        <field>sys_created_on</field>
         <global>true</global>
         <isolate_script>true</isolate_script>
-        <messages>Please enter Users/Group details involved in the expense.</messages>
-        <name>Validate Expense Participants</name>
+        <messages>Auto populated Created By </messages>
+        <name>Populate Expense Group Created By</name>
         <order/>
-        <script><![CDATA[function onSubmit() {
-   // check if either groups or users has value
-	
-   
+        <script><![CDATA[function onLoad() {
+	// populate created by with current user
+	g_form.setValue('created_by', g_user.userID);
 }]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-10-27 09:12:19</sys_created_on>
+        <sys_created_on>2020-10-27 16:47:50</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>e65b1eea53042010d6cdddeeff7b1291</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_name>Validate Expense Participants</sys_name>
+        <sys_id>80e2c4fa53002010d6cdddeeff7b1262</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Populate Expense Group Created By</sys_name>
         <sys_overrides/>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_update_name>sys_script_client_e65b1eea53042010d6cdddeeff7b1291</sys_update_name>
+        <sys_update_name>sys_script_client_80e2c4fa53002010d6cdddeeff7b1262</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-27 17:10:01</sys_updated_on>
-        <table>sn_sw_expense</table>
-        <type>onSubmit</type>
+        <sys_updated_on>2020-10-27 17:28:38</sys_updated_on>
+        <table>sn_sw_expense_group</table>
+        <type>onLoad</type>
         <ui_type>10</ui_type>
         <view/>
     </sys_script_client>
