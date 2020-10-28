@@ -33,73 +33,97 @@
 	var expenseId = current.sys_id;
 	// create an empty record for User Expense table
 	var userExpenseRec = new GlideRecord('sn_sw_user_expense');
-	
-	var expenseUsers = current.users.toString().split(',');
-	gs.info('expense users: ' + expenseUsers);
-	var usersCount = expenseUsers.length;
-	if (expenseUsers.indexOf(current.owner) == -1) {
-		usersCount++;
-	}
-	var amount = current.total / usersCount;
-	var expenseUser;
-	gs.info('expenseUsers: ' + expenseUsers);
-	// loop over the list of users from current.users and set:
-	// the Owning to (owner) & Owing Amount
-	for (var i = 0; i< expenseUsers.length; ++i) {
-		expenseUser = expenseUsers[i];
-		gs.info('creating owing to');
-		gs.info('expenseUser: ' + expenseUser);
-		gs.info('current.owner: ' + current.owner);
-		// no record created if expenseUser is same as current.owner
-		if (expenseUser == current.owner) {
-			continue;
+
+	// if splitting is to be done equally
+	if (current.split_equally) {
+		var expenseUsers = current.users.toString().split(',');
+		var usersCount = expenseUsers.length;
+		if (expenseUsers.indexOf(current.owner) == -1) {
+			usersCount++;
 		}
-		
-		userExpenseRec.newRecord();
-		// set the user id from expenseUser
-		userExpenseRec.setValue('user_id', expenseUser);
-		// set expense id from current.expenseId
-		gs.info('expenseId oto: ' + expenseId);
-		userExpenseRec.setValue('expense_id', expenseId);
-		
-		// userExpense.setValue('owned_from', expenseUser);
-		// userExpense.setValue('owned_amount', amount);
-		gs.info('owing_to: ' + current.owner);
-		userExpenseRec.setValue('owing_to', current.owner);
-		userExpenseRec.setValue('owing_amount', amount);
-		
-		//Insert the new User Expense record into the table
-		userExpenseRec.insert();
-	}
-	
-	// loop over the list of users from current.users and set
-	// the Owned From (from list of users) & Owned Amount
-	for (i = 0; i< expenseUsers.length; ++i) {
-		expenseUser = expenseUsers[i];
-		gs.info('creating owned from');
-		gs.info('expenseUser: ' + expenseUser);
-		gs.info('current.owner: ' + current.owner);
-		// no record created if expenseUser is same as current.owner
-		if (expenseUser == current.owner) {
-			continue;
+		var amount = current.total / usersCount;
+		var expenseUser;
+		// loop over the list of users from current.users and set:
+		// the Owning to (owner) & Owing Amount
+		for (var i = 0; i< expenseUsers.length; ++i) {
+			expenseUser = expenseUsers[i];
+			// no record created if expenseUser is same as current.owner
+			if (expenseUser == current.owner) {
+				continue;
+			}
+
+			userExpenseRec.newRecord();
+			// set the user id from expenseUser
+			userExpenseRec.setValue('user_id', expenseUser);
+			// set expense id from current.expenseId
+			userExpenseRec.setValue('expense_id', expenseId);
+			userExpenseRec.setValue('owing_to', current.owner);
+			userExpenseRec.setValue('owing_amount', amount);
+			userExpenseRec.setValue('status', 'OWING');
+
+			//Insert the new User Expense record into the table
+			userExpenseRec.insert();
 		}
-		
-		userExpenseRec.newRecord();
-		// set the user id from expenseUser
-		userExpenseRec.setValue('user_id', current.owner);
-		// set expense id from current.expenseId
-		gs.info('expenseId of: ' + expenseId);
-		userExpenseRec.setValue('expense_id', expenseId);
-		
-		// userExpense.setValue('owned_from', expenseUser);
-		// userExpense.setValue('owned_amount', amount);
-		gs.info('owing_to: ' + current.owner);
-		userExpenseRec.setValue('owned_from', expenseUser);
-		userExpenseRec.setValue('owned_amount', amount);
-		
-		//Insert the new User Expense record into the table
-		userExpenseRec.insert();
+
+		// loop over the list of users from current.users and set
+		// the Owned From (from list of users) & Owned Amount
+		for (i = 0; i< expenseUsers.length; ++i) {
+			expenseUser = expenseUsers[i];
+			// no record created if expenseUser is same as current.owner
+			if (expenseUser == current.owner) {
+				continue;
+			}
+
+			userExpenseRec.newRecord();
+			// set the user id from expenseUser
+			userExpenseRec.setValue('user_id', current.owner);
+			// set expense id from current.expenseId
+			userExpenseRec.setValue('expense_id', expenseId);
+			userExpenseRec.setValue('owned_from', expenseUser);
+			userExpenseRec.setValue('owned_amount', amount);
+			userExpenseRec.setValue('status', 'OWNED');		
+
+			//Insert the new User Expense record into the table
+			userExpenseRec.insert();
+		}
+	} else {
+		gs.info('split equally is false');
+		// iterate using split details
+		// Iterate over each property and print name and value
+		for(var userName in current.user_amount) {
+			var user = new GlideRecord('sys_user');
+			user.addQuery('name', userName);
+			user.query();
+			if (user.next()) {
+				// set the user id from user
+				userExpenseRec.setValue('user_id', user.sys_id);
+				// set expense id from current.expenseId
+				userExpenseRec.setValue('expense_id', expenseId);
+				userExpenseRec.setValue('owing_to', current.owner);
+				userExpenseRec.setValue('owing_amount', current.user_amount[userName]);
+				userExpenseRec.setValue('status', 'OWING');
+
+				//Insert the new User Expense record into the table
+				userExpenseRec.insert();
+
+				userExpenseRec.newRecord();
+				// set the user id from user
+				userExpenseRec.setValue('user_id', current.owner);
+				// set expense id from current.expenseId
+				userExpenseRec.setValue('expense_id', expenseId);
+				userExpenseRec.setValue('owned_from', user.sys_id);
+				userExpenseRec.setValue('owned_amount', current.user_amount[userName]);
+				userExpenseRec.setValue('status', 'OWNED');
+
+				//Insert the new User Expense record into the table
+				userExpenseRec.insert();
+			}
+
+
+
+		}
 	}
+
 
 
 })(current, previous);]]></script>
@@ -109,7 +133,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2684baea53442010d6cdddeeff7b12c6</sys_id>
-        <sys_mod_count>23</sys_mod_count>
+        <sys_mod_count>38</sys_mod_count>
         <sys_name>Create User Expense</sys_name>
         <sys_overrides/>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
@@ -117,7 +141,7 @@
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name>sys_script_2684baea53442010d6cdddeeff7b12c6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-27 16:13:42</sys_updated_on>
+        <sys_updated_on>2020-10-28 09:21:49</sys_updated_on>
         <template/>
         <when>async</when>
     </sys_script>

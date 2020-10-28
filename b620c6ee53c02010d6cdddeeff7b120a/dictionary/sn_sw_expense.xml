@@ -7,10 +7,12 @@
         <element label="Name" mandatory="true" max_length="40" name="name" type="string"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" display="true" label="Number" mandatory="true" max_length="40" name="number" read_only="true" type="string"/>
         <element label="Owner" mandatory="true" max_length="32" name="owner" reference="sys_user" type="reference"/>
+        <element label="Split Equally" max_length="40" name="split_equally" type="boolean"/>
         <element label="Total" mandatory="true" max_length="40" name="total" type="integer"/>
         <element choice="3" label="Users" mandatory="true" max_length="4000" name="users" reference="sys_user" type="glide_list">
             <choice/>
         </element>
+        <element label="User Full Name : Amount" max_length="1024" name="user_amount" reference="sys_user" type="simple_name_values"/>
         <index name="index">
             <element name="owner"/>
         </index>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_dictionary action="INSERT_OR_UPDATE" element="expense_id" table="sn_sw_user_expense">
+    <sys_dictionary action="INSERT_OR_UPDATE" element="user_amount" table="sn_sw_expense">
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
@@ -14,7 +14,7 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>Expense Id</column_label>
+        <column_label>User Full Name : Amount</column_label>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -27,20 +27,20 @@
         <dynamic_creation_script/>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
-        <element>expense_id</element>
+        <element>user_amount</element>
         <element_reference>false</element_reference>
         <foreign_database/>
         <function_definition/>
         <function_field>false</function_field>
-        <internal_type display_value="Reference">reference</internal_type>
-        <mandatory>true</mandatory>
-        <max_length>32</max_length>
-        <name>sn_sw_user_expense</name>
+        <internal_type display_value="">simple_name_values</internal_type>
+        <mandatory>false</mandatory>
+        <max_length>1024</max_length>
+        <name>sn_sw_expense</name>
         <next_element/>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
-        <reference display_value="" name="sn_sw_expense">sn_sw_expense</reference>
+        <reference display_value="" name="sys_user">sys_user</reference>
         <reference_cascade_rule/>
         <reference_floats>false</reference_floats>
         <reference_key/>
@@ -52,16 +52,16 @@
         <staged>false</staged>
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-10-27 10:50:49</sys_created_on>
-        <sys_id>46e2f2aa53442010d6cdddeeff7b12fd</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_name>Expense Id</sys_name>
+        <sys_created_on>2020-10-28 08:35:46</sys_created_on>
+        <sys_id>bc2e93f653802010d6cdddeeff7b129a</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>User Full Name : Amount</sys_name>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_update_name>sys_dictionary_sn_sw_user_expense_expense_id</sys_update_name>
+        <sys_update_name>sys_dictionary_sn_sw_expense_user_amount</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-28 03:31:54</sys_updated_on>
+        <sys_updated_on>2020-10-28 09:25:36</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

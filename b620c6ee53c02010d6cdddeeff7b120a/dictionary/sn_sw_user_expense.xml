@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element label="User Expense" max_length="40" name="sn_sw_user_expense" sizeclass="0" type="collection">
-        <element display="true" label="Expense Id" mandatory="true" max_length="32" name="expense_id" reference="sn_sw_expense" type="reference"/>
+        <element label="Expense Id" mandatory="true" max_length="32" name="expense_id" reference="sn_sw_expense" type="reference"/>
         <element label="Owing Amount" max_length="40" name="owing_amount" type="integer"/>
         <element label="Owing To" max_length="32" name="owing_to" reference="sys_user" type="reference"/>
         <element label="Owned Amount" max_length="40" name="owned_amount" type="integer"/>
         <element label="Owned From" max_length="32" name="owned_from" reference="sys_user" type="reference"/>
+        <element choice="3" default="paid" display="true" label="Status" mandatory="true" max_length="20" name="status" type="string">
+            <choice>
+                <element inactive_on_update="false" label="PAID" sequence="0" value="paid"/>
+                <element inactive_on_update="false" label="RECEIVED" sequence="1" value="received"/>
+                <element inactive_on_update="false" label="OWEING" sequence="2" value="oweing"/>
+                <element inactive_on_update="false" label="OWNED" sequence="3" value="owned"/>
+            </choice>
+        </element>
         <element label="User Id" mandatory="true" max_length="32" name="user_id" reference="sys_user" type="reference"/>
         <index name="index">
             <element name="owing_to"/>

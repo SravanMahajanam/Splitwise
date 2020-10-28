@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="DELETE">
+        <cleared>true</cleared>
+        <disabled>ignore</disabled>
+        <field>user_split_value</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-28 06:53:50</sys_created_on>
+        <sys_id>0007c37a53402010d6cdddeeff7b1248</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>user_split_value</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sys_ui_policy_action_0007c37a53402010d6cdddeeff7b1248</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-28 06:53:50</sys_updated_on>
+        <table>sn_sw_expense</table>
+        <ui_policy display_value="Show or hide split details based on Split Equally set/unset">55b6037a53402010d6cdddeeff7b127d</ui_policy>
+        <visible>false</visible>
+    </sys_ui_policy_action>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</application>
+        <file_path/>
+        <instance_id>d9a44cf853002010d6cdddeeff7b1245</instance_id>
+        <instance_name>unregistered</instance_name>
+        <name>sys_ui_policy_action_0007c37a53402010d6cdddeeff7b1248</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action"><sys_ui_policy_action action="INSERT_OR_UPDATE"><cleared>true</cleared><disabled>ignore</disabled><field>user_split_value</field><mandatory>ignore</mandatory><sys_class_name>sys_ui_policy_action</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-10-28 06:53:50</sys_created_on><sys_id>0007c37a53402010d6cdddeeff7b1248</sys_id><sys_mod_count>0</sys_mod_count><sys_name>user_split_value</sys_name><sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package><sys_policy/><sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope><sys_update_name>sys_ui_policy_action_0007c37a53402010d6cdddeeff7b1248</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-10-28 06:53:50</sys_updated_on><table>sn_sw_expense</table><ui_policy display_value="Show or hide split details based on Split Equally set/unset">55b6037a53402010d6cdddeeff7b127d</ui_policy><visible>false</visible></sys_ui_policy_action></record_update>]]></payload>
+        <payload_hash>-1933443077</payload_hash>
+        <record_name>user_split_value</record_name>
+        <reverted_from/>
+        <source>c8cbe36253002010d6cdddeeff7b1260</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-28 06:53:50</sys_created_on>
+        <sys_id>f017077a53402010d6cdddeeff7b1221</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1756dfbf59a0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-28 06:53:50</sys_updated_on>
+        <type>UI Policy Action</type>
+        <update_guid>3c17077a5c402010f793bf650221a220</update_guid>
+        <update_guid_history>3c17077a5c402010f793bf650221a220:-1933443077</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-28 08:00:49</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy_action">sys_ui_policy_action</sys_db_object>
+        <sys_id>3a48aa628d88476cab8ef90afc395f79</sys_id>
+        <sys_metadata>0007c37a53402010d6cdddeeff7b1248</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>user_split_value</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_parent display_value="Show or hide split details based on Split Equally set/unset">55b6037a53402010d6cdddeeff7b127d</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_scope_delete display_value="">14ba2b6fc2364b8e856e73f871be29d9</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_action_0007c37a53402010d6cdddeeff7b1248</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_action_0007c37a53402010d6cdddeeff7b1248">f017077a53402010d6cdddeeff7b1221</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-28 08:00:49</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
