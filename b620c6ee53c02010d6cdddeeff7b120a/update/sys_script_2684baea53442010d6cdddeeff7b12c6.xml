@@ -33,7 +33,7 @@
 	var expenseId = current.sys_id;
 	// create an empty record for User Expense table
 	var userExpenseRec = new GlideRecord('sn_sw_user_expense');
-
+	
 	// if splitting is to be done equally
 	if (current.split_equally) {
 		var expenseUsers = current.users.toString().split(',');
@@ -87,7 +87,6 @@
 			userExpenseRec.insert();
 		}
 	} else {
-		gs.info('split equally is false');
 		// iterate using split details
 		// Iterate over each property and print name and value
 		for(var userName in current.user_amount) {
@@ -95,6 +94,7 @@
 			user.addQuery('name', userName);
 			user.query();
 			if (user.next()) {
+				userExpenseRec.newRecord();
 				// set the user id from user
 				userExpenseRec.setValue('user_id', user.sys_id);
 				// set expense id from current.expenseId
@@ -133,7 +133,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2684baea53442010d6cdddeeff7b12c6</sys_id>
-        <sys_mod_count>38</sys_mod_count>
+        <sys_mod_count>39</sys_mod_count>
         <sys_name>Create User Expense</sys_name>
         <sys_overrides/>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
@@ -141,7 +141,7 @@
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name>sys_script_2684baea53442010d6cdddeeff7b12c6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-28 09:21:49</sys_updated_on>
+        <sys_updated_on>2020-10-28 09:44:51</sys_updated_on>
         <template/>
         <when>async</when>
     </sys_script>
