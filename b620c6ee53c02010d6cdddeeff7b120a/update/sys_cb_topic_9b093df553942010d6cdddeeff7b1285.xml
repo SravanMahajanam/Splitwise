@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <auto_resolution_enabled>false</auto_resolution_enabled>
+        <category>7e41a5fd53902010d6cdddeeff7b121e</category>
+        <channels/>
+        <connect_queue/>
+        <description>Topic allows users to create a new expense.</description>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <graph>{
+  "graph_api_version": "1.0.28",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "ed2b74816c2242beadddd50710dbfdef": {
+          "id": "ed2b74816c2242beadddd50710dbfdef",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": "I will help you create a new expense",
+            "mode": "simple"
+          }
+        },
+        "93ffa06c52b049ff9f67f7b35d11f2bd": {
+          "id": "93ffa06c52b049ff9f67f7b35d11f2bd",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "64d2ded0234c438f979fe4afe026c773": {
+          "id": "64d2ded0234c438f979fe4afe026c773",
+          "stepType": "TextOutput",
+          "name": "Request Message",
+          "secure": false,
+          "value": {
+            "value": "Please provide details for creating an expense",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "54f2adcb47d94e4db7a023db1ce3d724": {
+          "id": "54f2adcb47d94e4db7a023db1ce3d724",
+          "stepType": "Prompt",
+          "name": "Expense Name",
+          "prompt": {
+            "value": "Expense Name",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "d6ce1fb0f50e49c395e368ea2b0e13b3",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          }
+        },
+        "78484c2ce15b4e4e9f06c3bab4f57ca5": {
+          "id": "78484c2ce15b4e4e9f06c3bab4f57ca5",
+          "stepType": "Prompt",
+          "name": "Expense Date",
+          "prompt": {
+            "value": "Expense Date",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "bb20aaf7506848af90c105bdef66d13a"
+        },
+        "294e15fe3cab4b239c3c12c8d02b1241": {
+          "stepType": "ReferenceChoicePrompt",
+          "name": "Expense Group",
+          "prompt": {
+            "value": "Expense Group",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "ddf6407c585b4ec49531fb3468a0490d",
+          "id": "294e15fe3cab4b239c3c12c8d02b1241",
+          "mode": "glide_record",
+          "script": "",
+          "metadataScript": "",
+          "noRecordsResponseMsg": {
+            "value": "There are no expense groups. Please create at least one before creating an expense.",
+            "mode": "simple"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "usersLIKE{{vaInputs.user}}"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "78ad6274caad45d3b52820cd04cbfacd": {
+          "id": "78ad6274caad45d3b52820cd04cbfacd",
+          "stepType": "RecordOutput",
+          "name": "Expense Group Details",
+          "variableId": "ddf6407c585b4ec49531fb3468a0490d",
+          "cardTemplate": "General",
+          "cardFields": {},
+          "mode": "variable",
+          "tableName": "sn_sw_expense_group",
+          "fields": [
+            "users"
+          ],
+          "cardDefinition": {
+            "name": "General card",
+            "value": "General"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": ""
+          }
+        },
+        "5ff1fd7e99954920a23034d90132548f": {
+          "id": "5ff1fd7e99954920a23034d90132548f",
+          "stepType": "Prompt",
+          "name": "Confirm Users",
+          "prompt": {
+            "value": "Do you want to include all users from the group?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "91ff05a1a13f4bebb5d330872cc8966d"
+        },
+        "5763688752124b3c95deeffaec41822a": {
+          "id": "5763688752124b3c95deeffaec41822a",
+          "stepType": "Decision",
+          "name": "All Users"
+        },
+        "9acf826b9b2a47049f4791e89aefc833": {
+          "id": "9acf826b9b2a47049f4791e89aefc833",
+          "stepType": "Prompt",
+          "name": "Description",
+          "prompt": {
+            "value": "Expense Description",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "e25eae9e0941497387f512ef2bcb9913",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          }
+        },
+        "5aa2c71d67b0445582f19d651e22321b": {
+          "stepType": "ReferenceChoicePrompt",
+          "name": "Users",
+          "prompt": {
+            "value": "Select Users involved in the expense",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "06b7d2b95b524088a93c123310aedbf7",
+          "id": "5aa2c71d67b0445582f19d651e22321b",
+          "mode": "glide_record",
+          "script": "",
+          "metadataScript": "",
+          "noRecordsResponseMsg": {
+            "value": "There are no users registered in the system.",
+            "mode": "simple"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "sys_idIN{{vaInputs.expense_group.users}}"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "0b078f09a50d46668d42649445357123": {
+          "id": "0b078f09a50d46668d42649445357123",
+          "stepType": "Decision",
+          "name": "Add More Users"
+        },
+        "ab02b2925a634341adad031d9237e6e5": {
+          "id": "ab02b2925a634341adad031d9237e6e5",
+          "stepType": "Prompt",
+          "name": "More Users",
+          "prompt": {
+            "value": "Do you need to add other user?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "9b49ac3b2394400b9c69c19c523e999c"
+        },
+        "6e02225ff66d4019bdf47b47a0c61a3a": {
+          "id": "6e02225ff66d4019bdf47b47a0c61a3a",
+          "name": "Append Users",
+          "script": "(function execute() {\n    /* Code your scripted action here. For example, you might update a\n       record based on conditional logic:\n\n        if (vaVars.my_flag == 'say hello') {\n            gs.info('hi there');\n        } else {\n            gs.info('bye now');\n        }\n    */\n\n    //vaVars.explicitUsers = new Array();\n    gs.info('vaVars.explicitUsers: ' + vaVars.explicitUsers);\n    //vaVars.explicitUsers = new Array();\n    //gs.info('vaVars.explicitUsers after: ' + vaVars.explicitUsers);\n    if (vaVars.explicitUsers == null) {\n        gs.info('if');\n       vaVars.explicitUsers = vaInputs.users;\n    } else {\n        gs.info('else');\n       vaVars.explicitUsers = vaVars.explicitUsers + \",\" + vaInputs.users;\n    }\n    \n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "6a86fb680f974a959106d4c853c8d4d1": {
+          "id": "6a86fb680f974a959106d4c853c8d4d1",
+          "stepType": "Prompt",
+          "name": "Split Equally",
+          "prompt": {
+            "value": "Do you want to split amount equally?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "(function execute() {\n    /* Return a quoted string.  For example:\n\n       if (vaInputs.first_name == 'Bill') {\n           return gs.getMessage('hi there {0}', [vaInputs.first_name]);\n       } else {\n           return gs.getMessage('how are you {0}', [vaInputs.last_name]);\n       }\n    */\n    \n})()\n",
+            "mode": "script"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "9acba022be994e039ea43ffd113a33ef"
+        },
+        "7efa58889f7a42b8808d8d8d128e53b1": {
+          "id": "7efa58889f7a42b8808d8d8d128e53b1",
+          "stepType": "Decision",
+          "name": "Splitting Equally"
+        },
+        "9e6f497f0ba24eff841292cc5b3430c9": {
+          "id": "9e6f497f0ba24eff841292cc5b3430c9",
+          "stepType": "Prompt",
+          "name": "User Share",
+          "prompt": {
+            "value": "(function execute() {\n    /* Return a quoted string.  For example:\n\n       if (vaInputs.first_name == 'Bill') {\n           return gs.getMessage('hi there {0}', [vaInputs.first_name]);\n       } else {\n           return gs.getMessage('how are you {0}', [vaInputs.last_name]);\n       }\n    */\n    gs.info('vaVars.startIndex: ' + vaVars.startIndex);\n    var startIndex = vaVars.startIndex;\n    gs.info('startIndex: ' + startIndex);\n    vaVars.endIndex = vaVars.explicitUsers.indexOf(\",\", vaVars.startIndex);\n    gs.info('vaVars.endIndex: ' + vaVars.endIndex);\n    if (vaVars.endIndex == -1) {\n        vaVars.currentUser = vaVars.explicitUsers.substring(startIndex);\n        vaVars.users_complete = true;\n    } else {\n        vaVars.currentUser = vaVars.explicitUsers.substring(startIndex, vaVars.endIndex);\n        vaVars.startIndex = vaVars.endIndex + 1;\n    }\n    return 'Enter the share of ' + vaVars.currentUser;\n})()\n",
+            "mode": "script"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "2284b71ddcd546f78677ca775301221d",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          }
+        },
+        "b57d2cba52f24df88547740e980d2c55": {
+          "id": "b57d2cba52f24df88547740e980d2c55",
+          "name": "Append user amount",
+          "script": "(function execute() {\n    /* Code your scripted action here. For example, you might update a\n       record based on conditional logic:\n\n        if (vaVars.my_flag == 'say hello') {\n            gs.info('hi there');\n        } else {\n            gs.info('bye now');\n        }\n    */\n\n    if (vaVars.user_amounts == null) {\n        vaVars.user_amounts = vaVars.currentUser + \":\" + vaInputs.user_share;       \n    } else {\n        vaVars.user_amounts = vaVars.user_amounts + \", \" + vaVars.currentUser + \":\" + vaInputs.user_share;\n    }\n    gs.info('vaVars.user_amounts - ' + vaVars.user_amounts);\n    \n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "6f4fd071f10240a28ecfc9ce6a44404c": {
+          "id": "6f4fd071f10240a28ecfc9ce6a44404c",
+          "stepType": "Decision",
+          "name": "All Users Share Provided"
+        },
+        "9198242d33774a1781608d841d202868": {
+          "id": "9198242d33774a1781608d841d202868",
+          "name": "User Amounts Object",
+          "script": "(function execute() {\n    /* Code your scripted action here. For example, you might update a\n       record based on conditional logic:\n\n        if (vaVars.my_flag == 'say hello') {\n            gs.info('hi there');\n        } else {\n            gs.info('bye now');\n        }\n    */\n    vaVars.user_amounts = \"{\" + vaVars.user_amounts + \"}\";\n    gs.info('vaVars.user_amounts final: ' + vaVars.user_amounts);\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "68609b65ec624bb88080f3456ea5c201": {
+          "id": "68609b65ec624bb88080f3456ea5c201",
+          "stepType": "CrudAction",
+          "name": "Create Expense with Explicit Amounts",
+          "template": "comments={{vaInputs.comments}}^description={{vaInputs.description}}^expense_date={{vaInputs.expense_date}}^group={{vaInputs.expense_group}}^name={{vaInputs.expense_name}}^owner={{vaInputs.user}}^split_equally={{vaInputs.split_equally}}^total={{vaInputs.expense_total}}^user_amount={{vaVars.test}}^users={{vaInputs.users}}",
+          "mode": "create",
+          "record": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "02e1f4ef9d444e50a2947777c77a9fb9"
+        },
+        "1c243d54963d4d958a3722ccdf724d46": {
+          "id": "1c243d54963d4d958a3722ccdf724d46",
+          "stepType": "CrudAction",
+          "name": "Create Expense with Equal Sharing",
+          "template": "name={{vaInputs.expense_name}}^expense_date={{vaInputs.expense_date}}^description={{vaInputs.description}}^owner={{vaInputs.user}}^split_equally=true^total={{vaInputs.expense_total}}^comments={{vaInputs.comments}}^users={{vaInputs.expense_group.users}}^group={{vaInputs.expense_group}}",
+          "mode": "create",
+          "record": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "828d45bd316c4af193d0ae765d9f7a4b"
+        },
+        "a5cd4fcba95545e2aa0cc432d5853050": {
+          "id": "a5cd4fcba95545e2aa0cc432d5853050",
+          "stepType": "Prompt",
+          "name": "Comments",
+          "prompt": {
+            "value": "Comments (if any)",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "8b6dbc87fe7b4feeb48b32334c9f3f8f",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          }
+        },
+        "1d457ec3b8764ce08fe207c0ab3156ae": {
+          "id": "1d457ec3b8764ce08fe207c0ab3156ae",
+          "stepType": "Prompt",
+          "name": "Expense Total",
+          "prompt": {
+            "value": "Expense Total",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "6c13f672f3a244169a615e806b1495c2",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          }
+        },
+        "9118b550f2114e299d7cfd0eabf6d61c": {
+          "id": "9118b550f2114e299d7cfd0eabf6d61c",
+          "stepType": "TextOutput",
+          "name": "split details",
+          "secure": false,
+          "value": {
+            "value": "{{vaVars.user_amounts}}",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "14f437a0879d4a7385c90dd7bd2d3ea2": {
+          "id": "14f437a0879d4a7385c90dd7bd2d3ea2",
+          "stepType": "TextOutput",
+          "name": "Expense Created",
+          "secure": false,
+          "value": {
+            "value": "Successfully created the expense.{{vaInputs.create_expense_with_equal_sharing}}",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "fc636c7028b04bcc86c5e0a9bb363825",
+          "edgeType": "Edge",
+          "source": "78484c2ce15b4e4e9f06c3bab4f57ca5",
+          "target": "294e15fe3cab4b239c3c12c8d02b1241",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "0eec8b7e7d8748f3b4f1fc4b562ed882",
+          "edgeType": "Branch",
+          "source": "7efa58889f7a42b8808d8d8d128e53b1",
+          "target": "1c243d54963d4d958a3722ccdf724d46",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.split_equally=true",
+            "mode": "query"
+          },
+          "label": "True"
+        },
+        {
+          "id": "68ab3b7e3baa4104b6c58c7f50077188",
+          "edgeType": "Branch",
+          "source": "5763688752124b3c95deeffaec41822a",
+          "target": "9acf826b9b2a47049f4791e89aefc833",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.confirm_users=true",
+            "mode": "query"
+          },
+          "label": "True"
+        },
+        {
+          "id": "5acdaf1060e64a55831b06949ba9f0e3",
+          "edgeType": "Edge",
+          "source": "ab02b2925a634341adad031d9237e6e5",
+          "target": "0b078f09a50d46668d42649445357123",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "b334cdff5e854083b2897a01ed856aba",
+          "edgeType": "Edge",
+          "source": "78ad6274caad45d3b52820cd04cbfacd",
+          "target": "5ff1fd7e99954920a23034d90132548f",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "6f0c79ecdca64ca4a697c375475bdc26",
+          "edgeType": "Edge",
+          "source": "64d2ded0234c438f979fe4afe026c773",
+          "target": "54f2adcb47d94e4db7a023db1ce3d724",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "6d5cf41b583a412ea399be7be0017b0e",
+          "edgeType": "Edge",
+          "source": "ed2b74816c2242beadddd50710dbfdef",
+          "target": "64d2ded0234c438f979fe4afe026c773",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "40ab1729340742ecbe0976e053cc2dcc",
+          "edgeType": "Edge",
+          "source": "54f2adcb47d94e4db7a023db1ce3d724",
+          "target": "78484c2ce15b4e4e9f06c3bab4f57ca5",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "fed75d54ce774a73ac84755cad6807d0",
+          "edgeType": "Edge",
+          "source": "294e15fe3cab4b239c3c12c8d02b1241",
+          "target": "78ad6274caad45d3b52820cd04cbfacd",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "01012b9a026840c58cbea15af5d92cf4",
+          "edgeType": "Edge",
+          "source": "5ff1fd7e99954920a23034d90132548f",
+          "target": "5763688752124b3c95deeffaec41822a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a1b1dadaa9444bde85b2c50ec350c653",
+          "edgeType": "Branch",
+          "source": "5763688752124b3c95deeffaec41822a",
+          "target": "5aa2c71d67b0445582f19d651e22321b",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.confirm_users=",
+            "mode": "query"
+          },
+          "label": "False"
+        },
+        {
+          "id": "139c169fdb72485b85c25437c391dcce",
+          "edgeType": "Branch",
+          "source": "0b078f09a50d46668d42649445357123",
+          "target": "9acf826b9b2a47049f4791e89aefc833",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.more_users=",
+            "mode": "query"
+          },
+          "label": "False"
+        },
+        {
+          "id": "f1ad5aa60aba4ec4af802c51c1f318aa",
+          "edgeType": "Branch",
+          "source": "0b078f09a50d46668d42649445357123",
+          "target": "5aa2c71d67b0445582f19d651e22321b",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.more_users=true",
+            "mode": "query"
+          },
+          "label": "True"
+        },
+        {
+          "id": "dbdd9a454ae34e24844d856bbfac9606",
+          "edgeType": "Edge",
+          "source": "5aa2c71d67b0445582f19d651e22321b",
+          "target": "6e02225ff66d4019bdf47b47a0c61a3a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "6075257100e545e5b2dfaede7070182a",
+          "edgeType": "Edge",
+          "source": "6e02225ff66d4019bdf47b47a0c61a3a",
+          "target": "ab02b2925a634341adad031d9237e6e5",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "71d2a5ae860e40ff95c6b1d9a270cde8",
+          "edgeType": "Edge",
+          "source": "6a86fb680f974a959106d4c853c8d4d1",
+          "target": "7efa58889f7a42b8808d8d8d128e53b1",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "c3e633d662874c9db2e06786df3c43bf",
+          "edgeType": "Branch",
+          "source": "7efa58889f7a42b8808d8d8d128e53b1",
+          "target": "9e6f497f0ba24eff841292cc5b3430c9",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.split_equally=",
+            "mode": "query"
+          },
+          "label": "False"
+        },
+        {
+          "id": "f6062c1304ca4e2ca0d22f8a432f9736",
+          "edgeType": "Edge",
+          "source": "9e6f497f0ba24eff841292cc5b3430c9",
+          "target": "b57d2cba52f24df88547740e980d2c55",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "0540a68082e54d0abe5694d07cde70ed",
+          "edgeType": "Edge",
+          "source": "b57d2cba52f24df88547740e980d2c55",
+          "target": "6f4fd071f10240a28ecfc9ce6a44404c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "fce3e53e3dfa4f228daf438afedc219f",
+          "edgeType": "Branch",
+          "source": "6f4fd071f10240a28ecfc9ce6a44404c",
+          "target": "9e6f497f0ba24eff841292cc5b3430c9",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    /* Return true or false to indicate the branch condition's applicability.\n       For example:\n\n       var applies = vaInputs.first_name == 'Bill' ? true : false;\n       return applies;\n    */\n    if (vaVars.users_complete) {\n        return false;\n    } else {\n        return true;\n    }\n})()\n"
+          },
+          "label": "False"
+        },
+        {
+          "id": "c4866d39b53243e8a07980b7846f8157",
+          "edgeType": "Branch",
+          "source": "6f4fd071f10240a28ecfc9ce6a44404c",
+          "target": "9198242d33774a1781608d841d202868",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    /* Return true or false to indicate the branch condition's applicability.\n       For example:\n\n       var applies = vaInputs.first_name == 'Bill' ? true : false;\n       return applies;\n    */\n    if (vaVars.users_complete) {\n        return true;\n    } else {\n        return false;\n    }\n    \n})()\n"
+          },
+          "label": "True"
+        },
+        {
+          "id": "f505854e32ed42359b63f10aa61af3eb",
+          "edgeType": "Edge",
+          "source": "68609b65ec624bb88080f3456ea5c201",
+          "target": "93ffa06c52b049ff9f67f7b35d11f2bd",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "ddd72b46610f48a0b3ea6f91c8016632",
+          "edgeType": "Edge",
+          "source": "9acf826b9b2a47049f4791e89aefc833",
+          "target": "a5cd4fcba95545e2aa0cc432d5853050",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "7012f40bf774453c9e5075223f53d56b",
+          "edgeType": "Edge",
+          "source": "a5cd4fcba95545e2aa0cc432d5853050",
+          "target": "1d457ec3b8764ce08fe207c0ab3156ae",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "09b5639d2a444dfdb9989575ce9bed81",
+          "edgeType": "Edge",
+          "source": "1d457ec3b8764ce08fe207c0ab3156ae",
+          "target": "6a86fb680f974a959106d4c853c8d4d1",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "af6550226fbb4530b62de8e7b9b0a4b6",
+          "edgeType": "Edge",
+          "source": "9198242d33774a1781608d841d202868",
+          "target": "9118b550f2114e299d7cfd0eabf6d61c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "fdcf1c52f43b4c6d8e72adfa484ce76f",
+          "edgeType": "Edge",
+          "source": "9118b550f2114e299d7cfd0eabf6d61c",
+          "target": "68609b65ec624bb88080f3456ea5c201",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "ac28f92b47df4adbadf5f79e1a6cfcb9",
+          "edgeType": "Edge",
+          "source": "1c243d54963d4d958a3722ccdf724d46",
+          "target": "14f437a0879d4a7385c90dd7bd2d3ea2",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "3fb61c0367b44d5c8c104f95848b247b",
+          "edgeType": "Edge",
+          "source": "14f437a0879d4a7385c90dd7bd2d3ea2",
+          "target": "93ffa06c52b049ff9f67f7b35d11f2bd",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "930353c3d36f4379b59bfa92caffc5e5": {
+      "id": "930353c3d36f4379b59bfa92caffc5e5",
+      "name": "LiveAgent_application",
+      "value": {
+        "mode": "simple",
+        "value": ""
+      },
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "d6ce1fb0f50e49c395e368ea2b0e13b3": {
+      "id": "d6ce1fb0f50e49c395e368ea2b0e13b3",
+      "name": "expense_name",
+      "label": "Expense Name",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs"
+    },
+    "bb20aaf7506848af90c105bdef66d13a": {
+      "id": "bb20aaf7506848af90c105bdef66d13a",
+      "name": "expense_date",
+      "label": "Expense Date",
+      "varType": "date_time",
+      "secure": false,
+      "category": "vaInputs",
+      "mode": "date_time"
+    },
+    "6c13f672f3a244169a615e806b1495c2": {
+      "id": "6c13f672f3a244169a615e806b1495c2",
+      "name": "expense_total",
+      "label": "Expense Total",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs"
+    },
+    "ddf6407c585b4ec49531fb3468a0490d": {
+      "id": "ddf6407c585b4ec49531fb3468a0490d",
+      "name": "expense_group",
+      "label": "Expense Group",
+      "varType": "reference",
+      "table": "sn_sw_expense_group",
+      "category": "vaInputs"
+    },
+    "91ff05a1a13f4bebb5d330872cc8966d": {
+      "id": "91ff05a1a13f4bebb5d330872cc8966d",
+      "name": "confirm_users",
+      "label": "Confirm Users",
+      "varType": "boolean",
+      "secure": false,
+      "category": "vaInputs"
+    },
+    "e25eae9e0941497387f512ef2bcb9913": {
+      "id": "e25eae9e0941497387f512ef2bcb9913",
+      "name": "description",
+      "label": "Description",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs"
+    },
+    "8b6dbc87fe7b4feeb48b32334c9f3f8f": {
+      "id": "8b6dbc87fe7b4feeb48b32334c9f3f8f",
+      "name": "comments",
+      "label": "Comments",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs"
+    },
+    "828d45bd316c4af193d0ae765d9f7a4b": {
+      "id": "828d45bd316c4af193d0ae765d9f7a4b",
+      "name": "create_expense_with_equal_sharing",
+      "label": "Create Expense With Equal Sharing",
+      "varType": "reference",
+      "table": "sn_sw_expense",
+      "inactive": false,
+      "category": "vaInputs"
+    },
+    "06b7d2b95b524088a93c123310aedbf7": {
+      "id": "06b7d2b95b524088a93c123310aedbf7",
+      "name": "users",
+      "label": "Users",
+      "varType": "reference",
+      "table": "sys_user",
+      "category": "vaInputs"
+    },
+    "9b49ac3b2394400b9c69c19c523e999c": {
+      "id": "9b49ac3b2394400b9c69c19c523e999c",
+      "name": "more_users",
+      "label": "More Users",
+      "varType": "boolean",
+      "secure": false,
+      "category": "vaInputs"
+    },
+    "16b6b7c7f6584591bf0a16dd59e78461": {
+      "id": "16b6b7c7f6584591bf0a16dd59e78461",
+      "value": {
+        "mode": "simple",
+        "value": "''"
+      },
+      "name": "explicitUsers",
+      "label": "explicitUsers",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "9acba022be994e039ea43ffd113a33ef": {
+      "id": "9acba022be994e039ea43ffd113a33ef",
+      "name": "split_equally",
+      "label": "Split Equally",
+      "varType": "boolean",
+      "secure": false,
+      "category": "vaInputs"
+    },
+    "2284b71ddcd546f78677ca775301221d": {
+      "id": "2284b71ddcd546f78677ca775301221d",
+      "name": "user_share",
+      "label": "User Share",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs"
+    },
+    "705911b455b1460fade6adba33eeeb0c": {
+      "id": "705911b455b1460fade6adba33eeeb0c",
+      "value": {
+        "mode": "simple",
+        "value": "0"
+      },
+      "name": "startIndex",
+      "label": "startIndex",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "204fbbbe80c84eca9c7130036b3ca718": {
+      "id": "204fbbbe80c84eca9c7130036b3ca718",
+      "value": {
+        "mode": "simple",
+        "value": "''"
+      },
+      "name": "user_amounts",
+      "label": "user_amounts",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "893f4d7bda994596a26e28e0d8c09059": {
+      "id": "893f4d7bda994596a26e28e0d8c09059",
+      "value": {
+        "mode": "simple",
+        "value": "0"
+      },
+      "name": "endIndex",
+      "label": "endIndex",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "330c90b2a4524e2e8d53b4b7ecaee732": {
+      "id": "330c90b2a4524e2e8d53b4b7ecaee732",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "currentUser",
+      "label": "currentUser",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "69fbec3bef484a958f41b6a7609b330b": {
+      "id": "69fbec3bef484a958f41b6a7609b330b",
+      "value": {
+        "mode": "simple",
+        "value": "false"
+      },
+      "name": "users_complete",
+      "label": "users_complete",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "02e1f4ef9d444e50a2947777c77a9fb9": {
+      "id": "02e1f4ef9d444e50a2947777c77a9fb9",
+      "name": "create_expense_with_explicit_amounts",
+      "label": "Create Expense With Explicit Amounts",
+      "varType": "reference",
+      "table": "sn_sw_expense",
+      "inactive": false,
+      "category": "vaInputs"
+    },
+    "7cde28db61884b99ace364840ecb3618": {
+      "id": "7cde28db61884b99ace364840ecb3618",
+      "value": {
+        "mode": "simple",
+        "value": "\"test\""
+      },
+      "name": "test",
+      "label": "test",
+      "varType": "script",
+      "category": "vaVars"
+    }
+  }
+}</graph>
+        <key_phrases>Create New Expense,newexpense,expense,create,new,openexpense,open</key_phrases>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <name>Create New Expense</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <roles>sn_sw.ExpenseAdmin,sn_sw.expense_user</roles>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-06 08:54:42</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>9b093df553942010d6cdddeeff7b1285</sys_id>
+        <sys_mod_count>67</sys_mod_count>
+        <sys_name>Create New Expense</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sys_cb_topic_9b093df553942010d6cdddeeff7b1285</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-09 04:49:02</sys_updated_on>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>STANDARD</type>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="delete_multiple" query="document_key=9b093df553942010d6cdddeeff7b1285"/>
+</record_update>

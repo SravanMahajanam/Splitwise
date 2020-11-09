@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_vlist">
+    <sp_instance_vlist action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>warning</color>
+        <css/>
+        <display_field>expense_id</display_field>
+        <field_list/>
+        <filter table="sn_sw_user_expense">user_id=javascript: gs.getUserID()^owing_toISNOTEMPTY<item endquery="false" field="user_id" goto="false" newquery="false" operator="=" or="false" value="javascript: gs.getUserID()"/>
+            <item endquery="false" field="owing_to" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
+        </filter>
+        <glyph>angle-double-up</glyph>
+        <id/>
+        <maximum_entries>5</maximum_entries>
+        <order>1</order>
+        <order_by/>
+        <order_direction>asc</order_direction>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">218ba48353002010d6cdddeeff7b1234</sp_column>
+        <sp_page/>
+        <sp_widget display_value="Simple List">5b255672cb03020000f8d856634c9c28</sp_widget>
+        <sys_class_name>sp_instance_vlist</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-28 14:13:21</sys_created_on>
+        <sys_id>5fabe48353002010d6cdddeeff7b12a5</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sp_instance_vlist_5fabe48353002010d6cdddeeff7b12a5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-28 14:31:47</sys_updated_on>
+        <table>sn_sw_user_expense</table>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"always_show": {
+		"value": "",
+		"displayValue": ""
+	},
+	"panel_body_height": {
+		"value": "",
+		"displayValue": ""
+	},
+	"image_field": {
+		"value": "",
+		"displayValue": ""
+	},
+	"secondary_fields": {
+		"value": "owing_to,owing_amount",
+		"displayValue": "owing_to,owing_amount"
+	},
+	"rounded_images": {
+		"value": "",
+		"displayValue": ""
+	},
+	"list_page": {
+		"value": "634bac4353002010d6cdddeeff7b12a5",
+		"displayValue": "splitwise_home_page"
+	},
+	"hide_footer": {
+		"value": "",
+		"displayValue": ""
+	},
+	"view": {
+		"value": "",
+		"displayValue": ""
+	},
+	"disable_record_watcher": {
+		"value": "",
+		"displayValue": ""
+	},
+	"filter_acls": {
+		"value": "false",
+		"displayValue": "false"
+	}
+}]]></widget_parameters>
+    </sp_instance_vlist>
+    <sys_translated_text action="DELETE" query="documentkey=5fabe48353002010d6cdddeeff7b12a5"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</application>
+        <file_path/>
+        <instance_id>d9a44cf853002010d6cdddeeff7b1245</instance_id>
+        <instance_name>unregistered</instance_name>
+        <name>sp_instance_vlist_5fabe48353002010d6cdddeeff7b12a5</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance_vlist"&gt;&lt;sp_instance_vlist action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;warning&lt;/color&gt;&lt;css/&gt;&lt;display_field&gt;expense_id&lt;/display_field&gt;&lt;field_list/&gt;&lt;filter table="sn_sw_user_expense"&gt;user_id=javascript: gs.getUserID()^owing_toISNOTEMPTY&lt;item endquery="false" field="user_id" goto="false" newquery="false" operator="=" or="false" value="javascript: gs.getUserID()"/&gt;&lt;item endquery="false" field="owing_to" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/&gt;&lt;/filter&gt;&lt;glyph&gt;angle-double-up&lt;/glyph&gt;&lt;id/&gt;&lt;maximum_entries&gt;5&lt;/maximum_entries&gt;&lt;order&gt;1&lt;/order&gt;&lt;order_by/&gt;&lt;order_direction&gt;asc&lt;/order_direction&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;218ba48353002010d6cdddeeff7b1234&lt;/sp_column&gt;&lt;sp_page/&gt;&lt;sp_widget display_value="Simple List"&gt;5b255672cb03020000f8d856634c9c28&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance_vlist&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-10-28 14:13:21&lt;/sys_created_on&gt;&lt;sys_id&gt;5fabe48353002010d6cdddeeff7b12a5&lt;/sys_id&gt;&lt;sys_mod_count&gt;7&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Splitwise" source="sn_sw"&gt;b620c6ee53c02010d6cdddeeff7b120a&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Splitwise"&gt;b620c6ee53c02010d6cdddeeff7b120a&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_vlist_5fabe48353002010d6cdddeeff7b12a5&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-10-28 14:31:47&lt;/sys_updated_on&gt;&lt;table&gt;sn_sw_user_expense&lt;/table&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"always_show": {
+		"value": "",
+		"displayValue": ""
+	},
+	"panel_body_height": {
+		"value": "",
+		"displayValue": ""
+	},
+	"image_field": {
+		"value": "",
+		"displayValue": ""
+	},
+	"secondary_fields": {
+		"value": "owing_to,owing_amount",
+		"displayValue": "owing_to,owing_amount"
+	},
+	"rounded_images": {
+		"value": "",
+		"displayValue": ""
+	},
+	"list_page": {
+		"value": "634bac4353002010d6cdddeeff7b12a5",
+		"displayValue": "splitwise_home_page"
+	},
+	"hide_footer": {
+		"value": "",
+		"displayValue": ""
+	},
+	"view": {
+		"value": "",
+		"displayValue": ""
+	},
+	"disable_record_watcher": {
+		"value": "",
+		"displayValue": ""
+	},
+	"filter_acls": {
+		"value": "false",
+		"displayValue": "false"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance_vlist&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=5fabe48353002010d6cdddeeff7b12a5"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1079865689</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>173308cf53c02010d6cdddeeff7b1236</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-28 14:31:47</sys_created_on>
+        <sys_id>55ef2c0753002010d6cdddeeff7b126e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1756f9f390c0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-28 14:31:47</sys_updated_on>
+        <type>Instance of Simple List</type>
+        <update_guid>9def2c0758002010b1805f861f94c46d</update_guid>
+        <update_guid_history>9def2c0758002010b1805f861f94c46d:-1079865689,f22f24071f00201030ab6a69ffe9b762:-1065808329,4ffee0077d0020108ddf71aff7da2ffc:1973659377,a08de4c379002010c42d78e31f869406:-1837191429,b4ec60c3ea0020108db6996a61dc2eb5:-1293536,139c6c833c0020104b9d9acfef319d8e:1037442181,89fbe4835e002010fa3dcdb07afc1ce1:1297936244,5fabe4839000201079e3e99a695b57a7:1785113762</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">4c1ac91b53802010d6cdddeeff7b1232</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-29 11:04:36</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance_vlist">sp_instance_vlist</sys_db_object>
+        <sys_id>0c2b44829d0245e881acbd28a29a9bf1</sys_id>
+        <sys_metadata>5fabe48353002010d6cdddeeff7b12a5</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_scope_delete display_value="">14ba2b6fc2364b8e856e73f871be29d9</sys_scope_delete>
+        <sys_update_name>sp_instance_vlist_5fabe48353002010d6cdddeeff7b12a5</sys_update_name>
+        <sys_update_version display_value="sp_instance_vlist_5fabe48353002010d6cdddeeff7b12a5">55ef2c0753002010d6cdddeeff7b126e</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-29 11:04:36</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($window) {
+	/* widget controller */
+	var c = this;
+	c.groupUsers = [];
+
+	c.appendUsers = function() {
+		if (!c.groupUsers.includes(c.user.value)) {
+			c.groupUsers.push(c.user.value);
+		}
+
+		$('#snRecordPickerID').select2("val","");
+	}
+
+	c.createGroup = function() {
+		var user_amount = {};
+		createPayload = {
+			action: 'createGroup',
+			name: c.groupName,
+			users: c.groupUsers,
+			desc: c.expGrpDesc
+		};
+
+		c.server.get(createPayload).then(function(r) {
+			alert('Expense Group Created: ' + r.sys_id);
+			$window.location.href = "?id=splitwise_home_page";
+		});
+		
+	}
+	
+	c.navigateToDashboard = function() {
+		$window.location.href = "?id=splitwise_home_page";
+	}
+	
+	c.removeUser = function() {
+		var usersList = document.getElementById('usersList');
+		c.groupUsers.splice(usersList.selectedIndex, 1);
+	}
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.form-heading {
+  color: #293e40;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+div {
+  margin-top: 20px;
+}
+
+.reference-field {
+  margin-top: -5px;
+}
+
+.button {
+  padding: 0.5rem;
+  margin: 2rem;
+}
+
+.list {
+  width: 180px;
+}
+
+.next {
+  float: none;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>create_group</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Create Group</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+	data.group = {};
+	
+	if (input && input.action == "createGroup") {
+		gs.info('creating group: ' + input.users);
+		var users = [];
+			for (user in input.users) {
+				var userGR = new GlideRecord('sys_user');
+				gs.info('fn: ' + input.users[user].substring(0, input.users[user].indexOf(" ")));
+				gs.info('ln: ' + input.users[user].substring(input.users[user].indexOf(" ") + 1));
+				userGR.addQuery('first_name', input.users[user].substring(0, input.users[user].indexOf(" ")));
+				userGR.addQuery('last_name', input.users[user].substring(input.users[user].indexOf(" ") + 1));
+				userGR.query();
+				gs.info('userGR count: ' + userGR.getRowCount());
+				if (userGR.next()) {
+					users.push(userGR.getUniqueValue());
+				}
+			}
+		var gr = new GlideRecord("sn_sw_expense_group");
+		gr.initialize();
+		gr.setValue('name', input.name);
+		gr.setValue('users', users);
+		gr.setValue('description', input.desc);
+		gr.insert();
+		gs.info('created expense group: ' + gr.sys_id);
+		
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-03 07:06:20</sys_created_on>
+        <sys_id>2e7382fc53102010d6cdddeeff7b12d2</sys_id>
+        <sys_mod_count>93</sys_mod_count>
+        <sys_name>Create Group</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sp_widget_2e7382fc53102010d6cdddeeff7b12d2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-05 14:45:49</sys_updated_on>
+        <template><![CDATA[<div class="form">
+  <h2 class="form-heading">
+    Provide below details to create the expense group
+  </h2>
+  <form id="create-group" >
+      <div>
+        <label for="groupName">Group Name</label>
+        <input type="text" ng-model="c.groupName" class="form-control is-valid" id="validationServer01" value="Name">
+      </div>
+      <div>
+        <label for="expenseUser">User Name</label>
+        <sn-record-picker id="snRecordPickerID" class="reference-field" field="c.user" ng-change="c.appendUsers()" table="'sys_user'" display-field="'name'" value-field="'name'" search-fields="'first_name'" page-size="5"></sn-record-picker>
+      </div>
+      <!--<div>
+        <label for="expenseUsers">Users Added</label>
+        <textarea rows="4" cols="50" class="form-control is-invalid" id="users" ng-model="c.groupUsers"></textarea>
+      </div>-->
+    <div ng-if="c.groupUsers.length > 0">
+        <div class="field">
+        <label for="expenseUsers">Users Added</label>
+        <!--<textarea rows="4" cols="50" class="form-control is-invalid" id="users" ng-model="c.expenseUsers"></textarea>-->
+        <span>
+          <select multiple="multiple" class="list" id="usersList" >
+          <option ng-repeat="user in c.groupUsers">{{user}}</option>
+        	</select>
+         </span>
+        <span>
+        <button type="button" class="close next" aria-label="Close" ng-click="c.removeUser()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </span>
+      </div>
+      </div>
+      <div>
+        <label for="expenseDesc">Description</label>
+        <input type="text" ng-model="c.expGrpDesc" class="form-control is-invalid" id="description" >
+      </div>
+      <div>
+        <button class="btn btn-primary button" type="submit" ng-click="c.createGroup()">Create Group</button>
+        <!--<button class="btn btn-warning button" type="cancel" ng-click="c.clearDetails()">Clear Details</button>-->
+        <button class="btn btn-secondary button" type="cancel" ng-click="c.navigateToDashboard()">Back To Dashboard</button>
+      </div>
+  </form>
+</div>]]></template>
+    </sp_widget>
+</record_update>

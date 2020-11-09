@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>sn_sw.MakeExpensePayment</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>Update User Expense record status as SETTLED.</description>
+        <name>MakeExpensePayment</name>
+        <script><![CDATA[var MakeExpensePayment = Class.create();
+// Extend the global.AbstractAjaxProcessor class
+MakeExpensePayment.prototype = Object.extendsObject(global.AbstractAjaxProcessor,{
+    // Define the makePayment function.  
+    // Create a GlideRecord for the User table.
+    // Use the expense_id,owned_from, owning_to &  passed from the client side to retrieve a record from the User Expense table.
+    // Return the email address for the requested record
+    makePayment: function() {
+		gs.info('making payment: ' + JSON.stringify(input));
+        var userExpenseGR = new GlideRecord('sn_sw_user_expense');
+			userExpenseGR.addQuery('expense_id', input.expenseId);
+			userExpenseGR.addQuery('owned_from', input.ownedFrom);
+			userExpenseGR.addQuery('owning_to', input.owingTo);
+			userExpenseGR.query();
+			if (userExpenseGR.next()) {
+				userExpenseGR.status = 'SETTLED';
+				userExpenseGR.update();
+				gs.info('expense paid!');
+			}
+    },
+    type: 'MakeExpensePayment'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-02 14:56:58</sys_created_on>
+        <sys_id>7ed46a2853142010d6cdddeeff7b126d</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>MakeExpensePayment</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sys_script_include_7ed46a2853142010d6cdddeeff7b126d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-02 15:07:37</sys_updated_on>
+    </sys_script_include>
+</record_update>

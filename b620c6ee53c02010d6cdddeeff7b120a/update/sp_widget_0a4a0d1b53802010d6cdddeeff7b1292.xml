@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($window) {
+	/* widget controller */
+	var c = this;
+	c.users = c.data.expense.users;
+	c.expenseUsersObjArray = [];
+	c.expenseDate = c.data.expense.expense_date;
+	c.data.expense.total = parseInt(c.data.expense.total);
+	c.splitEqually = c.data.expense.split_equally == "true";
+	if (!c.splitEqually) {
+		var usersAmount = JSON.parse(c.data.expense.user_amount);
+		for (user in usersAmount) {
+			c.expenseUsersObjArray.push({
+				'name': user,
+				'amount': parseInt(usersAmount[user])
+			});
+		}
+	}
+
+	c.appendUsers = function() {
+		var users = c.users.split(", ");
+		c.expenseUsers = users;
+		var found = false;
+			
+		for (user in users) {
+
+			for(var i = 0; i < c.expenseUsersObjArray.length; i++) {
+				if (c.expenseUsersObjArray[i].name == users[user]) {
+					found = true;
+				}
+			}
+			
+			//found = c.expenseUsersObjArray.find(expUser => expUser.name == users[user] );
+			
+			if (!found) {c.expenseUsersObjArray.push({
+				'name': users[user],
+				amount: 0.0
+			});
+									}
+
+		}
+	}
+	c.makePayment = function() {
+		c.server.get({
+			action: 'updateStatus',
+			expenseSysId:c.data.expense_id,
+			owingTo: c.data.userExpense.owing_to,
+			ownedFrom: c.data.userExpense.owned_from
+		}).then(function(r){
+			alert("paid successfully");
+			$window.location.href = "?id=splitwise_home_page";
+		});
+	}
+
+	c.navigateToDashboard = function() {
+		$window.location.href = "?id=splitwise_home_page";
+	}
+
+	c.updateExpense = function() {
+		var user_amount = {};
+		var updatePayload = {
+			action: 'updateExpense',
+			number: c.data.expense.number,
+			name: c.data.expense.name,
+			expenseDate: c.expenseDate,
+			total: c.data.expense.total,
+			users: c.users.split(", "),
+			splitEqually: c.splitEqually,
+			description: c.data.expense.description,
+			comments: c.data.expense.comments
+		};
+		if (!c.splitEqually) {
+			for (index in c.expenseUsersObjArray) {
+				user_amount[c.expenseUsersObjArray[index]['name']] = c.expenseUsersObjArray[index]['amount'] + "";
+			}
+			updatePayload.user_amount = user_amount;
+		} 		
+		c.server.get(updatePayload).then(function(r) {
+			alert('Expense Updated!');
+			$window.location.href = "?id=splitwise_home_page";
+
+		})
+	}
+	
+	c.removeUser = function() {
+		var usersList = document.getElementById('usersList');
+		c.users.splice(usersList.selectedIndex, 1);
+		if (c.users.length == 0) {
+			c.users = '';		
+		}
+	}
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.exp-id {
+  font-weight: bold;
+  font-color: black;
+  text-decoration: underline;
+}
+
+.button {
+  padding: 0.5rem;
+  margin: 2rem;
+}
+
+.field {
+  padding: 1rem;
+}
+
+.button {
+  padding: 0.5rem;
+  margin: 2rem;
+}
+
+.form-heading {
+  color: #293e40;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+div {
+  margin-top: 10px;
+}
+
+.reference-field {
+  margin-top: -5px;
+}
+
+.check-box {
+   margin-top: 1px;
+}
+
+.next {
+  float: none;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>expense_details</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Expense Details</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+	if(!input) {
+		var expenseId = $sp.getParameter('expenseId');
+		data.expense = {};
+		data.userExpense = {};
+		var expense = new GlideRecord('sn_sw_expense');
+
+		expense.addQuery('number', expenseId);
+		expense.query();
+		if (expense.next()) {
+			// put the expense record sysID in the data, this is required for later actions on the corresponding user expense record
+			data.expense_id = expense.getUniqueValue();
+			//data.owned = owned == "true";
+			$sp.getRecordDisplayValues(data.expense, expense, "number, name, owner, expense_date, description, comments, split_equally, total, users, user_amount");
+			if (expense.owner == gs.getUserID()) {
+				data.owned = true;
+			} else {
+				data.owned = false;
+			}
+		}
+
+		var userExpense = new GlideRecord('sn_sw_user_expense');
+		userExpense.addQuery('expense_id', data.expense_id);
+		if (data.owned) {
+			userExpense.addQuery('owing_to', gs.getUserID());
+		} else {
+			userExpense.addQuery('owned_from', gs.getUserID());
+		}
+		userExpense.query();
+		if (userExpense.next()) {
+			data.owned_from = userExpense.owned_from;
+			data.owing_to = userExpense.owing_to;
+			$sp.getRecordDisplayValues(data.userExpense, userExpense, "amount, owned_from, owing_to");
+		}
+		
+	}
+
+	if (input) {
+		if (input.action == 'updateStatus') {
+			var ownedUserSysId = '';
+			var owingUserSysId = '';
+			var ownedUser = new GlideRecord('sys_user');
+			ownedUser.addQuery('first_name', input.ownedFrom.substring(0, input.ownedFrom.indexOf(' ') + 1));
+			ownedUser.addQuery('last_name', input.ownedFrom.substring(input.ownedFrom.indexOf(' ') + 1));
+			ownedUser.query();
+			if (ownedUser.next()) {
+				ownedUserSysId = ownedUser.getUniqueValue();
+			}
+			var owingUser = new GlideRecord('sys_user');
+			owingUser.addQuery('first_name', input.owingTo.substring(0, input.owingTo.indexOf(' ') + 1));
+			owingUser.addQuery('last_name', input.owingTo.substring(input.owingTo.indexOf(' ') + 1));
+			owingUser.query();
+
+			if (owingUser.next()) {
+				owingUserSysId = owingUser.getUniqueValue();
+			}
+
+
+			var userExpense = new GlideRecord('sn_sw_user_expense');
+			userExpense.addQuery('expense_id', input.expenseSysId);
+			userExpense.addQuery('owned_from', ownedUserSysId);
+			userExpense.addQuery('owing_to', owingUserSysId);
+			userExpense.query();
+			if (userExpense.next()) {
+				userExpense.status = 'SETTLED';
+				userExpense.update();
+			}
+		} else if(input.action == 'updateExpense') {
+			var users = [];
+			for (user in input.users) {
+				var userGR = new GlideRecord('sys_user');
+				userGR.addQuery('first_name', input.users[user].substring(0, input.users[user].indexOf(" ")));
+				userGR.addQuery('last_name', input.users[user].substring(input.users[user].indexOf(" ") + 1));
+				userGR.query();
+				if (userGR.next()) {
+					users.push(userGR.getUniqueValue());
+				}
+			}
+			var expense = new GlideRecord('sn_sw_expense');
+			expense.addQuery('number', input.number);
+			expense.query();
+			if (expense.next()) {
+				expense.setValue('name', input.name);
+				expense.setValue('expense_date', input.expenseDate);
+				expense.setValue('total', input.total);
+				expense.setValue('users', users);
+				expense.setValue('split_equally', input.splitEqually);
+				if(!input.splitEqually) {
+					expense.setValue('user_amount', JSON.stringify(input.user_amount));
+				}
+				expense.setValue('description', input.description);
+				expense.setValue('comments', input.comments);
+				expense.update();
+			}
+		}
+	}
+
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-29 11:05:33</sys_created_on>
+        <sys_id>0a4a0d1b53802010d6cdddeeff7b1292</sys_id>
+        <sys_mod_count>287</sys_mod_count>
+        <sys_name>Expense Details</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sp_widget_0a4a0d1b53802010d6cdddeeff7b1292</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-05 07:56:05</sys_updated_on>
+        <template><![CDATA[<div class="card">
+  <h2 class="form-heading"> Expense Details </h2>
+  <div class="card-body">
+    <form id="create-expense">
+      <div>
+        <div class="field">
+          <label for="expenseTitle">Expense Title</label>
+          <span ng-if="c.data.owned">
+            <input type="text" ng-model="c.data.expense.name" class="form-control is-valid" id="expenseTitle" >
+          </span>
+          <span ng-if="!c.data.owned">
+            <input type="text" ng-model="c.data.expense.name" class="form-control is-valid" id="expenseTitle" readOnly>
+          </span>
+        </div>
+        
+        <div class="field">
+          <label for="expenseDate">Expense Date</label>
+          <span ng-if="c.data.owned">
+            <sp-date-picker field="c.expenseDate" ng-model="c.expenseDate" class="reference-field" sn-change="" sn-include-time="false" />
+          </span>
+					<span ng-if="!c.data.owned">
+            <input type="text" ng-model="c.data.expense.name" class="form-control is-valid" id="expenseTitle" ng-model="c.expenseDate" readOnly>
+          </span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="expenseTotal">Expense Total</label>
+          <span ng-if="c.data.owned">
+            <input type="number" min="0" ng-model="c.data.expense.total" class="form-control is-valid" id="expenseTotal" value="0.0">
+          </span>
+          <span ng-if="!c.data.owned">
+            <input type="number" min="0" ng-model="c.data.expense.total" class="form-control is-valid" id="expenseTotal" value="0.0" readOnly>
+          </span>
+        </div>
+        <div class="form-group field">
+          <div class="check-box">
+            <span ng-if="c.data.owned">
+              <input ng-model="c.splitEqually" type="checkbox" value="c.splitEqually" ng-change="c.appendUsers()" id="splitEqually" />
+            </span>
+            <span ng-if="!c.data.owned">
+              <input ng-model="c.splitEqually" type="checkbox" value="c.splitEqually" ng-change="c.appendUsers()" id="splitEqually" readOnly />
+            </span>
+            <label for="splitEqually">
+              Split Equally
+            </label>
+          </div>
+        </div>
+        <!--<div class="field">
+          <label for="expenseUsers">Expense Group</label>
+          <span ng-if="c.data.owned">
+            <sn-record-picker field="c.users" class="reference-field" ng-change="c.appendUsers()" table="'sn_sw_expense_group'" display-field="'name'" value-field="'users'" search-fields="'name'" page-size="5" />
+          </span>
+          <span ng-if="!c.data.owned">
+            <sn-record-picker field="c.users" class="reference-field" ng-change="c.appendUsers()" table="'sn_sw_expense_group'" display-field="'name'" value-field="'users'" search-fields="'name'" page-size="5" readOnly />
+          </span>
+        </div>-->
+        <div class="field">
+          <label for="expenseUsers">Users Added</label>
+          <span ng-if="c.data.owned">
+            <textarea rows="4" cols="50" class="form-control is-invalid" id="users" ng-model="c.users"> </textarea>
+          </span>
+          <span ng-if="!c.data.owned">
+            <textarea rows="4" cols="50" class="form-control is-invalid" id="users" ng-model="c.users" readOnly> </textarea>
+          </span>
+        </div>
+        <div ng-if="!c.splitEqually">
+          <label for="individualAmounts">Enter Individual Amounts:</label>
+          <div class="card-border" ng-repeat="expenseUser in c.expenseUsersObjArray">
+            <div class="field">
+              {{expenseUser.name}}
+              <span>
+                <span ng-if="c.data.owned">
+                  <input class="form-control is-valid" type="number" min="0" ng-model="expenseUser.amount" />
+                </span>
+                <span ng-if="!c.data.owned">
+                  <input class="form-control is-valid" type="number" min="0" ng-model="expenseUser.amount" readOnly />
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="expenseDesc">Description</label>
+          <span ng-if="c.data.owned">
+            <input type="text" ng-model="c.data.expense.description" class="form-control is-invalid" id="description" />
+          </span>
+          <span ng-if="!c.data.owned">
+            <input type="text" ng-model="c.data.expense.description" class="form-control is-invalid" id="description" readOnly />
+          </span>
+        </div>
+        <div class="field">
+          <label for="expenseComments">Comments</label>
+          <input type="text" ng-model="c.data.expense.comments"class="form-control is-invalid" id="comments">
+        </div>
+
+        <h3 ng-if="c.data.owned">
+          You Own <b>${{c.data.userExpense.amount}}</b> from {{c.data.userExpense.owned_from}}
+          <div>
+            <button class="btn btn-secondary button" type="cancel" ng-click="c.navigateToDashboard()">Back To Dashboard</button>
+            <button class="btn btn-primary button" type="submit" ng-click="c.updateExpense()">Update Expense</button>
+          </div>
+        </h3>
+
+        <div ng-if="!c.data.owned">
+          <h3>
+            You Owe <b>${{c.data.userExpense.amount}}</b> to {{c.data.userExpense.owing_to}}
+          </h3>
+          <div>
+            <button class="btn btn-primary button" type="submit" ng-click="c.makePayment()">Settle The Payment</button>
+            <button class="btn btn-secondary button" type="cancel" ng-click="c.navigateToDashboard()">Back To Dashboard</button>
+          </div>
+        </div>
+      </div>
+      <div>
+      </div>
+    </form>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

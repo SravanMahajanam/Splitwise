@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($window) {
+  /* widget controller */
+  var c = this;
+	
+	c.createExpense = function() {
+		$window.location.href = "?id=create_expense";
+	}
+	
+	c.createGroup = function() {
+		$window.location.href = "?id=create_group";
+	}
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>button {
+  margin: 10px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>create_expense_group_buttons</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Create Expense &amp; Group Buttons</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-03 05:23:19</sys_created_on>
+        <sys_id>e9eba17853102010d6cdddeeff7b12fd</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Create Expense &amp; Group Buttons</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sp_widget_e9eba17853102010d6cdddeeff7b12fd</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-03 10:35:39</sys_updated_on>
+        <template><![CDATA[<div>
+  <button type="button" ng-click="c.createExpense()" class="btn btn-primary" >Create Expense</button>
+</div>
+<div>
+  <button type="button" ng-click="c.createGroup()" class="btn btn-primary" >Create Expense Group</button>
+</div>]]></template>
+    </sp_widget>
+</record_update>

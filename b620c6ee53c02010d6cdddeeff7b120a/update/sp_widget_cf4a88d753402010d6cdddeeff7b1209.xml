@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($window) {
+  /* widget controller */
+  var c = this;
+	
+	c.options.maximum_entries = 5;
+	c.ownedExpenses = c.data.ownedExpenses;
+	c.data.count = c.data.ownedExpenses.length;
+
+	c.currentPageItems = c.data.ownedExpenses.slice(0, c.options.maximum_entries)
+	c.currentPage = 1;
+	c.numPages = Math.ceil(c.data.ownedExpenses.length / c.options.maximum_entries);
+	c.start = 0;
+	c.end = this.start + c.options.maximum_entries < c.data.ownedExpenses.length ? this.start + c.options.maximum_entries : c.data.ownedExpenses.length - 1;
+	
+	c.setCurrentPage = function(pageNum) {
+		if (pageNum < 1 || pageNum > this.numPages) return;
+		this.start = (pageNum - 1) * c.options.maximum_entries;
+		this.end = this.start + 5 < c.data.ownedExpenses.length - 1 ? this.start + c.options.maximum_entries : c.data.ownedExpenses.length;
+		this.currentPageItems = c.data.ownedExpenses.slice(this.start, this.end);
+		this.currentPage = pageNum;
+	};
+	
+	c.showExpense = function(index) {
+		var expenseId = c.data.ownedExpenses[index].expense_id;
+		$window.location.href = "?id=expense&expenseId=" + expenseId;
+	}
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.heading-success {
+  padding: 0.5;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #0a5d0c;
+  border-color: #0a5d0c;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.card-border {
+  position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.expense-summary {
+  color: #000000;
+}
+
+#prev-tab-nav &gt; ul {
+  margin:0;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>expenses_owned</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Expenses Owned</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	data.ownedExpenses = [];
+	// create glide record for user expense table
+	var userExpenseGR = new GlideRecord('sn_sw_user_expense');
+	// pass the filter to get expenses I owe
+	userExpenseGR.addEncodedQuery('owing_toDYNAMIC90d1921e5f510100a9ad2572f2b477fe^status=pending');
+	userExpenseGR.query();
+	while (userExpenseGR.next()) {
+		var userExpenseObj = {};
+		$sp.getRecordDisplayValues(userExpenseObj, userExpenseGR, 'expense_id,owing_to,amount,owned_from');
+		data.ownedExpenses.push(userExpenseObj);
+	}
+
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-29 06:26:00</sys_created_on>
+        <sys_id>cf4a88d753402010d6cdddeeff7b1209</sys_id>
+        <sys_mod_count>89</sys_mod_count>
+        <sys_name>Expenses Owned</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sp_widget_cf4a88d753402010d6cdddeeff7b1209</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-04 17:06:03</sys_updated_on>
+        <template><![CDATA[
+<div>
+  <h2 class="heading-success">
+    <span class="fa fa-angle-double-down" aria-hidden="true" name="angle-double-down"></span>
+    EXPENSES YOU OWN
+  </h2> 
+  <a class="card-border" ng-click="c.showExpense($index)" ng-repeat="ownedExpense in c.currentPageItems | filter: noteFilter">
+    <div>{{ownedExpense.expense_id}}</div>
+    <div class="expense-summary">
+      <p>You Own ${{ownedExpense.amount}} from {{ownedExpense.owned_from}}</p>
+    </div>
+  </a>
+
+  <div class="panel-footer" ng-if="c.options.maximum_entries && c.data.count > c.options.maximum_entries">
+    <div class="h4 number-show-label panel-title" style="line-height: 20px">
+      Showing items {{c.start + 1}} - {{c.end}} of {{c.data.count}}
+    </div>
+    <nav id="prev-tab-nav" class="pull-right" aria-label="Previous requests and tasks page navigation">
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous" ng-disabled="c.currentPage == 1" ng-click="c.setCurrentPage(c.currentPage -1)">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="Next" id="prev-tab-next" ng-disabled="c.currentPage == c.numPages" ng-click="c.setCurrentPage(c.currentPage + 1)">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="clearfix"></div>
+  </div>
+
+
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

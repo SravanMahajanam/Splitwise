@@ -3,16 +3,18 @@
         <active>true</active>
         <applies_extended>false</applies_extended>
         <condition/>
-        <description>On loading the Expense Group form, populate Created By with current user</description>
+        <description>On new record creation, populate Created By with current user</description>
         <field>sys_created_on</field>
         <global>true</global>
         <isolate_script>true</isolate_script>
-        <messages>Auto populated Created By </messages>
+        <messages>Auto populated Created By while creating the group</messages>
         <name>Populate Expense Group Created By</name>
         <order/>
         <script><![CDATA[function onLoad() {
 	// populate created by with current user
-	g_form.setValue('created_by', g_user.userID);
+	if (isNewRecord()) {
+		g_form.setValue('created_by', g_user.userID);
+	}
 }]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -20,7 +22,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>80e2c4fa53002010d6cdddeeff7b1262</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Populate Expense Group Created By</sys_name>
         <sys_overrides/>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
@@ -28,7 +30,7 @@
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name>sys_script_client_80e2c4fa53002010d6cdddeeff7b1262</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-27 17:28:38</sys_updated_on>
+        <sys_updated_on>2020-11-02 11:45:57</sys_updated_on>
         <table>sn_sw_expense_group</table>
         <type>onLoad</type>
         <ui_type>10</ui_type>

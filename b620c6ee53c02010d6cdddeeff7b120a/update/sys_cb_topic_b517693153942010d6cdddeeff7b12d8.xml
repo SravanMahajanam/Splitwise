@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <auto_resolution_enabled>false</auto_resolution_enabled>
+        <category>7e41a5fd53902010d6cdddeeff7b121e</category>
+        <channels/>
+        <connect_queue/>
+        <description>Topic allows users to view the details of an expense.</description>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <graph>{
+  "graph_api_version": "1.0.28",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "ea2efe5055be465ca2ebe37a25920abc": {
+          "id": "ea2efe5055be465ca2ebe37a25920abc",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": "Hello, I can help you to view the details of an expense.",
+            "mode": "simple"
+          }
+        },
+        "1e6f618635a247e1ba4ed374c8a4e9da": {
+          "id": "1e6f618635a247e1ba4ed374c8a4e9da",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "value": "Thank you! Good Bye!",
+            "mode": "simple"
+          }
+        },
+        "3c10a850f81a49af8b70e5196535b791": {
+          "id": "3c10a850f81a49af8b70e5196535b791",
+          "stepType": "Prompt",
+          "name": "Expense Number",
+          "prompt": {
+            "value": "Please provide the expense number to view its details.",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "Here you go!",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "30d3a57245ee43588b831097d03b0aad",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          }
+        },
+        "5373efe33f8443079b449d03710f1a4c": {
+          "id": "5373efe33f8443079b449d03710f1a4c",
+          "stepType": "TextOutput",
+          "name": "Display Expense Number",
+          "secure": false,
+          "value": {
+            "value": "The expense number entered is {{vaInputs.expense_number}}\n",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "56d03bfee53144e9afbc8fd30b2107ee": {
+          "id": "56d03bfee53144e9afbc8fd30b2107ee",
+          "stepType": "Prompt",
+          "name": "Confirm Expense Number",
+          "prompt": {
+            "value": "Please confirm the expense number",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "0d10ec0f49814870a8d154d0fc959aeb"
+        },
+        "b89a0dae76fb4ca582b5b58578c9bf91": {
+          "id": "b89a0dae76fb4ca582b5b58578c9bf91",
+          "stepType": "RecordOutput",
+          "name": "Expense Details",
+          "variableId": "",
+          "cardTemplate": "General",
+          "cardFields": {},
+          "mode": "script",
+          "tableName": "sn_sw_expense",
+          "fields": [
+            "expense_date",
+            "description",
+            "total"
+          ],
+          "cardDefinition": {
+            "name": "General card",
+            "value": "General"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "number={{vaInputs.expense_number}}"
+          }
+        },
+        "13ddda6e9e4d45c882efd857fb20a25d": {
+          "id": "13ddda6e9e4d45c882efd857fb20a25d",
+          "stepType": "Decision",
+          "name": "Expense Number correct"
+        },
+        "982c89aed9d2426294e54767c7a74335": {
+          "id": "982c89aed9d2426294e54767c7a74335",
+          "stepType": "TextOutput",
+          "name": "Fetch Details",
+          "secure": false,
+          "value": {
+            "value": "Alright! Fetching the expense details.",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "8443f3bb639c408990a92633c4ee0bac": {
+          "id": "8443f3bb639c408990a92633c4ee0bac",
+          "stepType": "TextOutput",
+          "name": "Point Back to Expense Number Input",
+          "secure": false,
+          "value": {
+            "value": "Aww!",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "816776e59d1148ff9524fcfb5406b6c5": {
+          "id": "816776e59d1148ff9524fcfb5406b6c5",
+          "stepType": "Decision",
+          "name": "Another expense details"
+        },
+        "5c953f81951444658a43220997b06498": {
+          "id": "5c953f81951444658a43220997b06498",
+          "stepType": "Prompt",
+          "name": "Need other expense",
+          "prompt": {
+            "value": "Do you want to look at details of any other expense?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "18b891aeaa28409aacf57dc9035450db"
+        }
+      },
+      "edges": [
+        {
+          "id": "ba3f8b8c38134fa19b28e371ea39b1c2",
+          "edgeType": "Edge",
+          "source": "ea2efe5055be465ca2ebe37a25920abc",
+          "target": "3c10a850f81a49af8b70e5196535b791",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "8c3e13a090de45399bcfe5dfaf2eb440",
+          "edgeType": "Edge",
+          "source": "3c10a850f81a49af8b70e5196535b791",
+          "target": "5373efe33f8443079b449d03710f1a4c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "80f6c32d5643429fbbb5c2d6ef42eb3d",
+          "edgeType": "Edge",
+          "source": "5373efe33f8443079b449d03710f1a4c",
+          "target": "56d03bfee53144e9afbc8fd30b2107ee",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a8515381eff04c938768d3b298ebba5b",
+          "edgeType": "Edge",
+          "source": "56d03bfee53144e9afbc8fd30b2107ee",
+          "target": "13ddda6e9e4d45c882efd857fb20a25d",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "1587c1318dbe497c9a0d9dd2223992bb",
+          "edgeType": "Branch",
+          "source": "13ddda6e9e4d45c882efd857fb20a25d",
+          "target": "982c89aed9d2426294e54767c7a74335",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.confirm_expense_number=true",
+            "mode": "query"
+          },
+          "label": "True"
+        },
+        {
+          "id": "dc4b91945f054d49b01c09abec56f352",
+          "edgeType": "Edge",
+          "source": "982c89aed9d2426294e54767c7a74335",
+          "target": "b89a0dae76fb4ca582b5b58578c9bf91",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "0616fb1390c847e49913819d92056929",
+          "edgeType": "Branch",
+          "source": "13ddda6e9e4d45c882efd857fb20a25d",
+          "target": "8443f3bb639c408990a92633c4ee0bac",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.confirm_expense_number!=true",
+            "mode": "query"
+          },
+          "label": "False"
+        },
+        {
+          "id": "eac31e4f902642efb2e6711c988e01c3",
+          "edgeType": "Edge",
+          "source": "8443f3bb639c408990a92633c4ee0bac",
+          "target": "3c10a850f81a49af8b70e5196535b791",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "5ce60fef3f8a46ab979ac75380f8c01b",
+          "edgeType": "Branch",
+          "source": "816776e59d1148ff9524fcfb5406b6c5",
+          "target": "1e6f618635a247e1ba4ed374c8a4e9da",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.need_other_expense=",
+            "mode": "query"
+          },
+          "label": "False"
+        },
+        {
+          "id": "ca330bc26beb4e6290f51d6706fb0ddf",
+          "edgeType": "Branch",
+          "source": "816776e59d1148ff9524fcfb5406b6c5",
+          "target": "3c10a850f81a49af8b70e5196535b791",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.need_other_expense=true",
+            "mode": "query"
+          },
+          "label": "True"
+        },
+        {
+          "id": "19ad9018def64c519447584841453148",
+          "edgeType": "Edge",
+          "source": "b89a0dae76fb4ca582b5b58578c9bf91",
+          "target": "5c953f81951444658a43220997b06498",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "af67ece019b341da90330792595c569c",
+          "edgeType": "Edge",
+          "source": "5c953f81951444658a43220997b06498",
+          "target": "816776e59d1148ff9524fcfb5406b6c5",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "fe0ef4660fe34fa69319779cd7be8ff4": {
+      "id": "fe0ef4660fe34fa69319779cd7be8ff4",
+      "name": "LiveAgent_application",
+      "value": {
+        "mode": "simple",
+        "value": ""
+      },
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "30d3a57245ee43588b831097d03b0aad": {
+      "id": "30d3a57245ee43588b831097d03b0aad",
+      "name": "expense_number",
+      "label": "Expense Number",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs"
+    },
+    "0d10ec0f49814870a8d154d0fc959aeb": {
+      "id": "0d10ec0f49814870a8d154d0fc959aeb",
+      "name": "confirm_expense_number",
+      "label": "Confirm Expense Number",
+      "varType": "boolean",
+      "secure": false,
+      "category": "vaInputs"
+    },
+    "18b891aeaa28409aacf57dc9035450db": {
+      "id": "18b891aeaa28409aacf57dc9035450db",
+      "name": "need_other_expense",
+      "label": "Need Other Expense",
+      "varType": "boolean",
+      "secure": false,
+      "category": "vaInputs"
+    }
+  }
+}</graph>
+        <key_phrases>Expense details,details,exp,showexpense,show</key_phrases>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <name>Open Expense</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <roles>sn_sw.expense_user</roles>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-06 07:36:14</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>b517693153942010d6cdddeeff7b12d8</sys_id>
+        <sys_mod_count>21</sys_mod_count>
+        <sys_name>Open Expense</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sys_cb_topic_b517693153942010d6cdddeeff7b12d8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-06 08:51:42</sys_updated_on>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>STANDARD</type>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="delete_multiple" query="document_key=b517693153942010d6cdddeeff7b12d8"/>
+</record_update>

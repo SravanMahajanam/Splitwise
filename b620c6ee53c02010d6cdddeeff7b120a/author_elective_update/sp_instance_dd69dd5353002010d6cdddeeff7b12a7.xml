@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">9e59dd5353002010d6cdddeeff7b12a0</sp_column>
+        <sp_widget display_value="Expense Details">0a4a0d1b53802010d6cdddeeff7b1292</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-29 12:11:36</sys_created_on>
+        <sys_id>dd69dd5353002010d6cdddeeff7b12a7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sp_instance_dd69dd5353002010d6cdddeeff7b12a7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-29 12:11:36</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=dd69dd5353002010d6cdddeeff7b12a7"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</application>
+        <file_path/>
+        <instance_id>d9a44cf853002010d6cdddeeff7b1245</instance_id>
+        <instance_name>unregistered</instance_name>
+        <name>sp_instance_dd69dd5353002010d6cdddeeff7b12a7</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance"><sp_instance action="INSERT_OR_UPDATE"><active>true</active><class_name/><color>default</color><css/><glyph/><id/><order>1</order><roles/><short_description/><size>md</size><sp_column display_value="1">9e59dd5353002010d6cdddeeff7b12a0</sp_column><sp_widget display_value="Expense Details">0a4a0d1b53802010d6cdddeeff7b1292</sp_widget><sys_class_name>sp_instance</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-10-29 12:11:36</sys_created_on><sys_id>dd69dd5353002010d6cdddeeff7b12a7</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package><sys_policy/><sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope><sys_update_name>sp_instance_dd69dd5353002010d6cdddeeff7b12a7</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-10-29 12:11:36</sys_updated_on><title/><url/><widget_parameters/></sp_instance><sys_translated_text action="delete_multiple" query="documentkey=dd69dd5353002010d6cdddeeff7b12a7"/></record_update>]]></payload>
+        <payload_hash>-900570829</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>173308cf53c02010d6cdddeeff7b1236</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-29 12:11:36</sys_created_on>
+        <sys_id>1d69dd5353002010d6cdddeeff7b12aa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17574453d7e0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-29 12:11:36</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>5569dd53d2002010090d115e2d4f60aa</update_guid>
+        <update_guid_history>5569dd53d2002010090d115e2d4f60aa:-900570829</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">4641ed5753002010d6cdddeeff7b1210</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-29 12:46:04</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>5521e8c420494082b2c0047d6b68d429</sys_id>
+        <sys_metadata>dd69dd5353002010d6cdddeeff7b12a7</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_scope_delete display_value="">14ba2b6fc2364b8e856e73f871be29d9</sys_scope_delete>
+        <sys_update_name>sp_instance_dd69dd5353002010d6cdddeeff7b12a7</sys_update_name>
+        <sys_update_version display_value="sp_instance_dd69dd5353002010d6cdddeeff7b12a7">1d69dd5353002010d6cdddeeff7b12aa</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-29 12:46:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

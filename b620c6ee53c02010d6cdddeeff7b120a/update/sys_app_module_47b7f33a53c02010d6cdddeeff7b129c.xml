@@ -4,8 +4,7 @@
         <application display_value="User Administration">555a3314c0a801660132e91044d5081a</application>
         <assessment/>
         <device_type/>
-        <filter table="sn_sw_user_expense">user_id=javascript: gs.getUserID()^EQ<item endquery="false" field="user_id" goto="false" newquery="false" operator="=" or="false" value="javascript: gs.getUserID()"/>
-            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        <filter table="sn_sw_user_expense">user_id=javascript: gs.getUserID()^EQ<item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </filter>
         <hint/>
         <homepage/>

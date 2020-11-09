@@ -29,37 +29,59 @@
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
-	gs.info('creating user expense for the expense: ' + current.number);
 	var expenseId = current.sys_id;
 	// create an empty record for User Expense table
 	var userExpenseRec = new GlideRecord('sn_sw_user_expense');
-	
+
+	var currentUserName = '';
+	var currentUserId = '';
+	var currentUser = new GlideRecord('sys_user');
+	currentUser.addQuery('sys_id', current.owner);
+	currentUser.query();
+	if (currentUser.next()) {
+		currentUserName = currentUser.first_name + ' ' + currentUser.last_name;
+		currentUserId = currentUser.getUniqueValue();
+	}
+
 	// if splitting is to be done equally
 	if (current.split_equally) {
 		var expenseUsers = current.users.toString().split(',');
 		var usersCount = expenseUsers.length;
-		if (expenseUsers.indexOf(current.owner) == -1) {
+
+		// current user will be part of the expense by default
+		if (expenseUsers.indexOf(currentUserName) == -1) {
 			usersCount++;
 		}
 		var amount = current.total / usersCount;
 		var expenseUser;
 		// loop over the list of users from current.users and set:
-		// the Owning to (owner) & Owing Amount
+		// the owning to (owner), owning from & owing amount
 		for (var i = 0; i< expenseUsers.length; ++i) {
 			expenseUser = expenseUsers[i];
+			
 			// no record created if expenseUser is same as current.owner
-			if (expenseUser == current.owner) {
+			if (expenseUser == currentUserId || expenseUser == currentUserName) {
 				continue;
 			}
 
+			// if user id is not available, fetch it from the table using the first and last names
+			if (expenseUser.indexOf(' ') > -1) {
+				var userGR = new GlideRecord('sys_user');
+				userGR.addQuery('first_name', expenseUser.substring(0, expenseUser.indexOf(' ') + 1));
+				userGR.addQuery('last_name', expenseUser.substring(expenseUser.indexOf(' ') + 1));
+				userGR.query();
+				if (userGR.next()) {
+					expenseUser = userGR.getUniqueValue();
+				}
+			}
+
 			userExpenseRec.newRecord();
-			// set the user id from expenseUser
-			userExpenseRec.setValue('user_id', expenseUser);
 			// set expense id from current.expenseId
 			userExpenseRec.setValue('expense_id', expenseId);
 			userExpenseRec.setValue('owing_to', current.owner);
-			userExpenseRec.setValue('owing_amount', amount);
-			userExpenseRec.setValue('status', 'OWING');
+			userExpenseRec.setValue('amount', amount);
+			userExpenseRec.setValue('owned_from', expenseUser);
+			userExpenseRec.setValue('status', 'PENDING');
 
 			//Insert the new User Expense record into the table
 			userExpenseRec.insert();
@@ -67,25 +89,25 @@
 
 		// loop over the list of users from current.users and set
 		// the Owned From (from list of users) & Owned Amount
-		for (i = 0; i< expenseUsers.length; ++i) {
-			expenseUser = expenseUsers[i];
-			// no record created if expenseUser is same as current.owner
-			if (expenseUser == current.owner) {
-				continue;
-			}
+		//for (i = 0; i< expenseUsers.length; ++i) {
+		//expenseUser = expenseUsers[i];
+		// no record created if expenseUser is same as current.owner
+		//if (expenseUser == current.owner) {
+		//	continue;
+		//}
 
-			userExpenseRec.newRecord();
-			// set the user id from expenseUser
-			userExpenseRec.setValue('user_id', current.owner);
-			// set expense id from current.expenseId
-			userExpenseRec.setValue('expense_id', expenseId);
-			userExpenseRec.setValue('owned_from', expenseUser);
-			userExpenseRec.setValue('owned_amount', amount);
-			userExpenseRec.setValue('status', 'OWNED');		
+		//userExpenseRec.newRecord();
+		// set the user id from expenseUser
+		//userExpenseRec.setValue('user_id', current.owner);
+		// set expense id from current.expenseId
+		//userExpenseRec.setValue('expense_id', expenseId);
+		//userExpenseRec.setValue('owned_from', expenseUser);
+		//userExpenseRec.setValue('owned_amount', amount);
+		//userExpenseRec.setValue('status', 'OWNED');		
 
-			//Insert the new User Expense record into the table
-			userExpenseRec.insert();
-		}
+		//Insert the new User Expense record into the table
+		//userExpenseRec.insert();
+		//}
 	} else {
 		// iterate using split details
 		// Iterate over each property and print name and value
@@ -94,33 +116,37 @@
 			user.addQuery('name', userName);
 			user.query();
 			if (user.next()) {
+				// no record created if expenseUser is same as current.owner
+				// no record created if expenseUser is same as current.owner
+				expenseUser = user.first_name + ' ' + user.last_name;
+				if (expenseUser == currentUserId || expenseUser == currentUserName) {
+					continue;
+				}
 				userExpenseRec.newRecord();
 				// set the user id from user
-				userExpenseRec.setValue('user_id', user.sys_id);
+				//userExpenseRec.setValue('user_id', user.sys_id);
 				// set expense id from current.expenseId
 				userExpenseRec.setValue('expense_id', expenseId);
 				userExpenseRec.setValue('owing_to', current.owner);
-				userExpenseRec.setValue('owing_amount', current.user_amount[userName]);
-				userExpenseRec.setValue('status', 'OWING');
-
-				//Insert the new User Expense record into the table
-				userExpenseRec.insert();
-
-				userExpenseRec.newRecord();
-				// set the user id from user
-				userExpenseRec.setValue('user_id', current.owner);
-				// set expense id from current.expenseId
-				userExpenseRec.setValue('expense_id', expenseId);
+				userExpenseRec.setValue('amount', current.user_amount[userName]);
 				userExpenseRec.setValue('owned_from', user.sys_id);
-				userExpenseRec.setValue('owned_amount', current.user_amount[userName]);
-				userExpenseRec.setValue('status', 'OWNED');
+				userExpenseRec.setValue('status', 'PENDING');
 
 				//Insert the new User Expense record into the table
 				userExpenseRec.insert();
+
+				//userExpenseRec.newRecord();
+				// set the user id from user
+				//userExpenseRec.setValue('user_id', current.owner);
+				// set expense id from current.expenseId
+				//userExpenseRec.setValue('expense_id', expenseId);
+				//userExpenseRec.setValue('owned_from', user.sys_id);
+				//userExpenseRec.setValue('owned_amount', current.user_amount[userName]);
+				//userExpenseRec.setValue('status', 'OWNED');
+
+				//Insert the new User Expense record into the table
+				//userExpenseRec.insert();
 			}
-
-
-
 		}
 	}
 
@@ -133,7 +159,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2684baea53442010d6cdddeeff7b12c6</sys_id>
-        <sys_mod_count>39</sys_mod_count>
+        <sys_mod_count>76</sys_mod_count>
         <sys_name>Create User Expense</sys_name>
         <sys_overrides/>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
@@ -141,7 +167,7 @@
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name>sys_script_2684baea53442010d6cdddeeff7b12c6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-28 09:44:51</sys_updated_on>
+        <sys_updated_on>2020-11-02 10:36:21</sys_updated_on>
         <template/>
         <when>async</when>
     </sys_script>

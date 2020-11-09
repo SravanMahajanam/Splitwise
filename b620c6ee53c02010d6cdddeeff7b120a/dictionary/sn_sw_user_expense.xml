@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element label="User Expense" max_length="40" name="sn_sw_user_expense" sizeclass="88" type="collection">
+    <element label="User Expense" max_length="40" name="sn_sw_user_expense" sizeclass="27" type="collection">
+        <element label="Amount" mandatory="true" max_length="20" name="amount" type="decimal"/>
         <element display="true" label="Expense Id" mandatory="true" max_length="32" name="expense_id" reference="sn_sw_expense" type="reference"/>
-        <element label="Owing Amount" max_length="40" name="owing_amount" type="integer"/>
         <element label="Owing To" max_length="32" name="owing_to" reference="sys_user" type="reference"/>
-        <element label="Owned Amount" max_length="40" name="owned_amount" type="integer"/>
         <element label="Owned From" max_length="32" name="owned_from" reference="sys_user" type="reference"/>
-        <element choice="3" default="paid" label="Status" mandatory="true" max_length="20" name="status" type="string">
+        <element choice="3" default="pending" label="Status" mandatory="true" max_length="20" name="status" type="string">
             <choice>
-                <element inactive_on_update="false" label="PAID" sequence="0" value="paid"/>
-                <element inactive_on_update="false" label="RECEIVED" sequence="1" value="received"/>
-                <element inactive_on_update="false" label="OWEING" sequence="2" value="oweing"/>
-                <element inactive_on_update="false" label="OWNED" sequence="3" value="owned"/>
+                <element inactive="true" inactive_on_update="true" label="PAID" sequence="0" value="paid"/>
+                <element inactive_on_update="false" label="PENDING" sequence="0" value="pending"/>
+                <element inactive="true" inactive_on_update="true" label="RECEIVED" sequence="1" value="received"/>
+                <element inactive_on_update="false" label="SETTLED" sequence="1" value="settled"/>
+                <element inactive="true" inactive_on_update="true" label="OWEING" sequence="2" value="oweing"/>
+                <element inactive="true" inactive_on_update="true" label="OWNED" sequence="3" value="owned"/>
             </choice>
         </element>
-        <element label="User Id" mandatory="true" max_length="32" name="user_id" reference="sys_user" type="reference"/>
         <index name="index">
             <element name="owing_to"/>
         </index>
         <index name="index2">
-            <element name="user_id"/>
-        </index>
-        <index name="index3">
             <element name="owned_from"/>
         </index>
-        <index name="index4">
+        <index name="index3">
             <element name="expense_id"/>
         </index>
     </element>

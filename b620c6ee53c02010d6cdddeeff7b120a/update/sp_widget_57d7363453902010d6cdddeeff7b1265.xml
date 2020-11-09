@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($window) {
+  /* widget controller */
+  var c = this;
+	
+	c.createExpense = function() {
+		$window.location.href = "?id=create_expense";
+	}
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>div {
+  margin-top: 20px;
+}
+
+button {
+  margin: 10px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>create_expense_button</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Create Expense BUtton</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-03 10:55:13</sys_created_on>
+        <sys_id>57d7363453902010d6cdddeeff7b1265</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>Create Expense BUtton</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sp_widget_57d7363453902010d6cdddeeff7b1265</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-03 11:39:23</sys_updated_on>
+        <template><![CDATA[<div>
+  	<p>
+    Share the cost of a particular bill in a easier way!
+    </p>
+    
+  <p>
+    Rather than have an awkward conversation about money that is owed, notify your friends using this application. 
+    This ensures that anyone who pays is reimbursed the correct amount and with a minimal number of steps & the transaction history for future reference.
+  </p>
+  <button type="button" ng-click="c.createExpense()" class="btn btn-primary" >Create Expense</button>
+</div>]]></template>
+    </sp_widget>
+</record_update>

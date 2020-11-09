@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($window) {
+  /* widget controller */
+  var c = this;
+	//c.groups = c.data.groups;
+	
+	c.options.maximum_entries = 5;
+	c.data.count = c.data.groups.length;
+	c.currentPageItems = c.data.groups.slice(0, c.options.maximum_entries)
+	c.currentPage = 1;
+	c.numPages = Math.ceil(c.data.groups.length / c.options.maximum_entries);
+	c.start = 0;
+	c.end = this.start + c.options.maximum_entries < c.data.groups.length ? this.start + c.options.maximum_entries : c.data.groups.length - 1;
+
+	c.setCurrentPage = function(pageNum) {
+		if (pageNum < 1 || pageNum > this.numPages) return;
+		c.start = (pageNum - 1) * c.options.maximum_entries;
+		c.end = this.start + 5 < c.data.groups.length - 1 ? this.start + c.options.maximum_entries : c.data.groups.length;
+		c.currentPageItems = c.data.groups.slice(this.start, this.end);
+		c.currentPage = pageNum;
+	};
+	
+	
+	c.showGroup = function(index) {
+		var groupId = c.data.groups[c.start + index].number;
+		$window.location.href = "?id=group&groupId=" + groupId;
+	}
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.heading-list {
+  padding: 0.5;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #040404;
+  border-color: #040404;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.card-border {
+  border-width: 1px 0;
+  border-radius: 0;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.group-summary {
+  color: #000000;
+}
+
+#prev-tab-nav &gt; ul {
+  margin:0;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>groups</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Groups</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+	data.groups = [];
+  // create glide record for user expense table
+	var groups = new GlideRecord('sn_sw_expense_group');
+	// pass the filter to get expenses I owe
+	groups.addEncodedQuery('usersLIKEjavascript: gs.getUserID()');
+	groups.query();
+	while (groups.next()) {
+		var group = {};
+		$sp.getRecordDisplayValues(group, groups, 'number, name, description');
+		data.groups.push(group);
+	}
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-03 15:27:08</sys_created_on>
+        <sys_id>22163b7453d02010d6cdddeeff7b1251</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Groups</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sp_widget_22163b7453d02010d6cdddeeff7b1251</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-04 18:15:19</sys_updated_on>
+        <template><![CDATA[<div>
+  <h2 class="heading-list">
+    <span class="fa fa-users" aria-hidden="true" ></span>
+    INVOLVED GROUPS
+  </h2> 
+ 	<a class="card-border" ng-click="c.showGroup($index)" ng-repeat="group in c.currentPageItems | filter: noteFilter">
+  <div>{{group.name}}</div>
+  <div class="group-summary">
+    <p>{{group.description}}</p>
+  </div>
+</a>
+  
+  <div class="panel-footer" ng-if="c.options.maximum_entries && c.data.count > c.options.maximum_entries">
+    <div class="h4 number-show-label panel-title" style="line-height: 20px">
+      Showing items {{c.start + 1}} - {{c.end}} of {{c.data.count}}
+    </div>
+    <nav id="prev-tab-nav" class="pull-right" aria-label="Previous requests and tasks page navigation">
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous" ng-disabled="c.currentPage == 1" ng-click="c.setCurrentPage(c.currentPage -1)">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="Next" id="prev-tab-next" ng-disabled="c.currentPage == c.numPages" ng-click="c.setCurrentPage(c.currentPage + 1)">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="clearfix"></div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

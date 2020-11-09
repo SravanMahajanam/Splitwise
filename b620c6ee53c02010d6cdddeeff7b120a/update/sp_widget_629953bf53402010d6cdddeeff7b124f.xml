@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope, $window) {
+	/* widget controller */
+	var c = this;
+	c.expenseDate = '';
+	c.expenseUsers = [];
+	c.splitEqually = true;
+	c.expenseUsersObjArray = [];
+
+	c.appendUsers = function() {
+		var users = c.users.value.split(", ");
+		c.expenseUsers = users;
+		for (user in users) {
+			c.expenseUsersObjArray.push({
+				'name': users[user],
+				amount: 0.0
+			})
+		}
+	}
+
+	c.createExpense = function() {
+		var user_amount = {};
+		var createPayload = {};
+		if (!c.splitEqually) {
+			for (index in c.expenseUsersObjArray) {
+				user_amount[c.expenseUsersObjArray[index]['name']] = c.expenseUsersObjArray[index]['amount'] + "";
+			}
+			createPayload = {
+				action: 'createExpense',
+				title: c.expenseTitle,
+				date: c.expenseDate,
+				total: c.expenseTotal,
+				splitEqually: c.splitEqually,
+				user_amount: user_amount,
+				users: c.expenseUsers,
+				desc: c.expenseDesc,
+				comments: c.expenseComments
+			};
+		} else {
+			createPayload = {
+				action: 'createExpense',
+				title: c.expenseTitle,
+				date: c.expenseDate,
+				total: c.expenseTotal,
+				splitEqually: c.splitEqually,
+				users: c.expenseUsers,
+				desc: c.expenseDesc,
+				comments: c.expenseComments
+			};
+		}
+		c.server.get(createPayload).then(function(r) {
+			if (r.data.expenseCreated) {
+				alert('Expense Created!');
+				$window.location.href = "?id=splitwise_home_page";
+			} else {
+				alert('Expense Not Created, ensure total amount matches the sum of indiviual amount');
+			}
+		});
+	}
+
+	c.clearDetails = function() {
+		var g_form = $scope.page.g_form;
+		g_form.setValue('expenseTitle', '');
+		g_form.clearValue('expenseDate');
+		g_form.clearValue('expenseTotal');
+		g_form.clearValue('expenseGroup');
+		g_form.clearValue('usersAdded');
+		g_form.clearValue('description');
+		g_form.clearValue('comments');
+
+	}
+
+	c.navigateToDashboard = function() {
+		$window.location.href = "?id=splitwise_home_page";
+	}
+	
+	c.removeUser = function() {
+		var usersList = document.getElementById('usersList');
+		c.expenseUsers.splice(usersList.selectedIndex, 1);
+		if (c.expenseUsers.length == 0) {
+			c.users = '';		
+		}
+	}
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.field {
+  padding: 1rem;
+}
+
+.button {
+  padding: 0.5rem;
+  margin: 2rem;
+}
+
+.form-heading {
+  color: #293e40;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+div {
+  margin-top: 10px;
+}
+
+.reference-field {
+  margin-top: -5px;
+}
+
+.check-box {
+   margin-top: 1px;
+}
+
+.list {
+  width: 180px;
+}
+
+.next {
+  float: none;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>create_expense</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Create Expense</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {	
+	data.expense = {};
+
+	if (input && input.action == 'getUsers') {
+		gs.info('getting user details');
+		var users = input.users.split(',');
+		data.users = [];
+		for (var user in users) {
+			if (users[user].length > 2) {
+				gs.info('user: ' + users[user]);
+				var userRecord = new GlideRecord('sys_user');
+				userRecord.addQuery('first_name', 'CONTAINS', users[user]);
+				userRecord.query();
+
+				gs.info('count: ' + userRecord.getRowCount());
+				while (userRecord.next()) {
+					data.users.push(userRecord.first_name + ' ' + userRecord.last_name);
+				}
+				gs.info('users: '+ data.users);
+
+			}
+
+		}
+	}
+
+	if (input && input.action == "createExpense") {
+		var users = [];
+		for (user in input.users) {
+			var userGR = new GlideRecord('sys_user');
+			gs.info('first_name: ' + input.users[user].substring(0, input.users[user].indexOf(" ")));
+			gs.info('last_name: ' + input.users[user].substring(input.users[user].indexOf(" ") + 1));
+			userGR.addQuery('first_name', input.users[user].substring(0, input.users[user].indexOf(" ")));
+			userGR.addQuery('last_name', input.users[user].substring(input.users[user].indexOf(" ") + 1));
+			userGR.query();
+			gs.info('userGR count: ' + userGR.getRowCount());
+			if (userGR.next()) {
+				users.push(userGR.getUniqueValue());
+			}
+		}
+		gs.info('users: ' + users);
+		var gr = new GlideRecord("sn_sw_expense");
+		gr.initialize();
+		gr.setValue('name', input.title);
+		gr.setValue('expense_date',input.date);
+		gr.setValue('owner', gs.getUserID());
+		gr.setValue('users', users);
+		gr.setValue('description', input.desc);
+		gr.setValue('comments', input.comments);
+		gr.setValue('split_equally', input.splitEqually);
+		if (!input.splitEqually) {
+			gs.info('user_amount: ' + JSON.stringify(input.user_amount));
+			gr.setValue('user_amount', JSON.stringify(input.user_amount))
+		}
+		gr.setValue('total', input.total);
+		gr.insert();
+		var sys_id = gr.sys_id;
+
+		gr = new GlideRecord("sn_sw_expense");
+		gr.get(sys_id)
+		gr.query();
+		if (gr.next()) {
+			gs.info('created expense : ' + gr.sys_id);
+			data.expenseCreated = true;
+		} else {
+			gs.error('Expense not created!');
+			data.expenseCreated = false;
+		}
+
+
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-31 10:48:42</sys_created_on>
+        <sys_id>629953bf53402010d6cdddeeff7b124f</sys_id>
+        <sys_mod_count>285</sys_mod_count>
+        <sys_name>Create Expense</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sp_widget_629953bf53402010d6cdddeeff7b124f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-05 07:37:44</sys_updated_on>
+        <template><![CDATA[<div>
+  <h2 class="form-heading"> Provide below details to create an expense </h2>
+  <form id="create-expense">
+    <div>
+      <div class="field">
+        <label for="expenseTitle">Expense Title</label>
+        <input type="text" ng-model="c.expenseTitle" class="form-control is-valid" id="validationServer01" value="Title">
+      </div>
+      <div class="field">
+        <label for="expenseDate">Expense Date</label>
+        <sp-date-picker field = "c.expenseDate" class="reference-field" ng-model="c.expenseDate" sn-change="" sn-include-time="false"/>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="field">
+        <label for="expenseTotal">Expense Total</label>
+        <input type="number" min="0" ng-model="c.expenseTotal" class="form-control is-valid" id="expenseTotal" value="0.0">
+      </div>
+      <div class="form-group field">
+        <div class="check-box">
+          <input ng-model="c.splitEqually" type="checkbox" value="" id="splitEqually">
+          <label for="splitEqually">
+            Split Equally
+          </label>
+        </div>
+      </div>
+      <div class="field">
+        <label for="expenseUsers">Expense Group</label>
+        <sn-record-picker field="c.users" class="reference-field" ng-change="c.appendUsers()" table="'sn_sw_expense_group'" display-field="'name'" value-field="'users'" search-fields="'name'" page-size="5"></sn-record-picker>
+      </div>
+      
+      <div ng-if="c.expenseUsers.length > 0">
+        <div class="field">
+        <label for="expenseUsers">Users Added</label>
+        <!--<textarea rows="4" cols="50" class="form-control is-invalid" id="users" ng-model="c.expenseUsers"></textarea>-->
+        <span>
+          <select multiple="multiple" class="list" id="usersList" >
+          <option ng-repeat="user in c.expenseUsers">{{user}}</option>
+        	</select>
+         </span>
+        <span>
+        <button type="button" class="close next" aria-label="Close" ng-click="c.removeUser()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </span>
+      </div>
+      </div>
+      <div ng-if="!c.splitEqually">
+        <label for="individualAmounts">Enter Individual Amounts:</label>
+        <div class="card-border" ng-repeat="expenseUser in c.expenseUsersObjArray">
+          <div class="field">
+            {{expenseUser.name}}
+            <span>
+              <input class="form-control is-valid" type="number" min="0" ng-model="expenseUser.amount"/>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="expenseDesc">Description</label>
+        <input type="text" ng-model="c.expenseDesc" class="form-control is-invalid" id="description" >
+      </div>
+      <div class="field">
+        <label for="expenseComments">Comments</label>
+        <input type="text" ng-model="c.expenseComments"class="form-control is-invalid" id="comments">
+      </div>
+      <button class="btn btn-primary button" type="submit" ng-click="c.createExpense()">Create Expense</button>
+      <!--<button class="btn btn-warning button" type="cancel" ng-click="c.clearDetails()">Clear Details</button>-->
+      <button class="btn btn-secondary button" type="cancel" ng-click="c.navigateToDashboard()">Back To Dashboard</button>
+    </div>
+  </form>
+</div>]]></template>
+    </sp_widget>
+</record_update>

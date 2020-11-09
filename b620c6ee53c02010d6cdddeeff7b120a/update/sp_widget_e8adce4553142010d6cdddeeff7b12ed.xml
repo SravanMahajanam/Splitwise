@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($window) {
+	/* widget controller */
+	var c = this;
+
+	c.groupUsers = c.data.group.users.split(", ");
+
+	c.appendUsers = function() {
+		if (!c.groupUsers.includes(c.user.value)) {
+			c.groupUsers.push(c.user.value);
+		}
+
+		$('#snRecordPickerID').select2("val","");
+	}
+
+	c.updateGroup = function() {
+		c.server.get({
+			action: 'updateGroup',
+			groupSysId:c.data.group_id,
+			number: c.data.group.number,
+			name: c.data.group.name,
+			users: c.groupUsers,
+			description: c.data.group.description
+		}).then(function(r){
+			alert("Group Updated successfully");
+			$window.location.href = "?id=splitwise_home_page";
+		});
+	}
+
+	c.navigateToDashboard = function() {
+		$window.location.href = "?id=splitwise_home_page";
+	}
+
+	c.removeUser = function() {
+		var usersList = document.getElementById('usersList');
+		c.groupUsers.splice(usersList.selectedIndex, 1);
+	}
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.form-heading {
+  color: #293e40;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+div {
+  margin-top: 20px;
+}
+
+.reference-field {
+  margin-top: -5px;
+}
+
+.button {
+  padding: 0.5rem;
+  margin: 2rem;
+}
+
+.list {
+  width: 180px;
+}
+
+.next {
+  float: none;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>group_details</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Group Details</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+	if(!input) {
+		var groupId = $sp.getParameter('groupId');
+		data.group = {};
+		var group = new GlideRecord('sn_sw_expense_group');
+
+		group.addQuery('number', groupId);
+		group.query();
+		if (group.next()) {
+			// put the group record sysID in the data, this is required for later actions on the corresponding user expense record
+			//data.group_id = group.getUniqueValue();
+			$sp.getRecordDisplayValues(data.group, group, "number, name, description, users");
+					}
+			}
+
+	if (input) {
+		if (input.action == 'updateGroup') {
+			var users = [];
+			for (index in input.users) {
+				var userGR = new GlideRecord('sys_user');
+				var user = input.users[index].trim();
+				gs.info('fn: ' + user.substring(0, user.indexOf(" ")).trim());
+				gs.info('ln: ' + user.substring(user.indexOf(" ") + 1).trim());
+				userGR.addQuery('first_name', user.substring(0, user.indexOf(" ")));
+				userGR.addQuery('last_name', user.substring(user.indexOf(" ") + 1));
+				userGR.query();
+				gs.info('userGR count: ' + userGR.getRowCount());
+				if (userGR.next()) {
+					users.push(userGR.getUniqueValue());
+				}
+			}
+			var group = new GlideRecord('sn_sw_expense_group');
+			group.addQuery('number', input.number);
+		group.query();
+			gs.info('group RC: ' + group.getRowCount());
+			if (group.next()) {
+				group.setValue('name', input.name);
+				group.setValue('users', users);
+				group.setValue('description', input.description);
+				group.update();
+			}
+		}
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-04 02:29:11</sys_created_on>
+        <sys_id>e8adce4553142010d6cdddeeff7b12ed</sys_id>
+        <sys_mod_count>26</sys_mod_count>
+        <sys_name>Group Details</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sp_widget_e8adce4553142010d6cdddeeff7b12ed</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-05 08:15:14</sys_updated_on>
+        <template><![CDATA[<div class="card">
+  <h2 class="form-heading">Expense Group Details</h2>
+  <div class="card-body">
+    <form id="create-group">
+      
+        <div class="field">
+          <label for="groupName">Group Name</label>
+          <input type="text" ng-model="c.data.group.name" class="form-control is-valid" id="validationServer01" value="Title">
+        </div>
+        
+      
+      <div class="form-row">
+        <div>
+        <label for="expenseUser">Add User</label>
+        <sn-record-picker id="snRecordPickerID" class="reference-field" field="c.user" ng-change="c.appendUsers()" table="'sys_user'" display-field="'name'" value-field="'name'" search-fields="'first_name'" page-size="5"></sn-record-picker>
+      </div>
+        
+       <!-- <div class="field">
+          <label for="expenseUsers">Users Added</label>
+          <textarea rows="4" cols="50" class="form-control is-invalid" id="users" ng-model="c.groupUsers"></textarea>
+        </div> -->
+        <div ng-if="c.groupUsers.length > 0">
+        <div class="field">
+        <label for="expenseUsers">Users Added</label>
+        <!--<textarea rows="4" cols="50" class="form-control is-invalid" id="users" ng-model="c.expenseUsers"></textarea>-->
+        <span>
+          <select multiple="multiple" class="list" id="usersList" >
+          <option ng-repeat="user in c.groupUsers">{{user}}</option>
+        	</select>
+         </span>
+        <span>
+        <button type="button" class="close next" aria-label="Close" ng-click="c.removeUser()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </span>
+      </div>
+      </div>
+                <div class="field">
+          <label for="expenseDesc">Description</label>
+          <input type="text" ng-model="c.data.group.description" class="form-control is-invalid" id="description" >
+        </div>
+        
+          <div>
+            <button class="btn btn-primary button" type="submit" ng-click="c.updateGroup()">Update Group</button>
+            <button class="btn btn-secondary button" type="cancel" ng-click="c.navigateToDashboard()">Back To Dashboard</button>
+          </div>
+        </div>
+
+        
+        
+      </div>
+    </form>
+
+
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

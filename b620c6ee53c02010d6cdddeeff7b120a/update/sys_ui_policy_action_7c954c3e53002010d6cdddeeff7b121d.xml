@@ -17,7 +17,7 @@
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-10-27 16:48:35</sys_updated_on>
         <table>sn_sw_expense_group</table>
-        <ui_policy display_value="Mark Expense Group Created By Read Only">b675c83e53002010d6cdddeeff7b12dc</ui_policy>
+        <ui_policy display_value="Mark Expense Group Created By Read Only ---- the access control for this is not working">b675c83e53002010d6cdddeeff7b12dc</ui_policy>
         <visible>ignore</visible>
     </sys_ui_policy_action>
 </record_update>

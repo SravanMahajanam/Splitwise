@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
+    <sp_rel_widget_clone action="INSERT_OR_UPDATE">
+        <child display_value="Expenses">2813773453d02010d6cdddeeff7b1243</child>
+        <cloned>2020-11-03 15:13:54</cloned>
+        <last_validated>2020-11-03 15:13:54</last_validated>
+        <parent display_value="Expenses Owing">d56faf4b53002010d6cdddeeff7b1242</parent>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller=function($window) {
+  /* widget controller */
+  var c = this;
+	c.owingExpenses = c.data.owingExpenses;
+	c.showExpense = function(index) {
+		var expenseId = c.data.owingExpenses[index].expense_id;
+		var owingTo = c.data.owingExpenses[index].owing_to;
+		var ownedFrom = c.data.owingExpenses[index].owned_from;
+		var amount = c.data.owingExpenses[index].amount;
+		$window.location.href = "?id=expense&amp;expenseId=" + expenseId + "&amp;owingTo=" + owingTo + "&amp;ownedFrom=" + ownedFrom + "&amp;amount=" + amount + "&amp;owned=false";
+	}
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.heading-warning {
+  padding: 0.5;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #9E6817;
+  border-color: #9E6817;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.card-border {
+  border-width: 1px 0;
+  border-radius: 0;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.expense-summary {
+  color: #000000;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id/&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]&gt;&lt;/link&gt;&lt;name&gt;Expenses Owing&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+  /* populate the 'data' object */
+	data.owingExpenses = [];
+  // create glide record for user expense table
+	var userExpenseGR = new GlideRecord('sn_sw_user_expense');
+	// pass the filter to get expenses I owe
+	userExpenseGR.addEncodedQuery('owned_fromDYNAMIC90d1921e5f510100a9ad2572f2b477fe^status=pending');
+	userExpenseGR.query();
+	while (userExpenseGR.next()) {
+		var userExpenseObj = {};
+		$sp.getRecordDisplayValues(userExpenseObj, userExpenseGR, 'expense_id,owing_to,amount,owned_from');
+		data.owingExpenses.push(userExpenseObj);
+	}
+	
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-10-29 04:28:51&lt;/sys_created_on&gt;&lt;sys_id&gt;d56faf4b53002010d6cdddeeff7b1242&lt;/sys_id&gt;&lt;sys_mod_count&gt;102&lt;/sys_mod_count&gt;&lt;sys_name&gt;Expenses Owing&lt;/sys_name&gt;&lt;sys_package display_value="Splitwise" source="sn_sw"&gt;b620c6ee53c02010d6cdddeeff7b120a&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Splitwise"&gt;b620c6ee53c02010d6cdddeeff7b120a&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_d56faf4b53002010d6cdddeeff7b1242&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-11-03 15:06:15&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div&gt;
+  &lt;h2 class="heading-warning"&gt;
+    &lt;span class="fa fa-angle-double-up" aria-hidden="true" name="angle-double-up"&gt;&lt;/span&gt;
+    EXPENSES YOU OWE
+  &lt;/h2&gt; 
+ 	&lt;a class="card-border" ng-click="c.showExpense($index)" ng-repeat="owingExpense in data.owingExpenses | filter: noteFilter"&gt;
+  &lt;div&gt;{{owingExpense.expense_id}}&lt;/div&gt;
+  &lt;div class="expense-summary"&gt;
+    &lt;p&gt;Owing ${{owingExpense.amount}} to {{owingExpense.owing_to}}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload>
+        <sys_class_name>sp_rel_widget_clone</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-03 15:13:54</sys_created_on>
+        <sys_id>e013773453d02010d6cdddeeff7b1246</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>2813773453d02010d6cdddeeff7b1243</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sp_rel_widget_clone_e013773453d02010d6cdddeeff7b1246</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-03 15:13:54</sys_updated_on>
+    </sp_rel_widget_clone>
+</record_update>
