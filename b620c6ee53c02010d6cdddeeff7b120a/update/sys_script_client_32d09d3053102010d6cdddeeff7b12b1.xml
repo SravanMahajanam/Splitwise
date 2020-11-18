@@ -12,24 +12,23 @@
         <order/>
         <script><![CDATA[function onSubmit() {
 	// check if split equally is false
-	alert(g_form.getValue('split_equally'));
 	if (g_form.getValue('split_equally') == 'false') {
-		alert(g_form.getValue('total') + " total");
+		// get the expense total amount entered
 		var total = g_form.getValue('total');
 		if (total <= 0) {
-			alert('Total Expense Amount Should be Greaterthan 0!!');
+			g_form.addErrorMessage('Total Expense Amount Should be Greaterthan 0!!');
 			return false;
 		}
 		var individualAmountSum = 0;
-		alert('user_amount: ' + JSON.stringify(g_form.getValue('user_amount')));
 		var userAmounts = g_form.getValue('user_amount');
-		// Iterate over each property and print name and value
+		// Iterate over each property and calculate the sum of all users share
 		for(var userName in userAmounts) {
 			individualAmountSum += userAmounts[userName];
 		}
-				
+		
+		// validate if the expense total is matching with the sum of individual expenses				
 		if (total != individualAmountSum) {
-			alert('Individual Expense Amount Should Match with the Total amount !!');
+			g_form.addErrorMessage('Individual Expense Amount Should Match with the Total amount !!');
 			return false;
 		}
 	}
@@ -41,7 +40,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>32d09d3053102010d6cdddeeff7b12b1</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>Validate Total Expense with Indvidual Ex</sys_name>
         <sys_overrides/>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
@@ -49,7 +48,7 @@
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name>sys_script_client_32d09d3053102010d6cdddeeff7b12b1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-03 09:54:27</sys_updated_on>
+        <sys_updated_on>2020-11-09 06:54:53</sys_updated_on>
         <table>sn_sw_expense</table>
         <type>onSubmit</type>
         <ui_type>10</ui_type>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_hr_core_service">
+    <sn_hr_core_service action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <approval_options/>
+        <auto_close_case>false</auto_close_case>
+        <auto_close_offset>0</auto_close_offset>
+        <badge/>
+        <case_creation_service_config/>
+        <case_options/>
+        <close_when/>
+        <description/>
+        <flow/>
+        <fulfillment_instructions/>
+        <fulfillment_type>simple</fulfillment_type>
+        <hr_criteria/>
+        <name>HR Compensation Service</name>
+        <producer/>
+        <service_table>sn_hr_core_case_compensation</service_table>
+        <service_table_fields/>
+        <subject_person_access>true</subject_person_access>
+        <subject_person_related_lists/>
+        <sys_class_name>sn_hr_core_service</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-18 04:40:16</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>d2d1fa6153202010d6cdddeeff7b12d2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>HR Compensation Service</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sn_hr_core_service_d2d1fa6153202010d6cdddeeff7b12d2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-18 04:40:16</sys_updated_on>
+        <template/>
+        <topic_detail display_value="HR Compensation Topic">2ec1fa6153202010d6cdddeeff7b12c1</topic_detail>
+        <value>hr_compensation_service</value>
+        <workflow_detail/>
+    </sn_hr_core_service>
+    <sys_translated_text action="delete_multiple" query="documentkey=d2d1fa6153202010d6cdddeeff7b12d2"/>
+</record_update>

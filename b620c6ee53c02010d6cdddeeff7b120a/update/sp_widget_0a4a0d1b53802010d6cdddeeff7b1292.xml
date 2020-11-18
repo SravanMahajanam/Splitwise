@@ -23,25 +23,19 @@
 		var users = c.users.split(", ");
 		c.expenseUsers = users;
 		var found = false;
-			
 		for (user in users) {
-
 			for(var i = 0; i < c.expenseUsersObjArray.length; i++) {
 				if (c.expenseUsersObjArray[i].name == users[user]) {
 					found = true;
 				}
 			}
-			
-			//found = c.expenseUsersObjArray.find(expUser => expUser.name == users[user] );
-			
 			if (!found) {c.expenseUsersObjArray.push({
 				'name': users[user],
 				amount: 0.0
 			});
-									}
-
 		}
 	}
+}
 	c.makePayment = function() {
 		c.server.get({
 			action: 'updateStatus',
@@ -83,7 +77,7 @@
 
 		})
 	}
-	
+
 	c.removeUser = function() {
 		var usersList = document.getElementById('usersList');
 		c.users.splice(usersList.selectedIndex, 1);
@@ -91,7 +85,6 @@
 			c.users = '';		
 		}
 	}
-
 };]]></client_script>
         <controller_as>c</controller_as>
         <css>.exp-id {
@@ -161,7 +154,6 @@ div {
 		if (expense.next()) {
 			// put the expense record sysID in the data, this is required for later actions on the corresponding user expense record
 			data.expense_id = expense.getUniqueValue();
-			//data.owned = owned == "true";
 			$sp.getRecordDisplayValues(data.expense, expense, "number, name, owner, expense_date, description, comments, split_equally, total, users, user_amount");
 			if (expense.owner == gs.getUserID()) {
 				data.owned = true;
@@ -253,14 +245,14 @@ div {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-29 11:05:33</sys_created_on>
         <sys_id>0a4a0d1b53802010d6cdddeeff7b1292</sys_id>
-        <sys_mod_count>287</sys_mod_count>
+        <sys_mod_count>289</sys_mod_count>
         <sys_name>Expense Details</sys_name>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name>sp_widget_0a4a0d1b53802010d6cdddeeff7b1292</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 07:56:05</sys_updated_on>
+        <sys_updated_on>2020-11-09 07:46:03</sys_updated_on>
         <template><![CDATA[<div class="card">
   <h2 class="form-heading"> Expense Details </h2>
   <div class="card-body">

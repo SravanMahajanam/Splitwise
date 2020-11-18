@@ -8,7 +8,13 @@
 	c.expenseUsers = [];
 	c.splitEqually = true;
 	c.expenseUsersObjArray = [];
-
+	
+	
+	/* populate the expenseUSers model with the users from the expense group
+	 * Populate the expenseUserObjArray with the list of objects
+	 * each object will have name (initialized with the name from of the user) & amount as 0.0
+	 * this array is required only if the expense share is split unequally among users	
+	*/
 	c.appendUsers = function() {
 		var users = c.users.value.split(", ");
 		c.expenseUsers = users;
@@ -20,46 +26,50 @@
 		}
 	}
 
+	/* create the payload for creating the expense and invoke the server script
+	 * based on splitEqually firled the payload is modified to have the userAmount property
+	 * it is added to the payload only if slpitEqually is false
+	 * this array is required only if the expense share is split unequally among users	
+	*/
 	c.createExpense = function() {
 		var user_amount = {};
-		var createPayload = {};
+		var createPayload = {
+				action: 'createExpense',
+				title: c.expenseTitle,
+				date: c.expenseDate,
+				total: c.expenseTotal,
+				splitEqually: c.splitEqually,
+				users: c.expenseUsers,
+				desc: c.expenseDesc,
+				comments: c.expenseComments
+			};
+		
+		// check if split equally is false to add the user_amount property to the paylaod
 		if (!c.splitEqually) {
 			for (index in c.expenseUsersObjArray) {
 				user_amount[c.expenseUsersObjArray[index]['name']] = c.expenseUsersObjArray[index]['amount'] + "";
 			}
-			createPayload = {
-				action: 'createExpense',
-				title: c.expenseTitle,
-				date: c.expenseDate,
-				total: c.expenseTotal,
-				splitEqually: c.splitEqually,
-				user_amount: user_amount,
-				users: c.expenseUsers,
-				desc: c.expenseDesc,
-				comments: c.expenseComments
-			};
-		} else {
-			createPayload = {
-				action: 'createExpense',
-				title: c.expenseTitle,
-				date: c.expenseDate,
-				total: c.expenseTotal,
-				splitEqually: c.splitEqually,
-				users: c.expenseUsers,
-				desc: c.expenseDesc,
-				comments: c.expenseComments
-			};
+			createPayload.user_amount = user_amount;
 		}
+		
+		// onvoke the server script passing the payload
 		c.server.get(createPayload).then(function(r) {
 			if (r.data.expenseCreated) {
+				// expense created confirmation
 				alert('Expense Created!');
-				$window.location.href = "?id=splitwise_home_page";
+				// navigate to the home page, where the current expense is displayed under the appropriate sections
+				c.navigateToDashboard();
+				//$window.location.href = "?id=splitwise_home_page";
 			} else {
-				alert('Expense Not Created, ensure total amount matches the sum of indiviual amount');
+				// stay back on the expense creation page to correct and reattempt the creation
+				alert('Expense Not Created, ensure the values for expense date nad/or the expense total is matching with individual amounts total entered are correct');
 			}
 		});
 	}
 
+	/* clear the create expense form fields 
+	 * a reset form kind of functionality 
+	*/
 	c.clearDetails = function() {
 		var g_form = $scope.page.g_form;
 		g_form.setValue('expenseTitle', '');
@@ -71,11 +81,16 @@
 		g_form.clearValue('comments');
 
 	}
-
+	
+	/* utility function to navigate to the home page
+	 */
 	c.navigateToDashboard = function() {
 		$window.location.href = "?id=splitwise_home_page";
 	}
 	
+	/* remove user from the users list
+	 * it is initially populated by list of users from the selected expense group
+	 */
 	c.removeUser = function() {
 		var usersList = document.getElementById('usersList');
 		c.expenseUsers.splice(usersList.selectedIndex, 1);
@@ -135,43 +150,23 @@ div {
         <script><![CDATA[(function() {	
 	data.expense = {};
 
-	if (input && input.action == 'getUsers') {
-		gs.info('getting user details');
-		var users = input.users.split(',');
-		data.users = [];
-		for (var user in users) {
-			if (users[user].length > 2) {
-				gs.info('user: ' + users[user]);
-				var userRecord = new GlideRecord('sys_user');
-				userRecord.addQuery('first_name', 'CONTAINS', users[user]);
-				userRecord.query();
-
-				gs.info('count: ' + userRecord.getRowCount());
-				while (userRecord.next()) {
-					data.users.push(userRecord.first_name + ' ' + userRecord.last_name);
-				}
-				gs.info('users: '+ data.users);
-
-			}
-
-		}
-	}
-
+	// handles create expense action
+	// no vlaidations are present on server side
 	if (input && input.action == "createExpense") {
 		var users = [];
+		// iterate over list of users passed in
 		for (user in input.users) {
+			// get the user record using the firstname & last name 
+			// this is required as the expense table has reference to the user table
 			var userGR = new GlideRecord('sys_user');
-			gs.info('first_name: ' + input.users[user].substring(0, input.users[user].indexOf(" ")));
-			gs.info('last_name: ' + input.users[user].substring(input.users[user].indexOf(" ") + 1));
 			userGR.addQuery('first_name', input.users[user].substring(0, input.users[user].indexOf(" ")));
 			userGR.addQuery('last_name', input.users[user].substring(input.users[user].indexOf(" ") + 1));
 			userGR.query();
-			gs.info('userGR count: ' + userGR.getRowCount());
 			if (userGR.next()) {
+				// push the sys_id of the user into the users array, 
 				users.push(userGR.getUniqueValue());
 			}
 		}
-		gs.info('users: ' + users);
 		var gr = new GlideRecord("sn_sw_expense");
 		gr.initialize();
 		gr.setValue('name', input.title);
@@ -182,7 +177,6 @@ div {
 		gr.setValue('comments', input.comments);
 		gr.setValue('split_equally', input.splitEqually);
 		if (!input.splitEqually) {
-			gs.info('user_amount: ' + JSON.stringify(input.user_amount));
 			gr.setValue('user_amount', JSON.stringify(input.user_amount))
 		}
 		gr.setValue('total', input.total);
@@ -192,6 +186,8 @@ div {
 		gr = new GlideRecord("sn_sw_expense");
 		gr.get(sys_id)
 		gr.query();
+		// populate the expenseCreated flag, 
+		// this informs the client if expense is created
 		if (gr.next()) {
 			gs.info('created expense : ' + gr.sys_id);
 			data.expenseCreated = true;
@@ -199,8 +195,6 @@ div {
 			gs.error('Expense not created!');
 			data.expenseCreated = false;
 		}
-
-
 	}
 })();]]></script>
         <servicenow>false</servicenow>
@@ -208,14 +202,14 @@ div {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-31 10:48:42</sys_created_on>
         <sys_id>629953bf53402010d6cdddeeff7b124f</sys_id>
-        <sys_mod_count>285</sys_mod_count>
+        <sys_mod_count>290</sys_mod_count>
         <sys_name>Create Expense</sys_name>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name>sp_widget_629953bf53402010d6cdddeeff7b124f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 07:37:44</sys_updated_on>
+        <sys_updated_on>2020-11-09 07:26:21</sys_updated_on>
         <template><![CDATA[<div>
   <h2 class="form-heading"> Provide below details to create an expense </h2>
   <form id="create-expense">

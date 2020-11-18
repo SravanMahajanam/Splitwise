@@ -6,14 +6,20 @@
 	var c = this;
 	c.groupUsers = [];
 
+	/* append user to the array, which is later passed in create group action
+	 */
 	c.appendUsers = function() {
 		if (!c.groupUsers.includes(c.user.value)) {
 			c.groupUsers.push(c.user.value);
 		}
 
+		// remove the user after adding to the list
 		$('#snRecordPickerID').select2("val","");
 	}
 
+	/* create payload is created and 
+	 * is passed while invoking the server script to create the group
+	 */
 	c.createGroup = function() {
 		var user_amount = {};
 		createPayload = {
@@ -25,15 +31,21 @@
 
 		c.server.get(createPayload).then(function(r) {
 			alert('Expense Group Created: ' + r.sys_id);
-			$window.location.href = "?id=splitwise_home_page";
+			// navigate to the dashboard, where the group created is displayed
+			c.navigateToDashboard();
 		});
 		
 	}
 	
+	
+	/* utility function to navigate to the home page
+	 */
 	c.navigateToDashboard = function() {
 		$window.location.href = "?id=splitwise_home_page";
 	}
 	
+	/* utility to remove from the list of users, to be passed in create group action
+	 */
 	c.removeUser = function() {
 		var usersList = document.getElementById('usersList');
 		c.groupUsers.splice(usersList.selectedIndex, 1);
@@ -84,18 +96,17 @@ div {
   /* e.g., data.table = $sp.getValue('table'); */
 	data.group = {};
 	
+	// handle createGroup action
 	if (input && input.action == "createGroup") {
-		gs.info('creating group: ' + input.users);
 		var users = [];
+			// iterate on all users to get the sys_id
 			for (user in input.users) {
 				var userGR = new GlideRecord('sys_user');
-				gs.info('fn: ' + input.users[user].substring(0, input.users[user].indexOf(" ")));
-				gs.info('ln: ' + input.users[user].substring(input.users[user].indexOf(" ") + 1));
 				userGR.addQuery('first_name', input.users[user].substring(0, input.users[user].indexOf(" ")));
 				userGR.addQuery('last_name', input.users[user].substring(input.users[user].indexOf(" ") + 1));
 				userGR.query();
-				gs.info('userGR count: ' + userGR.getRowCount());
 				if (userGR.next()) {
+					// sys_id is required user refernce is used in the expense group
 					users.push(userGR.getUniqueValue());
 				}
 			}
@@ -114,14 +125,14 @@ div {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-03 07:06:20</sys_created_on>
         <sys_id>2e7382fc53102010d6cdddeeff7b12d2</sys_id>
-        <sys_mod_count>93</sys_mod_count>
+        <sys_mod_count>95</sys_mod_count>
         <sys_name>Create Group</sys_name>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name>sp_widget_2e7382fc53102010d6cdddeeff7b12d2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 14:45:49</sys_updated_on>
+        <sys_updated_on>2020-11-09 07:36:47</sys_updated_on>
         <template><![CDATA[<div class="form">
   <h2 class="form-heading">
     Provide below details to create the expense group

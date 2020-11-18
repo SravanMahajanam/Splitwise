@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_hr_core_topic_detail">
+    <sn_hr_core_topic_detail action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <name>HR Compensation Topic</name>
+        <sys_class_name>sn_hr_core_topic_detail</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-18 04:40:02</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>2ec1fa6153202010d6cdddeeff7b12c1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>HR Compensation Topic</sys_name>
+        <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_update_name>sn_hr_core_topic_detail_2ec1fa6153202010d6cdddeeff7b12c1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-18 04:40:02</sys_updated_on>
+        <topic_category display_value="HR Compensation Category">56a13a6153202010d6cdddeeff7b1286</topic_category>
+    </sn_hr_core_topic_detail>
+</record_update>
