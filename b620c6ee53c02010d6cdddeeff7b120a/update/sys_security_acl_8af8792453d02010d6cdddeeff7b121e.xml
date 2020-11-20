@@ -5,7 +5,6 @@
         <advanced>true</advanced>
         <condition/>
         <description>restrict Expense Group Created By write.</description>
-        <express_security>false</express_security>
         <name>sn_sw_expense_group.sys_created_by</name>
         <operation display_value="write">write</operation>
         <script><![CDATA[answer = false;]]></script>

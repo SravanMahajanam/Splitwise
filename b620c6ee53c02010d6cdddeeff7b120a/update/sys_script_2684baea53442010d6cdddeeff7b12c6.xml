@@ -30,9 +30,13 @@
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
 	var expenseId = current.sys_id;
+	// remove any user expense records
+	var userExpenses = new GlideRecord('sn_sw_user_expense');
+	userExpenses.addQuery('expense_id', expenseId);
+	userExpenses.deleteMultiple();
+	
 	// create an empty record for User Expense table
 	var userExpenseRec = new GlideRecord('sn_sw_user_expense');
-
 	var currentUserName = '';
 	var currentUserId = '';
 	// get the user sys_id using the firstname and lastname
@@ -43,15 +47,15 @@
 		currentUserName = currentUser.first_name + ' ' + currentUser.last_name;
 		currentUserId = currentUser.getUniqueValue();
 	}
-
 	// if splitting is to be done equally among all users
 	if (current.split_equally) {
 		var expenseUsers = current.users.toString().split(',');
 		var usersCount = expenseUsers.length;
-
 		// current user will be part of the expense by default
 		// if current user isn't in the users list, consider it to be there implicitly
-		if (expenseUsers.indexOf(currentUserName) == -1) {
+		gs.info('expense users: ' + expenseUsers);
+		if (expenseUsers.indexOf(currentUserName) == -1 && expenseUsers.indexOf(currentUserId) == -1) {
+			gs.info('adding current user');
 			usersCount++;
 		}
 		var amount = current.total / usersCount;
@@ -60,12 +64,10 @@
 		// the owning to (owner), owning from & owing amount
 		for (var i = 0; i< expenseUsers.length; ++i) {
 			expenseUser = expenseUsers[i];
-
 			// no record created if expenseUser is same as current.owner
 			if (expenseUser == currentUserId || expenseUser == currentUserName) {
 				continue;
 			}
-
 			// if user id is not available, fetch it from the table using the first and last names
 			if (expenseUser.indexOf(' ') > -1) {
 				var userGR = new GlideRecord('sys_user');
@@ -76,7 +78,6 @@
 					expenseUser = userGR.getUniqueValue();
 				}
 			}
-
 			userExpenseRec.newRecord();
 			// set expense id from current.expenseId
 			userExpenseRec.setValue('expense_id', expenseId);
@@ -84,7 +85,6 @@
 			userExpenseRec.setValue('amount', amount);
 			userExpenseRec.setValue('owned_from', expenseUser);
 			userExpenseRec.setValue('status', 'PENDING');
-
 			//Insert the new User Expense record into the table
 			userExpenseRec.insert();
 		}
@@ -107,7 +107,6 @@
 				userExpenseRec.setValue('amount', current.user_amount[userName]);
 				userExpenseRec.setValue('owned_from', user.sys_id);
 				userExpenseRec.setValue('status', 'PENDING');
-
 				//Insert the new User Expense record into the table
 				userExpenseRec.insert();
 			}
@@ -120,7 +119,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2684baea53442010d6cdddeeff7b12c6</sys_id>
-        <sys_mod_count>77</sys_mod_count>
+        <sys_mod_count>86</sys_mod_count>
         <sys_name>Create User Expense</sys_name>
         <sys_overrides/>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
@@ -128,7 +127,7 @@
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name>sys_script_2684baea53442010d6cdddeeff7b12c6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-09 06:42:59</sys_updated_on>
+        <sys_updated_on>2020-11-20 07:15:18</sys_updated_on>
         <template/>
         <when>async</when>
     </sys_script>

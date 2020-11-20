@@ -67,7 +67,7 @@
         <update_guid_history>f9f87e3284402010ca898d430b906aaa:-1927002061,b678ba323a4020100f63764f4e860932:1538160157,1d373afecb002010568bd12c67a54c4c:1974707827</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="My Expenses">31d9fa7253402010d6cdddeeff7b120f</sys_audit_delete>
+        <sys_audit_delete display_value="">31d9fa7253402010d6cdddeeff7b120f</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-28 05:56:01</sys_created_on>

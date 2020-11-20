@@ -871,11 +871,11 @@
         <sys_created_on>2020-11-05 05:49:12</sys_created_on>
         <sys_id>58058ce953142010d6cdddeeff7b122a</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Table Name</sys_name>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_update_name/>
+        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_589fb35953142010d6cdddeeff7b1241_table_name_en</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-11-05 05:49:12</sys_updated_on>
         <url/>
@@ -894,11 +894,11 @@
         <sys_created_on>2020-11-05 05:49:12</sys_created_on>
         <sys_id>90058ce953142010d6cdddeeff7b121e</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Record</sys_name>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_update_name/>
+        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_589fb35953142010d6cdddeeff7b1241_current_en</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-11-05 05:49:12</sys_updated_on>
         <url/>
@@ -917,11 +917,11 @@
         <sys_created_on>2020-11-05 05:49:12</sys_created_on>
         <sys_id>d8058ce953142010d6cdddeeff7b1224</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Changed Fields</sys_name>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_update_name/>
+        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_589fb35953142010d6cdddeeff7b1241_changed_fields_en</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-11-05 05:49:12</sys_updated_on>
         <url/>
@@ -1690,11 +1690,11 @@
         <sys_created_on>2020-11-05 05:49:25</sys_created_on>
         <sys_id>1305cce953142010d6cdddeeff7b1295</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Changed Fields</sys_name>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_update_name/>
+        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_5b05cce953142010d6cdddeeff7b1264_changed_fields_en</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-11-05 05:49:25</sys_updated_on>
         <url/>
@@ -1713,11 +1713,11 @@
         <sys_created_on>2020-11-05 05:49:25</sys_created_on>
         <sys_id>9f05cce953142010d6cdddeeff7b127d</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Record</sys_name>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_update_name/>
+        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_5b05cce953142010d6cdddeeff7b1264_current_en</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-11-05 05:49:25</sys_updated_on>
         <url/>
@@ -1736,11 +1736,11 @@
         <sys_created_on>2020-11-05 05:49:25</sys_created_on>
         <sys_id>e705cce953142010d6cdddeeff7b129f</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Table Name</sys_name>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_update_name/>
+        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_5b05cce953142010d6cdddeeff7b1264_table_name_en</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-11-05 05:49:25</sys_updated_on>
         <url/>

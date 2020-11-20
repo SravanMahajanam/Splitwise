@@ -5,7 +5,6 @@
         <advanced>true</advanced>
         <condition/>
         <description>Default access control on sn_sw_expense</description>
-        <express_security>false</express_security>
         <name>sn_sw_expense</name>
         <operation display_value="create">create</operation>
         <script/>

@@ -51,7 +51,7 @@
         <update_guid_history>5a112d578c0020107fc1327c56007614:-195813283</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="Expense - Container 1">4d21e95753002010d6cdddeeff7b1262</sys_audit_delete>
+        <sys_audit_delete display_value="">4d21e95753002010d6cdddeeff7b1262</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-29 12:45:26</sys_created_on>

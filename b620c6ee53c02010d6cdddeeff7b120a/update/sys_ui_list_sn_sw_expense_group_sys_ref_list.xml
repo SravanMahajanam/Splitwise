@@ -3,7 +3,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>users</element>
-            <list_id display_value="sn_sw_expense_group" element="NULL" name="sn_sw_expense_group" parent="NULL" relationship="NULL" sys_domain="global" view="09d2407053002010d6cdddeeff7b12ca">347b8ea653042010d6cdddeeff7b128f</list_id>
+            <list_id display_value="sn_sw_expense_group" element="NULL" name="sn_sw_expense_group" parent="NULL" relationship="NULL" sys_domain="global" view="1bec6143a5331010f3aee1fe3b3777bd">347b8ea653042010d6cdddeeff7b128f</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
@@ -40,7 +40,7 @@
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2020-10-27 07:54:50</sys_updated_on>
             <sys_user/>
-            <view display_value="Reference List" name="sys_ref_list">09d2407053002010d6cdddeeff7b12ca</view>
+            <view display_value="Reference List" name="sys_ref_list">1bec6143a5331010f3aee1fe3b3777bd</view>
             <view_name/>
         </sys_ui_list>
     </sys_ui_list>

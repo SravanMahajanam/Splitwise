@@ -496,8 +496,8 @@
             "mode": "query"
           },
           "skippable": {
-            "value": "",
-            "mode": "query"
+            "mode": "script",
+            "value": "(function execute() {\n    /* Return true or false to indicate if the topic node can\n       be skipped (or not).  For example:\n\n       var skippable = vaInputs.first_name == 'Bill' ? true : false;\n       return skippable;\n    */\n    if (vaInputs.comments.getValue() == '') {\n        return false;\n    }\n    return true;\n})()\n"
           },
           "defaultValue": {
             "value": "",
@@ -567,12 +567,39 @@
           "name": "Expense Created",
           "secure": false,
           "value": {
-            "value": "Successfully created the expense.{{vaInputs.create_expense_with_equal_sharing}}",
+            "value": "  \nSuccessfully created the expense: {{vaInputs.create_expense_with_equal_sharing.number}}",
             "mode": "simple"
           },
           "applicability": {
             "value": "",
             "mode": "query"
+          }
+        },
+        "3b19a10eaaec44e0910baa0132a0ed60": {
+          "id": "3b19a10eaaec44e0910baa0132a0ed60",
+          "stepType": "RecordOutput",
+          "name": "Expense",
+          "variableId": "828d45bd316c4af193d0ae765d9f7a4b",
+          "cardTemplate": "General",
+          "cardFields": {},
+          "mode": "variable",
+          "tableName": "sn_sw_expense",
+          "fields": [
+            "name",
+            "total",
+            "users"
+          ],
+          "cardDefinition": {
+            "name": "General card",
+            "value": "General"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": ""
           }
         }
       },
@@ -845,6 +872,14 @@
           "id": "3fb61c0367b44d5c8c104f95848b247b",
           "edgeType": "Edge",
           "source": "14f437a0879d4a7385c90dd7bd2d3ea2",
+          "target": "3b19a10eaaec44e0910baa0132a0ed60",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "fa9aeb456b7149238a017d31455fef57",
+          "edgeType": "Edge",
+          "source": "3b19a10eaaec44e0910baa0132a0ed60",
           "target": "93ffa06c52b049ff9f67f7b35d11f2bd",
           "sourcePort": "",
           "targetPort": ""
@@ -1073,14 +1108,14 @@
         <sys_created_on>2020-11-06 08:54:42</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>9b093df553942010d6cdddeeff7b1285</sys_id>
-        <sys_mod_count>67</sys_mod_count>
+        <sys_mod_count>75</sys_mod_count>
         <sys_name>Create New Expense</sys_name>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name>sys_cb_topic_9b093df553942010d6cdddeeff7b1285</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-09 04:49:02</sys_updated_on>
+        <sys_updated_on>2020-11-20 08:42:42</sys_updated_on>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>STANDARD</type>
         <variables/>

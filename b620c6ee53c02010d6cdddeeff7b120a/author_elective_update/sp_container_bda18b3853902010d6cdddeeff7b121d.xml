@@ -51,7 +51,7 @@
         <update_guid_history>fea18b38f59020106ba9d7989218aa5b:1109636435,bda18b382d902010c40d3df56adba61e:-1329609100</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="Splitwise Home Page - Container 2">58b14b3853902010d6cdddeeff7b1289</sys_audit_delete>
+        <sys_audit_delete display_value="">58b14b3853902010d6cdddeeff7b1289</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-03 11:38:09</sys_created_on>

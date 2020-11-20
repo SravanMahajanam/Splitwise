@@ -5,7 +5,6 @@
         <advanced>true</advanced>
         <condition/>
         <description>allow creating new Expense Group by all users.</description>
-        <express_security>false</express_security>
         <name>sn_sw_expense_group</name>
         <operation display_value="read">read</operation>
         <script><![CDATA[current.isNewRecord()]]></script>
