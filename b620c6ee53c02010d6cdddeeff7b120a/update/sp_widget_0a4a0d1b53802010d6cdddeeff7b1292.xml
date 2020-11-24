@@ -5,6 +5,7 @@
 	/* widget controller */
 	var c = this;
 	c.users = c.data.expense.users;
+	c.currentUser = 
 	c.expenseUsersObjArray = [];
 	c.expenseDate = c.data.expense.expense_date;
 	c.data.expense.total = parseInt(c.data.expense.total.replace(",",""));
@@ -245,14 +246,14 @@ div {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-29 11:05:33</sys_created_on>
         <sys_id>0a4a0d1b53802010d6cdddeeff7b1292</sys_id>
-        <sys_mod_count>294</sys_mod_count>
+        <sys_mod_count>306</sys_mod_count>
         <sys_name>Expense Details</sys_name>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name>sp_widget_0a4a0d1b53802010d6cdddeeff7b1292</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-20 07:45:04</sys_updated_on>
+        <sys_updated_on>2020-11-24 07:19:30</sys_updated_on>
         <template><![CDATA[<div class="card">
   <h2 class="form-heading"> Expense Details </h2>
   <div class="card-body">
@@ -350,9 +351,7 @@ div {
         </div>
 
         <h3 ng-if="c.data.owned">
-          <h3 ng-if="c.splitEqually">
-            You Own <b>${{c.data.userExpense.amount}}</b> from {{c.data.expense.users}}
-          </h3>
+          <!--You Own <b>${{c.data.userExpense.amount}}</b> from {{c.data.userExpense.owned_from}}-->
           <div>
             <button class="btn btn-secondary button" type="cancel" ng-click="c.navigateToDashboard()">Back To Dashboard</button>
             <button class="btn btn-primary button" type="submit" ng-click="c.updateExpense()">Update Expense</button>

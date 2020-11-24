@@ -567,7 +567,7 @@
           "name": "Expense Created",
           "secure": false,
           "value": {
-            "value": "  \nSuccessfully created the expense: {{vaInputs.create_expense_with_equal_sharing.number}}",
+            "value": "\nSuccessfully created the expense: {{vaInputs.create_expense_with_equal_sharing.number}}",
             "mode": "simple"
           },
           "applicability": {
@@ -582,7 +582,7 @@
           "variableId": "828d45bd316c4af193d0ae765d9f7a4b",
           "cardTemplate": "General",
           "cardFields": {},
-          "mode": "variable",
+          "mode": "script",
           "tableName": "sn_sw_expense",
           "fields": [
             "name",
@@ -599,7 +599,7 @@
           },
           "condition": {
             "mode": "glide_query",
-            "value": ""
+            "value": "number={{vaInputs.create_expense_with_equal_sharing.number}}"
           }
         }
       },
@@ -1108,14 +1108,14 @@
         <sys_created_on>2020-11-06 08:54:42</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>9b093df553942010d6cdddeeff7b1285</sys_id>
-        <sys_mod_count>75</sys_mod_count>
+        <sys_mod_count>76</sys_mod_count>
         <sys_name>Create New Expense</sys_name>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name>sys_cb_topic_9b093df553942010d6cdddeeff7b1285</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-20 08:42:42</sys_updated_on>
+        <sys_updated_on>2020-11-24 07:38:37</sys_updated_on>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>STANDARD</type>
         <variables/>

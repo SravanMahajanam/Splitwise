@@ -11,13 +11,13 @@
         <copied_from_name/>
         <description>The expense owner will be notified of the settlement made by the expense user</description>
         <internal_name>expense_settlement_notification</internal_name>
-        <label_cache>[{"name":"Updated_1.current.owing_to.name","label":"Trigger➛User Expense Record➛Owing To➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name"},{"name":"Updated_1.current.owned_from.email","label":"Trigger➛User Expense Record➛Owned From➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email"},{"name":"Updated_1.current.owing_to.email","label":"Trigger➛User Expense Record➛Owing To➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email"},{"name":"3c70448c-7967-4fee-91bd-470d1f681e5c.email","label":"2➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Updated_1.current","label":"Trigger➛User Expense Record","reference":"sn_sw_user_expense","reference_display":"User Expense","type":"reference","base_type":"reference","attributes":{}},{"name":"3584236d-22b7-4de4-adc6-71cac076ea8c.email","label":"2➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"5242227d-da7a-4e39-8990-d54d394a0741.email","label":"2➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"57a181b0-5baa-4737-9392-67e116dd7c53.email_attachments","label":"2➛Email Attachment Records","reference":"sys_email_attachment","reference_display":"Email Attachment","type":"records","base_type":"records","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Updated_1.current.expense_id.name","label":"Trigger➛User Expense Record➛Expense Id➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sn_sw_expense","column_name":"name"},{"name":"Updated_1.current.amount","label":"Trigger➛User Expense Record➛Amount","reference":"","reference_display":"Amount","type":"decimal","base_type":"decimal","parent_table_name":"sn_sw_user_expense","column_name":"amount"},{"name":"Updated_1.current.expense_id","label":"Trigger➛User Expense Record➛Expense Id","reference":"sn_sw_expense","reference_display":"Expense","type":"reference","base_type":"reference","parent_table_name":"sn_sw_user_expense","column_name":"expense_id"},{"name":"Updated_1.current.owing_to","label":"Trigger➛User Expense Record➛Owing To","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"sn_sw_user_expense","column_name":"owing_to"},{"name":"Updated_1.current.owned_from","label":"Trigger➛User Expense Record➛Owned From","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"sn_sw_user_expense","column_name":"owned_from"},{"name":"Updated_1.table_name","label":"Trigger➛User Expense Table","reference":"sn_sw_user_expense","reference_display":"User Expense","type":"table_name","base_type":"table_name","attributes":{"test_input_hidden":"true"}},{"name":"0ca1f38d-ca20-42c4-95d3-f074d43040d6.email","label":"1➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}}]</label_cache>
-        <latest_snapshot>2587416153102010d6cdddeeff7b12bc</latest_snapshot>
+        <label_cache>[{"name":"0ca1f38d-ca20-42c4-95d3-f074d43040d6.email","label":"1➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Updated_1.table_name","label":"Trigger➛User Expense Table","reference":"sn_sw_user_expense","reference_display":"User Expense","type":"table_name","base_type":"table_name","attributes":{"test_input_hidden":"true"}},{"name":"Updated_1.current.owned_from","label":"Trigger➛User Expense Record➛Owned From","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"sn_sw_user_expense","column_name":"owned_from"},{"name":"Updated_1.current.owing_to","label":"Trigger➛User Expense Record➛Owing To","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"sn_sw_user_expense","column_name":"owing_to"},{"name":"Updated_1.current.expense_id","label":"Trigger➛User Expense Record➛Expense Id","reference":"sn_sw_expense","reference_display":"Expense","type":"reference","base_type":"reference","parent_table_name":"sn_sw_user_expense","column_name":"expense_id"},{"name":"Updated_1.current.amount","label":"Trigger➛User Expense Record➛Amount","reference":"","reference_display":"Amount","type":"decimal","base_type":"decimal","parent_table_name":"sn_sw_user_expense","column_name":"amount"},{"name":"Updated_1.current.expense_id.name","label":"Trigger➛User Expense Record➛Expense Id➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sn_sw_expense","column_name":"name"},{"name":"57a181b0-5baa-4737-9392-67e116dd7c53.email_attachments","label":"2➛Email Attachment Records","reference":"sys_email_attachment","reference_display":"Email Attachment","type":"records","base_type":"records","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"5242227d-da7a-4e39-8990-d54d394a0741.email","label":"2➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"3584236d-22b7-4de4-adc6-71cac076ea8c.email","label":"2➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Updated_1.current","label":"Trigger➛User Expense Record","reference":"sn_sw_user_expense","reference_display":"User Expense","type":"reference","base_type":"reference","attributes":{}},{"name":"3c70448c-7967-4fee-91bd-470d1f681e5c.email","label":"2➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Updated_1.current.owing_to.email","label":"Trigger➛User Expense Record➛Owing To➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email"},{"name":"Updated_1.current.owned_from.email","label":"Trigger➛User Expense Record➛Owned From➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email"},{"name":"Updated_1.current.owing_to.name","label":"Trigger➛User Expense Record➛Owing To➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name"},{"name":"Updated_1.current.owned_from.name","label":"Trigger➛User Expense Record➛Owned From➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name"}]</label_cache>
+        <latest_snapshot>d3b9c22353242010d6cdddeeff7b1279</latest_snapshot>
         <master_snapshot>5b05cce953142010d6cdddeeff7b1264</master_snapshot>
         <name>Expense Settlement Notification</name>
         <natlang/>
         <outputs/>
-        <remote_trigger_id>76088c6d53142010d6cdddeeff7b1296</remote_trigger_id>
+        <remote_trigger_id>ca89ceef53e02010d6cdddeeff7b12eb</remote_trigger_id>
         <run_as>user</run_as>
         <run_with_roles>9b384e2653042010d6cdddeeff7b1234,7ab3f6aa53442010d6cdddeeff7b1274</run_with_roles>
         <sc_callable>false</sc_callable>
@@ -30,7 +30,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>589fb35953142010d6cdddeeff7b1241</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>Expense Settlement Notification</sys_name>
         <sys_overrides/>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
@@ -38,7 +38,7 @@
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name>sys_hub_flow_589fb35953142010d6cdddeeff7b1241</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:30</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:48</sys_updated_on>
         <type>flow</type>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=589fb35953142010d6cdddeeff7b1241"/>
@@ -58,42 +58,42 @@
         <run_when_user_setting>any</run_when_user_setting>
         <sys_class_name>sys_flow_record_trigger</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-11-05 06:02:29</sys_created_on>
+        <sys_created_on>2020-11-24 06:51:47</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>76088c6d53142010d6cdddeeff7b1296</sys_id>
+        <sys_id>ca89ceef53e02010d6cdddeeff7b12eb</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_overrides/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:29</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:47</sys_updated_on>
         <table>sn_sw_user_expense</table>
     </sys_flow_record_trigger>
     <sys_trigger_runner_mapping action="INSERT_OR_UPDATE">
         <active>true</active>
-        <data>{"table":"sys_trigger_runner_mapping","id":"fe088c6d53142010d6cdddeeff7b1296","name":"trigger_runner","type":"java.util.Collections$UnmodifiableMap"}</data>
+        <data>{"table":"sys_trigger_runner_mapping","id":"4689ceef53e02010d6cdddeeff7b12ec","name":"trigger_runner","type":"java.util.Collections$UnmodifiableMap"}</data>
         <identifier>589fb35953142010d6cdddeeff7b1241</identifier>
         <runner>FDTriggerRunner</runner>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-11-05 06:02:29</sys_created_on>
-        <sys_id>fe088c6d53142010d6cdddeeff7b1296</sys_id>
+        <sys_created_on>2020-11-24 06:51:47</sys_created_on>
+        <sys_id>4689ceef53e02010d6cdddeeff7b12ec</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:29</sys_updated_on>
-        <trigger display_value="">76088c6d53142010d6cdddeeff7b1296</trigger>
+        <sys_updated_on>2020-11-24 06:51:47</sys_updated_on>
+        <trigger display_value="">ca89ceef53e02010d6cdddeeff7b12eb</trigger>
     </sys_trigger_runner_mapping>
     <sys_json_chunk action="INSERT_OR_UPDATE">
         <data>H4sIAAAAAAAAAGXLWwqAIBBA0b3MdytwKxGD5fggGUFHLKK99yAo6Pce7ga5MtqYGgYGBaOeZpdTZQPdTc0TYy2UMYYioPrh0wuJBHbXl8T/jpc1r48mRlqE2JA5u9WxEOwH5v2lw4YAAAA=</data>
-        <document_id>fe088c6d53142010d6cdddeeff7b1296</document_id>
+        <document_id>4689ceef53e02010d6cdddeeff7b12ec</document_id>
         <field>trigger_runner</field>
         <length>144</length>
         <position>0</position>
         <source_table>sys_trigger_runner_mapping</source_table>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-11-05 06:02:29</sys_created_on>
-        <sys_id>76088c6d53142010d6cdddeeff7b1297</sys_id>
+        <sys_created_on>2020-11-24 06:51:47</sys_created_on>
+        <sys_id>ca89ceef53e02010d6cdddeeff7b12ec</sys_id>
     </sys_json_chunk>
-    <sys_trigger_runner_mapping action="delete_multiple" query="identifier=589fb35953142010d6cdddeeff7b1241^sys_idNOT INfe088c6d53142010d6cdddeeff7b1296"/>
+    <sys_trigger_runner_mapping action="delete_multiple" query="identifier=589fb35953142010d6cdddeeff7b1241^sys_idNOT IN4689ceef53e02010d6cdddeeff7b12ec"/>
     <sys_hub_flow_component action="delete_multiple" query="flow=589fb35953142010d6cdddeeff7b1241^sys_idNOT IN8c080c6d53142010d6cdddeeff7b129a,c8080c6d53142010d6cdddeeff7b1292"/>
     <sys_hub_action_instance action="INSERT_OR_UPDATE">
         <action_inputs/>
@@ -110,10 +110,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 06:02:18</sys_created_on>
         <sys_id>8c080c6d53142010d6cdddeeff7b129a</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_updated_by>fred.kunde</sys_updated_by>
-        <sys_updated_on>2020-11-05 10:39:51</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:52:41</sys_updated_on>
         <ui_id>3c70448c-7967-4fee-91bd-470d1f681e5c</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=8c080c6d53142010d6cdddeeff7b129a"/>
@@ -152,16 +152,16 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 06:02:18</sys_created_on>
         <sys_id>c4080c6d53142010d6cdddeeff7b129d</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:18</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:38</sys_updated_on>
         <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
         <value>&lt;p data-tinymcerootblock=""&gt;Dear&amp;nbsp;&lt;span class="data_parent_pill" style="display: inline;" contenteditable="false" data-pillvalue="{{fd_transform:dff18eaa-305d-4ece-9491-1a863ee5d9d6}}"&gt;&lt;span class="data_pill  accepts_transform_functions" contenteditable="false" data-pillvalue="{{fd_transform:dff18eaa-305d-4ece-9491-1a863ee5d9d6}}"&gt;&lt;span class="data-pill-content-container"&gt;Trigger&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;User Expense Record&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;Owing To&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;Name&lt;button id="transform_function_facade_dff18eaa-305d-4ece-9491-1a863ee5d9d6" class="transform_function_facade no_transform_applied"&gt;&lt;span class="inline-script-icon"&gt;&lt;span style="display: none;"&gt;​&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;,&lt;/p&gt;
-&lt;p data-tinymcerootblock=""&gt;sdfgdszfgdfg&lt;/p&gt;
+&lt;p data-tinymcerootblock=""&gt;The user&amp;nbsp;&lt;span class="data_parent_pill" style="display: inline;" contenteditable="false" data-pillvalue="{{fd_transform:d5b1667d-0552-463f-84c3-fe004f1b786a}}"&gt;&lt;span class="data_pill  accepts_transform_functions" contenteditable="false" data-pillvalue="{{fd_transform:d5b1667d-0552-463f-84c3-fe004f1b786a}}"&gt;&lt;span class="data-pill-content-container"&gt;Trigger&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;User Expense Record&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;Owned From&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;Name&lt;button id="transform_function_facade_d5b1667d-0552-463f-84c3-fe004f1b786a" class="transform_function_facade no_transform_applied"&gt;&lt;span class="inline-script-icon"&gt;&lt;span style="display: none;"&gt;​&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; has settled the amount&amp;nbsp;&lt;span class="data_parent_pill" style="display: inline;" contenteditable="false" data-pillvalue="{{fd_transform:fda99ead-7009-4bdf-816e-6ee1115498bd}}"&gt;&lt;span class="data_pill  accepts_transform_functions" contenteditable="false" data-pillvalue="{{fd_transform:fda99ead-7009-4bdf-816e-6ee1115498bd}}"&gt;&lt;span class="data-pill-content-container"&gt;Trigger&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;User Expense Record&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;Amount&lt;button id="transform_function_facade_fda99ead-7009-4bdf-816e-6ee1115498bd" class="transform_function_facade no_transform_applied"&gt;&lt;span class="inline-script-icon"&gt;&lt;span style="display: none;"&gt;​&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;, towards the expense&amp;nbsp;&lt;span class="data_parent_pill" style="display: inline;" contenteditable="false" data-pillvalue="{{fd_transform:85ec6b64-f645-4fc5-8468-775dc7676770}}"&gt;&lt;span class="data_pill  accepts_transform_functions" contenteditable="false" data-pillvalue="{{fd_transform:85ec6b64-f645-4fc5-8468-775dc7676770}}"&gt;&lt;span class="data-pill-content-container"&gt;Trigger&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;User Expense Record&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;Expense Id&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;Name&lt;button id="transform_function_facade_85ec6b64-f645-4fc5-8468-775dc7676770" class="transform_function_facade no_transform_applied"&gt;&lt;span class="inline-script-icon"&gt;&lt;span style="display: none;"&gt;​&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p data-tinymcerootblock=""&gt;&amp;nbsp;&lt;/p&gt;
-&lt;p data-tinymcerootblock=""&gt;&amp;nbsp;&lt;/p&gt;
-&lt;p data-tinymcerootblock=""&gt;sdg&lt;/p&gt;
-&lt;p data-tinymcerootblock=""&gt;dfg&lt;/p&gt;</value>
+&lt;p data-tinymcerootblock=""&gt;Please be informed.&lt;/p&gt;
+&lt;p data-tinymcerootblock=""&gt;&amp;nbsp;Regards,&lt;/p&gt;
+&lt;p data-tinymcerootblock=""&gt;Splitwise Support&lt;/p&gt;</value>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>ah_cc</field>
@@ -237,10 +237,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 06:02:18</sys_created_on>
         <sys_id>c8080c6d53142010d6cdddeeff7b1292</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_updated_by>fred.kunde</sys_updated_by>
-        <sys_updated_on>2020-11-05 10:39:51</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:52:41</sys_updated_on>
         <ui_id>10b14ed3-19f7-4c92-8bd8-a72289a88014</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=c8080c6d53142010d6cdddeeff7b1292"/>
@@ -268,10 +268,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 05:49:12</sys_created_on>
         <sys_id>9c058ce953142010d6cdddeeff7b122d</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_scope/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:30</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:48</sys_updated_on>
         <trigger_definition display_value="Updated">bb695e60c31322002841b63b12d3aea5</trigger_definition>
         <trigger_inputs/>
         <trigger_outputs/>
@@ -395,14 +395,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 05:49:12</sys_created_on>
         <sys_id>84058ce953142010d6cdddeeff7b1216</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:29</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:48</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -476,14 +476,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 05:49:12</sys_created_on>
         <sys_id>90058ce953142010d6cdddeeff7b1226</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:29</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:47</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -499,7 +499,7 @@
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
-        <attributes>child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,co_type_name=FD6e088c6d881420106aed8df09de0502e,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object</attributes>
+        <attributes>child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,co_type_name=FDf989ceef30e0201020aa153c2b126c89,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -557,14 +557,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 05:49:12</sys_created_on>
         <sys_id>dc058ce953142010d6cdddeeff7b121f</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:29</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:48</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -592,10 +592,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 06:02:18</sys_created_on>
         <sys_id>8c080c6d53142010d6cdddeeff7b129a</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_updated_by>fred.kunde</sys_updated_by>
-        <sys_updated_on>2020-11-05 10:39:51</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:52:41</sys_updated_on>
         <ui_id>3c70448c-7967-4fee-91bd-470d1f681e5c</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=8c080c6d53142010d6cdddeeff7b129a"/>
@@ -634,16 +634,16 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 06:02:18</sys_created_on>
         <sys_id>c4080c6d53142010d6cdddeeff7b129d</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:18</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:38</sys_updated_on>
         <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
         <value>&lt;p data-tinymcerootblock=""&gt;Dear&amp;nbsp;&lt;span class="data_parent_pill" style="display: inline;" contenteditable="false" data-pillvalue="{{fd_transform:dff18eaa-305d-4ece-9491-1a863ee5d9d6}}"&gt;&lt;span class="data_pill  accepts_transform_functions" contenteditable="false" data-pillvalue="{{fd_transform:dff18eaa-305d-4ece-9491-1a863ee5d9d6}}"&gt;&lt;span class="data-pill-content-container"&gt;Trigger&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;User Expense Record&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;Owing To&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;Name&lt;button id="transform_function_facade_dff18eaa-305d-4ece-9491-1a863ee5d9d6" class="transform_function_facade no_transform_applied"&gt;&lt;span class="inline-script-icon"&gt;&lt;span style="display: none;"&gt;​&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;,&lt;/p&gt;
-&lt;p data-tinymcerootblock=""&gt;sdfgdszfgdfg&lt;/p&gt;
+&lt;p data-tinymcerootblock=""&gt;The user&amp;nbsp;&lt;span class="data_parent_pill" style="display: inline;" contenteditable="false" data-pillvalue="{{fd_transform:d5b1667d-0552-463f-84c3-fe004f1b786a}}"&gt;&lt;span class="data_pill  accepts_transform_functions" contenteditable="false" data-pillvalue="{{fd_transform:d5b1667d-0552-463f-84c3-fe004f1b786a}}"&gt;&lt;span class="data-pill-content-container"&gt;Trigger&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;User Expense Record&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;Owned From&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;Name&lt;button id="transform_function_facade_d5b1667d-0552-463f-84c3-fe004f1b786a" class="transform_function_facade no_transform_applied"&gt;&lt;span class="inline-script-icon"&gt;&lt;span style="display: none;"&gt;​&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; has settled the amount&amp;nbsp;&lt;span class="data_parent_pill" style="display: inline;" contenteditable="false" data-pillvalue="{{fd_transform:fda99ead-7009-4bdf-816e-6ee1115498bd}}"&gt;&lt;span class="data_pill  accepts_transform_functions" contenteditable="false" data-pillvalue="{{fd_transform:fda99ead-7009-4bdf-816e-6ee1115498bd}}"&gt;&lt;span class="data-pill-content-container"&gt;Trigger&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;User Expense Record&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;Amount&lt;button id="transform_function_facade_fda99ead-7009-4bdf-816e-6ee1115498bd" class="transform_function_facade no_transform_applied"&gt;&lt;span class="inline-script-icon"&gt;&lt;span style="display: none;"&gt;​&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;, towards the expense&amp;nbsp;&lt;span class="data_parent_pill" style="display: inline;" contenteditable="false" data-pillvalue="{{fd_transform:85ec6b64-f645-4fc5-8468-775dc7676770}}"&gt;&lt;span class="data_pill  accepts_transform_functions" contenteditable="false" data-pillvalue="{{fd_transform:85ec6b64-f645-4fc5-8468-775dc7676770}}"&gt;&lt;span class="data-pill-content-container"&gt;Trigger&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;User Expense Record&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;Expense Id&lt;span class="data-pill-label-caret"&gt;&lt;span class="data-pill-label-arrow"&gt;➛&lt;/span&gt;&lt;/span&gt;Name&lt;button id="transform_function_facade_85ec6b64-f645-4fc5-8468-775dc7676770" class="transform_function_facade no_transform_applied"&gt;&lt;span class="inline-script-icon"&gt;&lt;span style="display: none;"&gt;​&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p data-tinymcerootblock=""&gt;&amp;nbsp;&lt;/p&gt;
-&lt;p data-tinymcerootblock=""&gt;&amp;nbsp;&lt;/p&gt;
-&lt;p data-tinymcerootblock=""&gt;sdg&lt;/p&gt;
-&lt;p data-tinymcerootblock=""&gt;dfg&lt;/p&gt;</value>
+&lt;p data-tinymcerootblock=""&gt;Please be informed.&lt;/p&gt;
+&lt;p data-tinymcerootblock=""&gt;&amp;nbsp;Regards,&lt;/p&gt;
+&lt;p data-tinymcerootblock=""&gt;Splitwise Support&lt;/p&gt;</value>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>ah_cc</field>
@@ -733,10 +733,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 06:02:18</sys_created_on>
         <sys_id>c8080c6d53142010d6cdddeeff7b1292</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_updated_by>fred.kunde</sys_updated_by>
-        <sys_updated_on>2020-11-05 10:39:51</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:52:41</sys_updated_on>
         <ui_id>10b14ed3-19f7-4c92-8bd8-a72289a88014</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=c8080c6d53142010d6cdddeeff7b1292"/>
@@ -754,7 +754,7 @@
         <value>test</value>
         <variable display_value="Message">23c1bcc6531003003bf1d9109ec587e5</variable>
     </sys_variable_value>
-    <sys_hub_pill_compound action="delete_multiple" query="attached_to=589fb35953142010d6cdddeeff7b1241^sys_idNOT IN07088c6d53142010d6cdddeeff7b12cf,0f088c6d53142010d6cdddeeff7b12ce,4b088c6d53142010d6cdddeeff7b12ce,c7088c6d53142010d6cdddeeff7b12cf,cf088c6d53142010d6cdddeeff7b12ce,d8080c6d53142010d6cdddeeff7b12a6"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=589fb35953142010d6cdddeeff7b1241^sys_idNOT IN1289022353242010d6cdddeeff7b1216,37794eef53e02010d6cdddeeff7b12f0,5289022353242010d6cdddeeff7b1217,5e89022353242010d6cdddeeff7b1215,9689022353242010d6cdddeeff7b1216,9a89022353242010d6cdddeeff7b1215,9e89022353242010d6cdddeeff7b1216,d289022353242010d6cdddeeff7b1216,d689022353242010d6cdddeeff7b1215,da89022353242010d6cdddeeff7b1216"/>
     <sys_hub_pill_compound action="INSERT_OR_UPDATE">
         <attached_to>589fb35953142010d6cdddeeff7b1241</attached_to>
         <extra_info/>
@@ -762,12 +762,114 @@
         <prescription>{{Updated_1.current.expense_id}}</prescription>
         <source_ui_id/>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-11-05 06:02:30</sys_created_on>
-        <sys_id>07088c6d53142010d6cdddeeff7b12cf</sys_id>
+        <sys_created_on>2020-11-24 06:51:48</sys_created_on>
+        <sys_id>1289022353242010d6cdddeeff7b1216</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:30</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:48</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>5cf5d36f-ad0b-4cd0-873a-cf2e4395cd82</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>589fb35953142010d6cdddeeff7b1241</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.expense_id.name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-24 06:51:38</sys_created_on>
+        <sys_id>37794eef53e02010d6cdddeeff7b12f0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:51:38</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>85ec6b64-f645-4fc5-8468-775dc7676770</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>589fb35953142010d6cdddeeff7b1241</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.owing_to}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-24 06:51:48</sys_created_on>
+        <sys_id>5289022353242010d6cdddeeff7b1217</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:51:48</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>1a99aace-a543-4ef6-aba2-7853a54baf24</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>589fb35953142010d6cdddeeff7b1241</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.owned_from}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-24 06:51:48</sys_created_on>
+        <sys_id>5e89022353242010d6cdddeeff7b1215</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:51:48</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>d96839ca-c4a6-40a1-8925-071e79dac0ea</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>589fb35953142010d6cdddeeff7b1241</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.expense_id.name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-24 06:51:48</sys_created_on>
+        <sys_id>9689022353242010d6cdddeeff7b1216</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:51:48</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>33663cc0-ecf5-4c55-8945-b98cc78f78c0</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>589fb35953142010d6cdddeeff7b1241</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.amount}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-24 06:51:48</sys_created_on>
+        <sys_id>9a89022353242010d6cdddeeff7b1215</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:51:48</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>fda99ead-7009-4bdf-816e-6ee1115498bd</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>589fb35953142010d6cdddeeff7b1241</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.expense_id}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-24 06:51:48</sys_created_on>
+        <sys_id>9e89022353242010d6cdddeeff7b1216</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:51:48</sys_updated_on>
         <transform_compositions>[]</transform_compositions>
         <transform_definition_id/>
         <ui_id>6521ff2e-4568-44fc-873d-6e0b47cad8fa</ui_id>
@@ -779,12 +881,12 @@
         <prescription>{{Updated_1.current.amount}}</prescription>
         <source_ui_id/>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-11-05 06:02:30</sys_created_on>
-        <sys_id>0f088c6d53142010d6cdddeeff7b12ce</sys_id>
+        <sys_created_on>2020-11-24 06:51:48</sys_created_on>
+        <sys_id>d289022353242010d6cdddeeff7b1216</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:30</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:48</sys_updated_on>
         <transform_compositions>[]</transform_compositions>
         <transform_definition_id/>
         <ui_id>7523b6af-8bf8-4bd5-be8f-c8055563a2da</ui_id>
@@ -793,52 +895,18 @@
         <attached_to>589fb35953142010d6cdddeeff7b1241</attached_to>
         <extra_info/>
         <order>0</order>
-        <prescription>{{Updated_1.current.owned_from}}</prescription>
+        <prescription>{{Updated_1.current.owned_from.name}}</prescription>
         <source_ui_id/>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-11-05 06:02:30</sys_created_on>
-        <sys_id>4b088c6d53142010d6cdddeeff7b12ce</sys_id>
+        <sys_created_on>2020-11-24 06:51:48</sys_created_on>
+        <sys_id>d689022353242010d6cdddeeff7b1215</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:30</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:48</sys_updated_on>
         <transform_compositions>[]</transform_compositions>
         <transform_definition_id/>
-        <ui_id>d96839ca-c4a6-40a1-8925-071e79dac0ea</ui_id>
-    </sys_hub_pill_compound>
-    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
-        <attached_to>589fb35953142010d6cdddeeff7b1241</attached_to>
-        <extra_info/>
-        <order>0</order>
-        <prescription>{{Updated_1.current.owing_to}}</prescription>
-        <source_ui_id/>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-11-05 06:02:30</sys_created_on>
-        <sys_id>c7088c6d53142010d6cdddeeff7b12cf</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:30</sys_updated_on>
-        <transform_compositions>[]</transform_compositions>
-        <transform_definition_id/>
-        <ui_id>1a99aace-a543-4ef6-aba2-7853a54baf24</ui_id>
-    </sys_hub_pill_compound>
-    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
-        <attached_to>589fb35953142010d6cdddeeff7b1241</attached_to>
-        <extra_info/>
-        <order>0</order>
-        <prescription>{{Updated_1.current.expense_id.name}}</prescription>
-        <source_ui_id/>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-11-05 06:02:30</sys_created_on>
-        <sys_id>cf088c6d53142010d6cdddeeff7b12ce</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:30</sys_updated_on>
-        <transform_compositions>[]</transform_compositions>
-        <transform_definition_id/>
-        <ui_id>33663cc0-ecf5-4c55-8945-b98cc78f78c0</ui_id>
+        <ui_id>d5b1667d-0552-463f-84c3-fe004f1b786a</ui_id>
     </sys_hub_pill_compound>
     <sys_hub_pill_compound action="INSERT_OR_UPDATE">
         <attached_to>589fb35953142010d6cdddeeff7b1241</attached_to>
@@ -847,12 +915,12 @@
         <prescription>{{Updated_1.current.owing_to.name}}</prescription>
         <source_ui_id/>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-11-05 06:02:18</sys_created_on>
-        <sys_id>d8080c6d53142010d6cdddeeff7b12a6</sys_id>
+        <sys_created_on>2020-11-24 06:51:48</sys_created_on>
+        <sys_id>da89022353242010d6cdddeeff7b1216</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:18</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:48</sys_updated_on>
         <transform_compositions>[]</transform_compositions>
         <transform_definition_id/>
         <ui_id>dff18eaa-305d-4ece-9491-1a863ee5d9d6</ui_id>
@@ -871,11 +939,11 @@
         <sys_created_on>2020-11-05 05:49:12</sys_created_on>
         <sys_id>58058ce953142010d6cdddeeff7b122a</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>Table Name</sys_name>
+        <sys_name/>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_589fb35953142010d6cdddeeff7b1241_table_name_en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-11-05 05:49:12</sys_updated_on>
         <url/>
@@ -894,11 +962,11 @@
         <sys_created_on>2020-11-05 05:49:12</sys_created_on>
         <sys_id>90058ce953142010d6cdddeeff7b121e</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>Record</sys_name>
+        <sys_name/>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_589fb35953142010d6cdddeeff7b1241_current_en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-11-05 05:49:12</sys_updated_on>
         <url/>
@@ -917,11 +985,11 @@
         <sys_created_on>2020-11-05 05:49:12</sys_created_on>
         <sys_id>d8058ce953142010d6cdddeeff7b1224</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>Changed Fields</sys_name>
+        <sys_name/>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_589fb35953142010d6cdddeeff7b1241_changed_fields_en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-11-05 05:49:12</sys_updated_on>
         <url/>
@@ -932,18 +1000,18 @@
         <binding_strategy>com.snc.process_flow.engine.binding.Every</binding_strategy>
         <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"7b05cce953142010d6cdddeeff7b12d8","name":"plan"}}</plan>
         <plan_id>589fb35953142010d6cdddeeff7b1241</plan_id>
-        <snapshot>2587416153102010d6cdddeeff7b12bc</snapshot>
+        <snapshot>d3b9c22353242010d6cdddeeff7b1279</snapshot>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 05:49:26</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>7b05cce953142010d6cdddeeff7b12d8</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_overrides/>
         <sys_scope/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:29</sys_updated_on>
-        <trigger display_value="">76088c6d53142010d6cdddeeff7b1296</trigger>
+        <sys_updated_on>2020-11-24 06:51:47</sys_updated_on>
+        <trigger display_value="">ca89ceef53e02010d6cdddeeff7b12eb</trigger>
     </sys_flow_trigger_plan>
     <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
         <access>public</access>
@@ -956,7 +1024,7 @@
         <copied_from_name/>
         <description>The expense owner will be notified of the settlement made by the expense user</description>
         <internal_name>expense_settlement_notification</internal_name>
-        <label_cache>[{"name":"Updated_1.current.owing_to.name","label":"Trigger➛User Expense Record➛Owing To➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name"},{"name":"Updated_1.current.owned_from.email","label":"Trigger➛User Expense Record➛Owned From➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email"},{"name":"Updated_1.current.owing_to.email","label":"Trigger➛User Expense Record➛Owing To➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email"},{"name":"3c70448c-7967-4fee-91bd-470d1f681e5c.email","label":"2➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Updated_1.current","label":"Trigger➛User Expense Record","reference":"sn_sw_user_expense","reference_display":"User Expense","type":"reference","base_type":"reference","attributes":{}},{"name":"3584236d-22b7-4de4-adc6-71cac076ea8c.email","label":"2➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"5242227d-da7a-4e39-8990-d54d394a0741.email","label":"2➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"57a181b0-5baa-4737-9392-67e116dd7c53.email_attachments","label":"2➛Email Attachment Records","reference":"sys_email_attachment","reference_display":"Email Attachment","type":"records","base_type":"records","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Updated_1.current.expense_id.name","label":"Trigger➛User Expense Record➛Expense Id➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sn_sw_expense","column_name":"name"},{"name":"Updated_1.current.amount","label":"Trigger➛User Expense Record➛Amount","reference":"","reference_display":"Amount","type":"decimal","base_type":"decimal","parent_table_name":"sn_sw_user_expense","column_name":"amount"},{"name":"Updated_1.current.expense_id","label":"Trigger➛User Expense Record➛Expense Id","reference":"sn_sw_expense","reference_display":"Expense","type":"reference","base_type":"reference","parent_table_name":"sn_sw_user_expense","column_name":"expense_id"},{"name":"Updated_1.current.owing_to","label":"Trigger➛User Expense Record➛Owing To","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"sn_sw_user_expense","column_name":"owing_to"},{"name":"Updated_1.current.owned_from","label":"Trigger➛User Expense Record➛Owned From","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"sn_sw_user_expense","column_name":"owned_from"},{"name":"Updated_1.table_name","label":"Trigger➛User Expense Table","reference":"sn_sw_user_expense","reference_display":"User Expense","type":"table_name","base_type":"table_name","attributes":{"test_input_hidden":"true"}},{"name":"0ca1f38d-ca20-42c4-95d3-f074d43040d6.email","label":"1➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}}]</label_cache>
+        <label_cache>[{"name":"0ca1f38d-ca20-42c4-95d3-f074d43040d6.email","label":"1➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Updated_1.table_name","label":"Trigger➛User Expense Table","reference":"sn_sw_user_expense","reference_display":"User Expense","type":"table_name","base_type":"table_name","attributes":{"test_input_hidden":"true"}},{"name":"Updated_1.current.owned_from","label":"Trigger➛User Expense Record➛Owned From","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"sn_sw_user_expense","column_name":"owned_from"},{"name":"Updated_1.current.owing_to","label":"Trigger➛User Expense Record➛Owing To","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"sn_sw_user_expense","column_name":"owing_to"},{"name":"Updated_1.current.expense_id","label":"Trigger➛User Expense Record➛Expense Id","reference":"sn_sw_expense","reference_display":"Expense","type":"reference","base_type":"reference","parent_table_name":"sn_sw_user_expense","column_name":"expense_id"},{"name":"Updated_1.current.amount","label":"Trigger➛User Expense Record➛Amount","reference":"","reference_display":"Amount","type":"decimal","base_type":"decimal","parent_table_name":"sn_sw_user_expense","column_name":"amount"},{"name":"Updated_1.current.expense_id.name","label":"Trigger➛User Expense Record➛Expense Id➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sn_sw_expense","column_name":"name"},{"name":"57a181b0-5baa-4737-9392-67e116dd7c53.email_attachments","label":"2➛Email Attachment Records","reference":"sys_email_attachment","reference_display":"Email Attachment","type":"records","base_type":"records","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"5242227d-da7a-4e39-8990-d54d394a0741.email","label":"2➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"3584236d-22b7-4de4-adc6-71cac076ea8c.email","label":"2➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Updated_1.current","label":"Trigger➛User Expense Record","reference":"sn_sw_user_expense","reference_display":"User Expense","type":"reference","base_type":"reference","attributes":{}},{"name":"3c70448c-7967-4fee-91bd-470d1f681e5c.email","label":"2➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Updated_1.current.owing_to.email","label":"Trigger➛User Expense Record➛Owing To➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email"},{"name":"Updated_1.current.owned_from.email","label":"Trigger➛User Expense Record➛Owned From➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email"},{"name":"Updated_1.current.owing_to.name","label":"Trigger➛User Expense Record➛Owing To➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name"},{"name":"Updated_1.current.owned_from.name","label":"Trigger➛User Expense Record➛Owned From➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name"}]</label_cache>
         <master>true</master>
         <name>Expense Settlement Notification</name>
         <natlang/>
@@ -973,7 +1041,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>5b05cce953142010d6cdddeeff7b1264</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
         <sys_package/>
@@ -981,7 +1049,7 @@
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:28</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:46</sys_updated_on>
         <type>flow</type>
     </sys_hub_flow_snapshot>
     <sys_translated_text action="delete_multiple" query="documentkey=5b05cce953142010d6cdddeeff7b1264"/>
@@ -1001,10 +1069,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 06:02:27</sys_created_on>
         <sys_id>1e088c6d53142010d6cdddeeff7b1218</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_updated_by>fred.kunde</sys_updated_by>
-        <sys_updated_on>2020-11-05 10:39:51</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:52:41</sys_updated_on>
         <ui_id>10b14ed3-19f7-4c92-8bd8-a72289a88014</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=1e088c6d53142010d6cdddeeff7b1218"/>
@@ -1024,10 +1092,10 @@
     </sys_variable_value>
     <sys_hub_action_instance action="INSERT_OR_UPDATE">
         <action_inputs/>
-        <action_type display_value="">2987416153102010d6cdddeeff7b12b9</action_type>
+        <action_type display_value="">4887c6af53e02010d6cdddeeff7b12f1</action_type>
         <action_type_parent display_value="Send Email">98c181d20b100300d97d8bf637673ab5</action_type_parent>
         <comment/>
-        <compiled_snapshot>2987416153102010d6cdddeeff7b12b9</compiled_snapshot>
+        <compiled_snapshot>4887c6af53e02010d6cdddeeff7b12f1</compiled_snapshot>
         <display_text/>
         <flow display_value="Expense Settlement Notification">5b05cce953142010d6cdddeeff7b1264</flow>
         <order>2</order>
@@ -1036,10 +1104,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 06:02:27</sys_created_on>
         <sys_id>ea088c6d53142010d6cdddeeff7b1221</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_updated_by>fred.kunde</sys_updated_by>
-        <sys_updated_on>2020-11-05 10:39:51</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:52:41</sys_updated_on>
         <ui_id>3c70448c-7967-4fee-91bd-470d1f681e5c</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=ea088c6d53142010d6cdddeeff7b1221"/>
@@ -1081,10 +1149,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 05:49:25</sys_created_on>
         <sys_id>6b05cce953142010d6cdddeeff7b12b2</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_scope/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:29</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:47</sys_updated_on>
         <trigger_definition display_value="Updated">bb695e60c31322002841b63b12d3aea5</trigger_definition>
         <trigger_inputs/>
         <trigger_outputs/>
@@ -1208,14 +1276,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 05:49:25</sys_created_on>
         <sys_id>5305cce953142010d6cdddeeff7b1299</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:28</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:46</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -1289,14 +1357,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 05:49:25</sys_created_on>
         <sys_id>5f05cce953142010d6cdddeeff7b1268</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:28</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:46</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -1312,7 +1380,7 @@
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
-        <attributes>child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,co_type_name=FD6e088c6d881420106aed8df09de0502e,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object</attributes>
+        <attributes>child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,co_type_name=FDf989ceef30e0201020aa153c2b126c89,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -1370,14 +1438,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 05:49:25</sys_created_on>
         <sys_id>df05cce953142010d6cdddeeff7b1281</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 06:02:28</sys_updated_on>
+        <sys_updated_on>2020-11-24 06:51:46</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -1404,10 +1472,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 06:02:27</sys_created_on>
         <sys_id>1e088c6d53142010d6cdddeeff7b1218</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_updated_by>fred.kunde</sys_updated_by>
-        <sys_updated_on>2020-11-05 10:39:51</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:52:41</sys_updated_on>
         <ui_id>10b14ed3-19f7-4c92-8bd8-a72289a88014</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=1e088c6d53142010d6cdddeeff7b1218"/>
@@ -1427,10 +1495,10 @@
     </sys_variable_value>
     <sys_hub_action_instance action="INSERT_OR_UPDATE">
         <action_inputs/>
-        <action_type display_value="">2987416153102010d6cdddeeff7b12b9</action_type>
+        <action_type display_value="">4887c6af53e02010d6cdddeeff7b12f1</action_type>
         <action_type_parent display_value="Send Email">98c181d20b100300d97d8bf637673ab5</action_type_parent>
         <comment/>
-        <compiled_snapshot>2987416153102010d6cdddeeff7b12b9</compiled_snapshot>
+        <compiled_snapshot>4887c6af53e02010d6cdddeeff7b12f1</compiled_snapshot>
         <display_text/>
         <flow display_value="Expense Settlement Notification">5b05cce953142010d6cdddeeff7b1264</flow>
         <order>2</order>
@@ -1439,10 +1507,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 06:02:27</sys_created_on>
         <sys_id>ea088c6d53142010d6cdddeeff7b1221</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_updated_by>fred.kunde</sys_updated_by>
-        <sys_updated_on>2020-11-05 10:39:51</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:52:41</sys_updated_on>
         <ui_id>3c70448c-7967-4fee-91bd-470d1f681e5c</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=ea088c6d53142010d6cdddeeff7b1221"/>
@@ -1488,7 +1556,75 @@
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-11-05 06:02:27</sys_updated_on>
     </sys_hub_input_scripts>
-    <sys_hub_pill_compound action="delete_multiple" query="attached_to=5b05cce953142010d6cdddeeff7b1264^sys_idNOT IN20058ce953142010d6cdddeeff7b1240,24058ce953142010d6cdddeeff7b123f,6b05cce953142010d6cdddeeff7b12b4,6c058ce953142010d6cdddeeff7b123f,6f05cce953142010d6cdddeeff7b12b4,a2088c6d53142010d6cdddeeff7b1252,a4058ce953142010d6cdddeeff7b1240,e0058ce953142010d6cdddeeff7b1240,e705cce953142010d6cdddeeff7b12b4,eb05cce953142010d6cdddeeff7b12b4,ef05cce953142010d6cdddeeff7b12b4"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=5b05cce953142010d6cdddeeff7b1264^sys_idNOT IN0435319353202010d6cdddeeff7b1256,07088c6d53142010d6cdddeeff7b12cf,0c35319353202010d6cdddeeff7b1255,0f088c6d53142010d6cdddeeff7b12ce,20058ce953142010d6cdddeeff7b1240,24058ce953142010d6cdddeeff7b123f,4b088c6d53142010d6cdddeeff7b12ce,4c35319353202010d6cdddeeff7b1256,6725fd5353202010d6cdddeeff7b12e6,6b05cce953142010d6cdddeeff7b12b4,6c058ce953142010d6cdddeeff7b123f,6f05cce953142010d6cdddeeff7b12b4,8835319353202010d6cdddeeff7b1256,8a89ceef53e02010d6cdddeeff7b12a7,a2088c6d53142010d6cdddeeff7b1252,a4058ce953142010d6cdddeeff7b1240,a725fd5353202010d6cdddeeff7b12e5,ba25fd5353202010d6cdddeeff7b121b,be25fd5353202010d6cdddeeff7b121a,c435319353202010d6cdddeeff7b1256,c7088c6d53142010d6cdddeeff7b12cf,cc35319353202010d6cdddeeff7b1255,cf088c6d53142010d6cdddeeff7b12ce,d8080c6d53142010d6cdddeeff7b12a6,e0058ce953142010d6cdddeeff7b1240,e325fd5353202010d6cdddeeff7b12e5,e705cce953142010d6cdddeeff7b12b4,eb05cce953142010d6cdddeeff7b12b4,ef05cce953142010d6cdddeeff7b12b4,f625fd5353202010d6cdddeeff7b121b"/>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.expense_id.name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-23 10:44:24</sys_created_on>
+        <sys_id>0435319353202010d6cdddeeff7b1256</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:51:46</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>33663cc0-ecf5-4c55-8945-b98cc78f78c0</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.expense_id}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-05 06:02:30</sys_created_on>
+        <sys_id>07088c6d53142010d6cdddeeff7b12cf</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-23 10:44:22</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>6521ff2e-4568-44fc-873d-6e0b47cad8fa</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.owned_from}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-23 10:44:24</sys_created_on>
+        <sys_id>0c35319353202010d6cdddeeff7b1255</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:51:46</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>d96839ca-c4a6-40a1-8925-071e79dac0ea</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.amount}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-05 06:02:30</sys_created_on>
+        <sys_id>0f088c6d53142010d6cdddeeff7b12ce</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-23 10:44:22</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>7523b6af-8bf8-4bd5-be8f-c8055563a2da</ui_id>
+    </sys_hub_pill_compound>
     <sys_hub_pill_compound action="INSERT_OR_UPDATE">
         <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
         <extra_info/>
@@ -1522,6 +1658,57 @@
         <transform_compositions>[]</transform_compositions>
         <transform_definition_id/>
         <ui_id>1a99aace-a543-4ef6-aba2-7853a54baf24</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.owned_from}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-05 06:02:30</sys_created_on>
+        <sys_id>4b088c6d53142010d6cdddeeff7b12ce</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-23 10:44:22</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>d96839ca-c4a6-40a1-8925-071e79dac0ea</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.owing_to}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-23 10:44:24</sys_created_on>
+        <sys_id>4c35319353202010d6cdddeeff7b1256</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:51:46</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>1a99aace-a543-4ef6-aba2-7853a54baf24</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.expense_id}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-23 10:44:22</sys_created_on>
+        <sys_id>6725fd5353202010d6cdddeeff7b12e6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-23 10:44:22</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>5cf5d36f-ad0b-4cd0-873a-cf2e4395cd82</ui_id>
     </sys_hub_pill_compound>
     <sys_hub_pill_compound action="INSERT_OR_UPDATE">
         <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
@@ -1581,6 +1768,40 @@
         <prescription>{{Updated_1.current.owing_to.name}}</prescription>
         <source_ui_id/>
         <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-23 10:44:24</sys_created_on>
+        <sys_id>8835319353202010d6cdddeeff7b1256</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:51:46</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>dff18eaa-305d-4ece-9491-1a863ee5d9d6</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.expense_id.name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-24 06:51:46</sys_created_on>
+        <sys_id>8a89ceef53e02010d6cdddeeff7b12a7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:51:46</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>85ec6b64-f645-4fc5-8468-775dc7676770</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.owing_to.name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-05 06:02:28</sys_created_on>
         <sys_id>a2088c6d53142010d6cdddeeff7b1252</sys_id>
         <sys_mod_count>0</sys_mod_count>
@@ -1612,6 +1833,142 @@
         <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
         <extra_info/>
         <order>0</order>
+        <prescription>{{Updated_1.current.amount}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-23 10:44:22</sys_created_on>
+        <sys_id>a725fd5353202010d6cdddeeff7b12e5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-23 10:44:22</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>fda99ead-7009-4bdf-816e-6ee1115498bd</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.expense_id}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-23 10:44:19</sys_created_on>
+        <sys_id>ba25fd5353202010d6cdddeeff7b121b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:51:46</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>5cf5d36f-ad0b-4cd0-873a-cf2e4395cd82</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.owned_from.name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-23 10:44:19</sys_created_on>
+        <sys_id>be25fd5353202010d6cdddeeff7b121a</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:51:46</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>d5b1667d-0552-463f-84c3-fe004f1b786a</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.expense_id}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-23 10:44:24</sys_created_on>
+        <sys_id>c435319353202010d6cdddeeff7b1256</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:51:46</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>6521ff2e-4568-44fc-873d-6e0b47cad8fa</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.owing_to}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-05 06:02:30</sys_created_on>
+        <sys_id>c7088c6d53142010d6cdddeeff7b12cf</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-23 10:44:22</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>1a99aace-a543-4ef6-aba2-7853a54baf24</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.amount}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-23 10:44:24</sys_created_on>
+        <sys_id>cc35319353202010d6cdddeeff7b1255</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:51:46</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>7523b6af-8bf8-4bd5-be8f-c8055563a2da</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.expense_id.name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-05 06:02:30</sys_created_on>
+        <sys_id>cf088c6d53142010d6cdddeeff7b12ce</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-23 10:44:22</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>33663cc0-ecf5-4c55-8945-b98cc78f78c0</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.owing_to.name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-05 06:02:18</sys_created_on>
+        <sys_id>d8080c6d53142010d6cdddeeff7b12a6</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-23 10:44:22</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>dff18eaa-305d-4ece-9491-1a863ee5d9d6</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
         <prescription>{{Updated_1.current.expense_id}}</prescription>
         <source_ui_id/>
         <sys_created_by>admin</sys_created_by>
@@ -1624,6 +1981,23 @@
         <transform_compositions>[]</transform_compositions>
         <transform_definition_id/>
         <ui_id>6521ff2e-4568-44fc-873d-6e0b47cad8fa</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.owned_from.name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-23 10:44:22</sys_created_on>
+        <sys_id>e325fd5353202010d6cdddeeff7b12e5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-23 10:44:22</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>d5b1667d-0552-463f-84c3-fe004f1b786a</ui_id>
     </sys_hub_pill_compound>
     <sys_hub_pill_compound action="INSERT_OR_UPDATE">
         <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
@@ -1676,6 +2050,23 @@
         <transform_definition_id/>
         <ui_id>1a99aace-a543-4ef6-aba2-7853a54baf24</ui_id>
     </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>5b05cce953142010d6cdddeeff7b1264</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.amount}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-23 10:44:19</sys_created_on>
+        <sys_id>f625fd5353202010d6cdddeeff7b121b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 06:51:46</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>fda99ead-7009-4bdf-816e-6ee1115498bd</ui_id>
+    </sys_hub_pill_compound>
     <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_5b05cce953142010d6cdddeeff7b1264^sys_idNOT IN1305cce953142010d6cdddeeff7b1295,9f05cce953142010d6cdddeeff7b127d,e705cce953142010d6cdddeeff7b129f"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>changed_fields</element>
@@ -1690,11 +2081,11 @@
         <sys_created_on>2020-11-05 05:49:25</sys_created_on>
         <sys_id>1305cce953142010d6cdddeeff7b1295</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>Changed Fields</sys_name>
+        <sys_name/>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_5b05cce953142010d6cdddeeff7b1264_changed_fields_en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-11-05 05:49:25</sys_updated_on>
         <url/>
@@ -1713,11 +2104,11 @@
         <sys_created_on>2020-11-05 05:49:25</sys_created_on>
         <sys_id>9f05cce953142010d6cdddeeff7b127d</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>Record</sys_name>
+        <sys_name/>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_5b05cce953142010d6cdddeeff7b1264_current_en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-11-05 05:49:25</sys_updated_on>
         <url/>
@@ -1736,11 +2127,11 @@
         <sys_created_on>2020-11-05 05:49:25</sys_created_on>
         <sys_id>e705cce953142010d6cdddeeff7b129f</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>Table Name</sys_name>
+        <sys_name/>
         <sys_package display_value="Splitwise" source="sn_sw">b620c6ee53c02010d6cdddeeff7b120a</sys_package>
         <sys_policy/>
         <sys_scope display_value="Splitwise">b620c6ee53c02010d6cdddeeff7b120a</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_5b05cce953142010d6cdddeeff7b1264_table_name_en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-11-05 05:49:25</sys_updated_on>
         <url/>
